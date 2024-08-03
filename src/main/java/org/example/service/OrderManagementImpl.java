@@ -33,7 +33,11 @@ public class OrderManagementImpl implements OrderManagement {
      * @throws IllegalArgumentException Если объект {@code order} является {@code null}.
      */
     @Override
-    public void create(Order order) {
+    public synchronized void create(Order order) {
+        if (!isCarAvailable(order.getCar().getId())) {
+            log.warn("Car {} is not available for order", order.getCar());
+            throw new IllegalStateException("Car is not available");
+        }
         log.info("Order - {} is created", order);
         int id = OrderData.getOrderId() + 1;
         order.setOrderId(id);
@@ -88,7 +92,9 @@ public class OrderManagementImpl implements OrderManagement {
     @Override
     public void canceled(int id) {
         log.info("Order with {} id is canceled", id);
-        orders.remove(id);
+        Order canceledOrder = orders.get(id);
+        canceledOrder.setStatus("canceled");
+        orders.put(id, canceledOrder);
     }
 
     /**
@@ -103,5 +109,14 @@ public class OrderManagementImpl implements OrderManagement {
     public <T> List<Order> filter(Function<Order, T> getter, Predicate<T> predicate) {
         log.info("Get all find orders");
         return orders.values().stream().filter(user -> predicate.test(getter.apply(user))).toList();
+    }
+
+    private boolean isCarAvailable(int carId) {
+        for (Order existingOrder : orders.values()) {
+            if (existingOrder.getCar().getId() == carId && !existingOrder.getStatus().equalsIgnoreCase("canceled")) {
+                return false;
+            }
+        }
+        return true;
     }
 }

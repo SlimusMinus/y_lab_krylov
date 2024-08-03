@@ -19,6 +19,9 @@ public class Orders {
             CarData.getCars().get(3), UserData.getUsers().get(2), "successfully");
     public static final String newStatus = "is ready";
 
+    public static final String canceledStatus = "canceled";
+
+
     public static List<Order> listOrder = List.of(order1, order2);
 
     public static final Map<Integer, Order> orders = new HashMap<>();

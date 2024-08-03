@@ -890,3 +890,69 @@
 2024-08-03 19:11:58,757 INFO  org.example.service.AuthServiceImpl.saveOrUpdate:50 - Car Car(id=0, brand=Audi, model=Q7, year=2024, price=20098.0, condition=new) added
 2024-08-03 19:11:58,757 INFO  org.example.service.AuthServiceImpl.getAll:34 - Get all cars
 2024-08-03 19:11:58,757 INFO  org.example.service.AuthServiceImpl.getAll:34 - Get all cars
+2024-08-03 20:22:59,004 INFO  org.example.service.AuthServiceImpl.create:41 - Order - Order(OrderId=3, date=2024-10-10, car=Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), user=User(id=2, login=manager1, password=manager1, name=John, age=36, city=New-York, role=Менеджер, orders=null), status=successfully) is created
+2024-08-03 20:22:59,099 INFO  org.example.service.AuthServiceImpl.getAll:56 - Show all orders
+2024-08-03 20:22:59,102 INFO  org.example.service.AuthServiceImpl.getAll:56 - Show all orders
+2024-08-03 20:22:59,123 INFO  org.example.service.AuthServiceImpl.filter:110 - Get all find orders
+2024-08-03 20:22:59,134 INFO  org.example.service.AuthServiceImpl.getAll:56 - Show all orders
+2024-08-03 20:22:59,145 INFO  org.example.service.AuthServiceImpl.getAll:56 - Show all orders
+2024-08-03 20:22:59,151 INFO  org.example.service.AuthServiceImpl.canceled:94 - Order with 2 id is canceled
+2024-08-03 20:22:59,174 INFO  org.example.service.AuthServiceImpl.changeStatus:80 - Change status on is ready, repository order with 1 id
+2024-08-03 20:22:59,197 INFO  org.example.service.AuthServiceImpl.loginUser:48 - User User(id=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=Администратор, orders=null) is logging
+2024-08-03 20:22:59,200 INFO  org.example.service.AuthServiceImpl.loginUser:48 - User User(id=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=Клиент, orders=[Order(OrderId=2, date=2024-11-11, car=Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), user=null, status=successfully)]) is logging
+2024-08-03 20:22:59,201 INFO  org.example.service.AuthServiceImpl.loginUser:52 - Uncorrected input login qwerty and password qwerty
+2024-08-03 20:22:59,205 INFO  org.example.service.AuthServiceImpl.registeredUser:28 - New user is User(id=0, login=master, password=master, name=Tom, age=78, city=Tokyo, role=Администратор, orders=null) added
+2024-08-03 20:22:59,206 INFO  org.example.service.AuthServiceImpl.getAll:33 - Get all users
+2024-08-03 20:22:59,207 INFO  org.example.service.AuthServiceImpl.getAll:33 - Get all users
+2024-08-03 20:22:59,236 INFO  org.example.service.AuthServiceImpl.filter:47 - Get all users after filter
+2024-08-03 20:22:59,238 INFO  org.example.service.AuthServiceImpl.filter:47 - Get all users after filter
+2024-08-03 20:22:59,239 INFO  org.example.service.AuthServiceImpl.filter:47 - Get all users after filter
+2024-08-03 20:22:59,244 INFO  org.example.service.AuthServiceImpl.getAll:33 - Get all users
+2024-08-03 20:22:59,244 INFO  org.example.service.AuthServiceImpl.getAll:33 - Get all users
+2024-08-03 20:22:59,247 INFO  org.example.service.AuthServiceImpl.edit:73 - User User(id=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=Клиент, orders=null) user was changed
+2024-08-03 20:22:59,248 INFO  org.example.service.AuthServiceImpl.getAll:33 - Get all users
+2024-08-03 20:22:59,253 INFO  org.example.service.AuthServiceImpl.delete:70 - Car with id - 1 removed
+2024-08-03 20:22:59,258 INFO  org.example.service.AuthServiceImpl.filter:87 - Get all find cars
+2024-08-03 20:22:59,259 INFO  org.example.service.AuthServiceImpl.filter:87 - Get all find cars
+2024-08-03 20:22:59,261 INFO  org.example.service.AuthServiceImpl.filter:87 - Get all find cars
+2024-08-03 20:22:59,265 INFO  org.example.service.AuthServiceImpl.getAll:34 - Get all cars
+2024-08-03 20:22:59,266 INFO  org.example.service.AuthServiceImpl.getAll:34 - Get all cars
+2024-08-03 20:22:59,269 INFO  org.example.service.AuthServiceImpl.saveOrUpdate:55 - Car Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good) updated
+2024-08-03 20:22:59,269 INFO  org.example.service.AuthServiceImpl.getAll:34 - Get all cars
+2024-08-03 20:22:59,271 INFO  org.example.service.AuthServiceImpl.saveOrUpdate:50 - Car Car(id=0, brand=Audi, model=Q7, year=2024, price=20098.0, condition=new) added
+2024-08-03 20:22:59,271 INFO  org.example.service.AuthServiceImpl.getAll:34 - Get all cars
+2024-08-03 20:22:59,272 INFO  org.example.service.AuthServiceImpl.getAll:34 - Get all cars
+2024-08-03 20:23:45,065 INFO  org.example.service.AuthServiceImpl.canceled:94 - Order with 2 id is canceled
+2024-08-03 20:24:44,901 INFO  org.example.service.AuthServiceImpl.canceled:94 - Order with 2 id is canceled
+2024-08-03 20:24:51,859 INFO  org.example.service.AuthServiceImpl.create:41 - Order - Order(OrderId=3, date=2024-10-10, car=Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), user=User(id=2, login=manager1, password=manager1, name=John, age=36, city=New-York, role=Менеджер, orders=null), status=successfully) is created
+2024-08-03 20:24:51,934 INFO  org.example.service.AuthServiceImpl.getAll:56 - Show all orders
+2024-08-03 20:24:51,936 INFO  org.example.service.AuthServiceImpl.getAll:56 - Show all orders
+2024-08-03 20:24:51,960 INFO  org.example.service.AuthServiceImpl.filter:110 - Get all find orders
+2024-08-03 20:24:51,971 INFO  org.example.service.AuthServiceImpl.getAll:56 - Show all orders
+2024-08-03 20:24:51,980 INFO  org.example.service.AuthServiceImpl.getAll:56 - Show all orders
+2024-08-03 20:24:51,988 INFO  org.example.service.AuthServiceImpl.canceled:94 - Order with 2 id is canceled
+2024-08-03 20:24:51,996 INFO  org.example.service.AuthServiceImpl.changeStatus:80 - Change status on is ready, repository order with 1 id
+2024-08-03 20:24:52,010 INFO  org.example.service.AuthServiceImpl.loginUser:48 - User User(id=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=Администратор, orders=null) is logging
+2024-08-03 20:24:52,014 INFO  org.example.service.AuthServiceImpl.loginUser:48 - User User(id=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=Клиент, orders=[Order(OrderId=2, date=2024-11-11, car=Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), user=null, status=successfully)]) is logging
+2024-08-03 20:24:52,014 INFO  org.example.service.AuthServiceImpl.loginUser:52 - Uncorrected input login qwerty and password qwerty
+2024-08-03 20:24:52,018 INFO  org.example.service.AuthServiceImpl.registeredUser:28 - New user is User(id=0, login=master, password=master, name=Tom, age=78, city=Tokyo, role=Администратор, orders=null) added
+2024-08-03 20:24:52,018 INFO  org.example.service.AuthServiceImpl.getAll:33 - Get all users
+2024-08-03 20:24:52,019 INFO  org.example.service.AuthServiceImpl.getAll:33 - Get all users
+2024-08-03 20:24:52,044 INFO  org.example.service.AuthServiceImpl.filter:47 - Get all users after filter
+2024-08-03 20:24:52,048 INFO  org.example.service.AuthServiceImpl.filter:47 - Get all users after filter
+2024-08-03 20:24:52,050 INFO  org.example.service.AuthServiceImpl.filter:47 - Get all users after filter
+2024-08-03 20:24:52,054 INFO  org.example.service.AuthServiceImpl.getAll:33 - Get all users
+2024-08-03 20:24:52,055 INFO  org.example.service.AuthServiceImpl.getAll:33 - Get all users
+2024-08-03 20:24:52,060 INFO  org.example.service.AuthServiceImpl.edit:73 - User User(id=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=Клиент, orders=null) user was changed
+2024-08-03 20:24:52,060 INFO  org.example.service.AuthServiceImpl.getAll:33 - Get all users
+2024-08-03 20:24:52,067 INFO  org.example.service.AuthServiceImpl.delete:70 - Car with id - 1 removed
+2024-08-03 20:24:52,082 INFO  org.example.service.AuthServiceImpl.filter:87 - Get all find cars
+2024-08-03 20:24:52,085 INFO  org.example.service.AuthServiceImpl.filter:87 - Get all find cars
+2024-08-03 20:24:52,088 INFO  org.example.service.AuthServiceImpl.filter:87 - Get all find cars
+2024-08-03 20:24:52,094 INFO  org.example.service.AuthServiceImpl.getAll:34 - Get all cars
+2024-08-03 20:24:52,095 INFO  org.example.service.AuthServiceImpl.getAll:34 - Get all cars
+2024-08-03 20:24:52,098 INFO  org.example.service.AuthServiceImpl.saveOrUpdate:55 - Car Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good) updated
+2024-08-03 20:24:52,099 INFO  org.example.service.AuthServiceImpl.getAll:34 - Get all cars
+2024-08-03 20:24:52,104 INFO  org.example.service.AuthServiceImpl.saveOrUpdate:50 - Car Car(id=0, brand=Audi, model=Q7, year=2024, price=20098.0, condition=new) added
+2024-08-03 20:24:52,105 INFO  org.example.service.AuthServiceImpl.getAll:34 - Get all cars
+2024-08-03 20:24:52,106 INFO  org.example.service.AuthServiceImpl.getAll:34 - Get all cars

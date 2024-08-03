@@ -62,7 +62,7 @@ class OrderManagementImplTest {
     @DisplayName("отмену заказа")
     void canceled() {
         management.canceled(order2.getOrderId());
-        assertThat(OrderData.getOrders()).doesNotContainKey(order2.getOrderId());
+        assertThat(management.getById(order2.getOrderId()).getStatus()).isEqualTo(canceledStatus);
     }
 
     @Test
