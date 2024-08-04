@@ -18,12 +18,9 @@ import lombok.*;
  *   <li>{@code @EqualsAndHashCode} - автоматически создает методы {@code equals} и {@code hashCode}.</li>
  * </ul>
  */
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@EqualsAndHashCode
 public class Car {
     int id;
     String brand;

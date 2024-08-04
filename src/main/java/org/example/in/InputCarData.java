@@ -57,24 +57,15 @@ public class InputCarData {
                     break;
                 case 2: {
                     Car newCar = new Car();
-                    final Car car = saveOrUpdateCar(newCar);
-                    carService.saveOrUpdate(car);
+                    add(newCar, carService);
                 }
                 break;
                 case 3: {
-                    carService.getAll().forEach(System.out::println);
-                    System.out.println("Введите порядковый номер авто который хотите отредактировать");
-                    int number = checkInput(carService.getAll().size() + 1);
-                    Car carEdit = carService.getAll().get(number - 1);
-                    final Car car = saveOrUpdateCar(carEdit);
-                    carService.saveOrUpdate(car);
+                    edit(carService);
                 }
                 break;
                 case 4: {
-                    carService.getAll().forEach(System.out::println);
-                    System.out.println("Введите порядковый номер авто который хотите удалить");
-                    int number = checkInput(carService.getAll().size() + 1);
-                    carService.delete(number - 1);
+                    delete(carService);
                 }
                 case 5: {
                     System.out.println("Выберите параметр фильтрации 1 - бренд, 2 - состояние, 3 - возраст");
@@ -86,6 +77,28 @@ public class InputCarData {
             exit = checkInput(2);
         } while (exit != 2);
     }
+
+    private static void add(Car newCar, CarService carService) {
+        final Car car = saveOrUpdateCar(newCar);
+        carService.saveOrUpdate(car);
+    }
+
+    private static void delete(CarService carService) {
+        carService.getAll().forEach(System.out::println);
+        System.out.println("Введите порядковый номер авто который хотите удалить");
+        int number = checkInput(carService.getAll().size() + 1);
+        carService.delete(number - 1);
+    }
+
+    private static void edit(CarService carService) {
+        carService.getAll().forEach(System.out::println);
+        System.out.println("Введите порядковый номер авто который хотите отредактировать");
+        int number = checkInput(carService.getAll().size() + 1);
+        Car carEdit = carService.getAll().get(number - 1);
+        final Car car = saveOrUpdateCar(carEdit);
+        carService.saveOrUpdate(car);
+    }
+
     /**
      * Фильтрует автомобили по выбранному пользователем критерию.
      *

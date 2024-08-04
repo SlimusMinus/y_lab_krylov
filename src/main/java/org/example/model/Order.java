@@ -24,12 +24,9 @@ import java.time.LocalDate;
  *     Order order = new Order(1, LocalDate.now(), new Car(), new User(), "In progress");
  * </pre>
  */
-@Getter
-@Setter
-@EqualsAndHashCode
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 public class Order {
     private int OrderId;
     private LocalDate date;

@@ -10,12 +10,9 @@ import java.util.List;
  * <p>Класс содержит информацию о пользователе, такую как логин, пароль, имя, возраст, город, роль и список заказов.</p>
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 public class User {
     private int id;
     private String login;

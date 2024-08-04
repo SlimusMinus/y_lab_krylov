@@ -72,15 +72,9 @@ public class OutData {
             System.out.println("Выберите действие 1 - Управление автомобилями 2 - Обработка заказов 3 - Просмотр информации о клиентах и сотрудниках");
             int choiceAction = checkInput(3);
             switch (choiceAction) {
-                case 1:
-                    carControl();
-                    break;
-                case 2:
-                    ordersInformation(userId);
-                    break;
-                case 3:
-                    clientInformation();
-                    break;
+                case 1 -> carControl();
+                case 2 -> ordersInformation(userId);
+                case 3 -> clientInformation();
             }
         }
     }
