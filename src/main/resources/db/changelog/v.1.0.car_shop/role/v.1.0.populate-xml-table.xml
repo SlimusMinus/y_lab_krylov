@@ -1,0 +1,46 @@
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="role-populate-v.1.0" author="Alexandr Krylov">
+        <preConditions onFail="MARK_RAN">
+            <tableIsEmpty tableName="user_roles" schemaName="car_shop"/>
+        </preConditions>
+        <insert tableName="user_roles" schemaName="car_shop">
+            <column name="user_id" value="1"/>
+            <column name="role" value="Администратор"/>
+        </insert>
+
+        <insert tableName="user_roles" schemaName="car_shop">
+            <column name="user_id" value="1"/>
+            <column name="role" value="Менеджер"/>
+        </insert>
+
+        <insert tableName="user_roles" schemaName="car_shop">
+            <column name="user_id" value="2"/>
+            <column name="role" value="Менеджер"/>
+        </insert>
+
+        <insert tableName="user_roles" schemaName="car_shop">
+            <column name="user_id" value="3"/>
+            <column name="role" value="Менеджер"/>
+        </insert>
+
+        <insert tableName="user_roles" schemaName="car_shop">
+            <column name="user_id" value="4"/>
+            <column name="role" value="Клиент"/>
+        </insert>
+
+        <insert tableName="user_roles" schemaName="car_shop">
+            <column name="user_id" value="5"/>
+            <column name="role" value="Клиент"/>
+        </insert>
+
+        <insert tableName="user_roles" schemaName="car_shop">
+            <column name="user_id" value="6"/>
+            <column name="role" value="Клиент"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

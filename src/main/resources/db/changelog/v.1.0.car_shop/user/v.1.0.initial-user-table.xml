@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="user-initial-v.1.0" author="Alexandr Krylov">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="user" schemaName="car_shop"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="user" schemaName="car_shop">
+            <column name="user_id" type="SERIAL">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="login" type="TEXT">
+                <constraints nullable="true"/>
+            </column>
+            <column name="password" type="TEXT">
+                <constraints nullable="true"/>
+            </column>
+            <column name="name" type="TEXT">
+                <constraints nullable="true"/>
+            </column>
+            <column name="age" type="INTEGER">
+                <constraints nullable="true"/>
+            </column>
+            <column name="city" type="TEXT">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    
+    
+</databaseChangeLog>

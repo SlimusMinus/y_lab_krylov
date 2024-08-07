@@ -22,7 +22,7 @@ public class LogEntry {
      * Разбирает строку лога и создает объект {@link LogEntry}.
      *
      * @param logLine строка лога, содержащая метку времени, уровень, пользователя, действие и сообщение, разделенные пробелами.
-     *                Пример строки лога: "2024-08-03 12:08:40,969 INFO  org.example.service.AuthServiceImpl.getAll:18 - Get all cars"
+     *                Пример строки лога: "2024-08-03 12:08:40,969 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:18 - Get all cars"
      * @return новый объект {@link LogEntry}, созданный из строки лога.
      * @throws DateTimeParseException если метка времени не может быть разобрана.
      */

@@ -1,0 +1,72 @@
+<!--<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="car-populate-v.1.0" author="Alexandr Krylov">
+        <preConditions onFail="MARK_RAN">
+            <tableIsEmpty tableName="car" schemaName="car_shop"/>
+        </preConditions>
+        <insert tableName="car" schemaName="car_shop">
+            <column name="brand" value="BMW"/>
+            <column name="model" value="M4"/>
+            <column name="year" value="2024"/>
+            <column name="price" value="25000"/>
+            <column name="condition" value="new"/>
+        </insert>
+
+        <insert tableName="car" schemaName="car_shop">
+            <column name="brand" value="Volvo"/>
+            <column name="model" value="S40"/>
+            <column name="year" value="2023"/>
+            <column name="price" value="17500"/>
+            <column name="condition" value="good"/>
+        </insert>
+
+        <insert tableName="car" schemaName="car_shop">
+            <column name="brand" value="Mercedes"/>
+            <column name="model" value="SLS"/>
+            <column name="year" value="2024"/>
+            <column name="price" value="25000"/>
+            <column name="condition" value="new"/>
+        </insert>
+
+        <insert tableName="car" schemaName="car_shop">
+            <column name="brand" value="Volvo"/>
+            <column name="model" value="S60"/>
+            <column name="year" value="2019"/>
+            <column name="price" value="25000"/>
+            <column name="condition" value="good"/>
+        </insert>
+
+        <insert tableName="car" schemaName="car_shop">
+            <column name="brand" value="Audi"/>
+            <column name="model" value="Q3"/>
+            <column name="year" value="2020"/>
+            <column name="price" value="19500.80"/>
+            <column name="condition" value="good"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>-->
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="bdfdbdf" author="Alexandr Krylov">
+        <loadData
+                file="db/data/car-data.csv"
+                tableName="car"
+                schemaName="car_shop"
+                separator=",">
+            <column name="brand"/>
+            <column name="model"/>
+            <column name="year"/>
+            <column name="price"/>
+            <column name="condition"/>
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

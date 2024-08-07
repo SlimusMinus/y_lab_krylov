@@ -2,7 +2,7 @@ package org.example.in;
 
 import org.example.model.User;
 import org.example.service.UserInformation;
-import org.example.service.UserInformationImpl;
+import org.example.service.inMemory.UserInformationImpl;
 
 import java.util.Scanner;
 

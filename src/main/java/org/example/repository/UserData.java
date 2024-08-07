@@ -7,10 +7,7 @@ import org.example.model.Roles;
 import org.example.model.User;
 
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Класс, содержащий статические данные о пользователях.
@@ -29,12 +26,12 @@ public class UserData {
     private static int UserId = 1;
     private static final List<Order> oder1 = Arrays.asList(new Order(1, LocalDate.parse("2024-12-12"), CarData.getCars().get(1), "successfully"));
     private static final List<Order> oder2 = Arrays.asList(new Order(2, LocalDate.parse("2024-11-11"), CarData.getCars().get(2), "successfully"));
-    private static final User administrator = new User(UserId++, "admin", "admin", "Alexandr", 33, "Moscow", Roles.ADMINISTRATOR, null);
-    private static final User manager1 = new User(UserId++, "manager1", "manager1", "John", 36, "New-York", Roles.MANGER, null);
-    private static final User manager2 = new User(UserId++, "manager2", "manager2", "Alexandr", 34, "Moscow", Roles.MANGER, oder1);
-    private static final User client1 = new User(UserId++, "client1", "client1", "Tanya", 25, "London", Roles.CLIENT, oder2);
-    private static final User client2 = new User(UserId++, "client2", "client2", "Valera", 45, "Milan", Roles.CLIENT, null);
-    private static final User client3 = new User(UserId++, "client3", "client3", "Robert", 33, "Moscow", Roles.CLIENT, null);
+    private static final User administrator = new User(UserId++, "admin", "admin", "Alexandr", 33, "Moscow", Set.of(Roles.ADMINISTRATOR), null);
+    private static final User manager1 = new User(UserId++, "manager1", "manager1", "John", 36, "New-York",  Set.of(Roles.MANGER), null);
+    private static final User manager2 = new User(UserId++, "manager2", "manager2", "Alexandr", 34, "Moscow",  Set.of(Roles.MANGER), oder1);
+    private static final User client1 = new User(UserId++, "client1", "client1", "Tanya", 25, "London",  Set.of(Roles.CLIENT), oder2);
+    private static final User client2 = new User(UserId++, "client2", "client2", "Valera", 45, "Milan",  Set.of(Roles.CLIENT), null);
+    private static final User client3 = new User(UserId++, "client3", "client3", "Robert", 33, "Moscow",  Set.of(Roles.CLIENT), null);
     /**
      * Коллекция для хранения информации о всех пользователях.
      *

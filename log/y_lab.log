@@ -988,3 +988,123 @@
 2024-08-04 10:38:41,152 INFO  org.example.service.AuthServiceImpl.saveOrUpdate:50 - Car Car(id=0, brand=Audi, model=Q7, year=2024, price=20098.0, condition=new) added
 2024-08-04 10:38:41,153 INFO  org.example.service.AuthServiceImpl.getAll:34 - Get all cars
 2024-08-04 10:38:41,153 INFO  org.example.service.AuthServiceImpl.getAll:34 - Get all cars
+2024-08-04 23:40:09,120 INFO  org.example.service.AuthServiceImpl.loginUser:48 - User User(id=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=Roles.ADMINISTRATOR(title=Администратор), orders=null) is logging
+2024-08-04 23:40:09,134 INFO  org.example.service.AuthServiceImpl.loginUser:48 - User User(id=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=Roles.ADMINISTRATOR(title=Администратор), orders=null) is logging
+2024-08-04 23:40:12,681 INFO  org.example.service.AuthServiceImpl.getAll:34 - Get all cars
+2024-08-07 13:45:47,754 INFO  org.example.service.jdbc.CarServiceJdbc.getAll:49 - Get all cars [Car(id=0, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=0, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=0, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=0, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=0, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-07 13:47:51,500 INFO  org.example.service.jdbc.CarServiceJdbc.getAll:49 - Get all cars [Car(id=0, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=0, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=0, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=0, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=0, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-07 13:49:10,825 INFO  org.example.service.jdbc.CarServiceJdbc.getAll:49 - Get all cars [Car(id=0, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=0, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=0, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=0, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=0, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-07 13:49:51,415 INFO  org.example.service.jdbc.CarServiceJdbc.getAll:49 - Get all cars [Car(id=0, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=0, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=0, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=0, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=0, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-07 13:51:27,119 INFO  org.example.service.jdbc.CarServiceJdbc.getAll:49 - Get all cars [Car(id=0, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=0, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=0, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=0, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=0, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=0, brand=Cadillac, model=M4, year=2024, price=25000.0, condition=new)]
+2024-08-07 13:51:51,442 INFO  org.example.service.jdbc.CarServiceJdbc.getAll:49 - Get all cars [Car(id=0, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=0, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=0, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=0, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=0, brand=Cadillac, model=M4, year=2024, price=25000.0, condition=new), Car(id=0, brand=Cadillac, model=M4, year=2024, price=25000.0, condition=new)]
+2024-08-07 13:53:18,043 INFO  org.example.service.jdbc.CarServiceJdbc.getAll:49 - Get all cars [Car(id=0, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=0, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=0, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=0, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=0, brand=Cadillac, model=M4, year=2024, price=25000.0, condition=new), Car(id=0, brand=Cadillac, model=M4, year=2024, price=25000.0, condition=new)]
+2024-08-07 13:56:42,109 INFO  org.example.service.jdbc.CarServiceJdbc.getAll:49 - Get all cars [Car(id=0, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=0, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=0, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=0, brand=Cadillac, model=M4, year=2024, price=25000.0, condition=new), Car(id=0, brand=Cadillac, model=M4, year=2024, price=25000.0, condition=new), Car(id=0, brand=Cadillac, model=M4, year=2024, price=25000.0, condition=new)]
+2024-08-07 13:57:36,178 INFO  org.example.service.jdbc.CarServiceJdbc.delete:85 - Car with id 6 is deleting
+2024-08-07 13:57:36,208 INFO  org.example.service.jdbc.CarServiceJdbc.getAll:49 - Get all cars [Car(id=0, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=0, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=0, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=0, brand=Cadillac, model=M4, year=2024, price=25000.0, condition=new), Car(id=0, brand=Cadillac, model=M4, year=2024, price=25000.0, condition=new)]
+2024-08-07 13:58:50,130 INFO  org.example.service.jdbc.CarServiceJdbc.getAll:49 - Get all cars [Car(id=0, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=0, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=0, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=0, brand=Cadillac, model=M4, year=2024, price=25000.0, condition=new), Car(id=0, brand=BMW, model=M4, year=2024, price=25000.0, condition=new)]
+2024-08-07 13:59:15,610 INFO  org.example.service.jdbc.CarServiceJdbc.getAll:49 - Get all cars [Car(id=0, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=0, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=0, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=0, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=0, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good)]
+2024-08-07 14:31:58,660 INFO  org.example.service.inMemory.AuthServiceImpl.create:43 - Order - Order(OrderId=3, date=2024-10-10, car=Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), user=User(id=2, login=manager1, password=manager1, name=John, age=36, city=New-York, role=[Roles.MANGER(title=Менеджер)], orders=null), status=successfully) is created
+2024-08-07 14:31:58,756 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:58 - Show all orders
+2024-08-07 14:31:58,760 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:58 - Show all orders
+2024-08-07 14:31:58,783 INFO  org.example.service.inMemory.AuthServiceImpl.filter:112 - Get all find orders
+2024-08-07 14:31:58,794 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:58 - Show all orders
+2024-08-07 14:31:58,807 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:58 - Show all orders
+2024-08-07 14:31:58,814 INFO  org.example.service.inMemory.AuthServiceImpl.canceled:96 - Order with 2 id is canceled
+2024-08-07 14:31:58,823 INFO  org.example.service.inMemory.AuthServiceImpl.changeStatus:82 - Change status on is ready, repository order with 1 id
+2024-08-07 14:31:58,837 INFO  org.example.service.inMemory.AuthServiceImpl.loginUser:48 - User User(id=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=[Roles.ADMINISTRATOR(title=Администратор)], orders=null) is logging
+2024-08-07 14:31:58,841 INFO  org.example.service.inMemory.AuthServiceImpl.loginUser:48 - User User(id=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=[Roles.CLIENT(title=Клиент)], orders=[Order(OrderId=2, date=2024-11-11, car=Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), user=null, status=successfully)]) is logging
+2024-08-07 14:31:58,842 INFO  org.example.service.inMemory.AuthServiceImpl.loginUser:52 - Uncorrected input login qwerty and password qwerty
+2024-08-07 14:31:58,846 INFO  org.example.service.inMemory.AuthServiceImpl.registeredUser:28 - New user is User(id=0, login=master, password=master, name=Tom, age=78, city=Tokyo, role=[Roles.ADMINISTRATOR(title=Администратор)], orders=null) added
+2024-08-07 14:31:58,847 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:34 - Get all users
+2024-08-07 14:31:58,847 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:34 - Get all users
+2024-08-07 14:31:58,874 INFO  org.example.service.inMemory.AuthServiceImpl.filter:48 - Get all users after filter
+2024-08-07 14:31:58,878 INFO  org.example.service.inMemory.AuthServiceImpl.filter:48 - Get all users after filter
+2024-08-07 14:31:58,880 INFO  org.example.service.inMemory.AuthServiceImpl.filter:48 - Get all users after filter
+2024-08-07 14:31:58,891 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:34 - Get all users
+2024-08-07 14:31:58,892 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:34 - Get all users
+2024-08-07 14:31:58,895 INFO  org.example.service.inMemory.AuthServiceImpl.edit:74 - User User(id=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=[Roles.CLIENT(title=Клиент)], orders=null) user was changed
+2024-08-07 14:31:58,896 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:34 - Get all users
+2024-08-07 14:31:59,074 INFO  org.example.service.inMemory.AuthServiceImpl.delete:71 - Car with id - 1 removed
+2024-08-07 14:31:59,120 INFO  org.example.service.inMemory.AuthServiceImpl.filter:88 - Get all find cars
+2024-08-07 14:31:59,121 INFO  org.example.service.inMemory.AuthServiceImpl.filter:88 - Get all find cars
+2024-08-07 14:31:59,122 INFO  org.example.service.inMemory.AuthServiceImpl.filter:88 - Get all find cars
+2024-08-07 14:31:59,124 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:35 - Get all cars
+2024-08-07 14:31:59,124 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:35 - Get all cars
+2024-08-07 14:31:59,125 INFO  org.example.service.inMemory.AuthServiceImpl.saveOrUpdate:56 - Car Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good) updated
+2024-08-07 14:31:59,126 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:35 - Get all cars
+2024-08-07 14:31:59,127 INFO  org.example.service.inMemory.AuthServiceImpl.saveOrUpdate:51 - Car Car(id=0, brand=Audi, model=Q7, year=2024, price=20098.0, condition=new) added
+2024-08-07 14:31:59,127 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:35 - Get all cars
+2024-08-07 14:31:59,127 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:35 - Get all cars
+2024-08-07 14:32:25,395 INFO  org.example.service.inMemory.AuthServiceImpl.create:43 - Order - Order(OrderId=3, date=2024-10-10, car=Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), user=User(id=2, login=manager1, password=manager1, name=John, age=36, city=New-York, role=[Roles.MANGER(title=Менеджер)], orders=null), status=successfully) is created
+2024-08-07 14:32:25,502 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:58 - Show all orders
+2024-08-07 14:32:25,505 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:58 - Show all orders
+2024-08-07 14:32:25,530 INFO  org.example.service.inMemory.AuthServiceImpl.filter:112 - Get all find orders
+2024-08-07 14:32:25,551 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:58 - Show all orders
+2024-08-07 14:32:25,562 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:58 - Show all orders
+2024-08-07 14:32:25,572 INFO  org.example.service.inMemory.AuthServiceImpl.canceled:96 - Order with 2 id is canceled
+2024-08-07 14:32:25,595 INFO  org.example.service.inMemory.AuthServiceImpl.changeStatus:82 - Change status on is ready, repository order with 1 id
+2024-08-07 14:32:25,607 INFO  org.example.service.inMemory.AuthServiceImpl.loginUser:48 - User User(id=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=[Roles.ADMINISTRATOR(title=Администратор)], orders=null) is logging
+2024-08-07 14:32:25,611 INFO  org.example.service.inMemory.AuthServiceImpl.loginUser:48 - User User(id=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=[Roles.CLIENT(title=Клиент)], orders=[Order(OrderId=2, date=2024-11-11, car=Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), user=null, status=successfully)]) is logging
+2024-08-07 14:32:25,612 INFO  org.example.service.inMemory.AuthServiceImpl.loginUser:52 - Uncorrected input login qwerty and password qwerty
+2024-08-07 14:32:25,615 INFO  org.example.service.inMemory.AuthServiceImpl.registeredUser:28 - New user is User(id=0, login=master, password=master, name=Tom, age=78, city=Tokyo, role=[Roles.ADMINISTRATOR(title=Администратор)], orders=null) added
+2024-08-07 14:32:25,616 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:34 - Get all users
+2024-08-07 14:32:25,617 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:34 - Get all users
+2024-08-07 14:32:25,644 INFO  org.example.service.inMemory.AuthServiceImpl.filter:48 - Get all users after filter
+2024-08-07 14:32:25,646 INFO  org.example.service.inMemory.AuthServiceImpl.filter:48 - Get all users after filter
+2024-08-07 14:32:25,659 INFO  org.example.service.inMemory.AuthServiceImpl.filter:48 - Get all users after filter
+2024-08-07 14:32:25,670 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:34 - Get all users
+2024-08-07 14:32:25,672 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:34 - Get all users
+2024-08-07 14:32:25,676 INFO  org.example.service.inMemory.AuthServiceImpl.edit:74 - User User(id=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=[Roles.CLIENT(title=Клиент)], orders=null) user was changed
+2024-08-07 14:32:25,679 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:34 - Get all users
+2024-08-07 14:32:25,797 INFO  org.example.service.inMemory.AuthServiceImpl.delete:71 - Car with id - 1 removed
+2024-08-07 14:32:25,818 INFO  org.example.service.inMemory.AuthServiceImpl.filter:88 - Get all find cars
+2024-08-07 14:32:25,821 INFO  org.example.service.inMemory.AuthServiceImpl.filter:88 - Get all find cars
+2024-08-07 14:32:25,824 INFO  org.example.service.inMemory.AuthServiceImpl.filter:88 - Get all find cars
+2024-08-07 14:32:25,829 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:35 - Get all cars
+2024-08-07 14:32:25,830 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:35 - Get all cars
+2024-08-07 14:32:25,833 INFO  org.example.service.inMemory.AuthServiceImpl.saveOrUpdate:56 - Car Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good) updated
+2024-08-07 14:32:25,834 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:35 - Get all cars
+2024-08-07 14:32:25,839 INFO  org.example.service.inMemory.AuthServiceImpl.saveOrUpdate:51 - Car Car(id=0, brand=Audi, model=Q7, year=2024, price=20098.0, condition=new) added
+2024-08-07 14:32:25,841 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:35 - Get all cars
+2024-08-07 14:32:25,841 INFO  org.example.service.inMemory.AuthServiceImpl.getAll:35 - Get all cars
+2024-08-07 14:39:56,474 INFO  org.example.service.jdbc.CarServiceJdbc.getAll:46 - Get all cars [Car(id=0, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=0, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=0, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=0, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=0, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good)]
+2024-08-07 15:41:32,040 ERROR org.example.service.jdbc.AuthServiceJdbc.registeredUser:56 - Error add user User(id=0, login=wolf, password=wolf, name=Timur, age=41, city=Moscow, role=[Roles.MANGER(title=Менеджер), Roles.CLIENT(title=Клиент), Roles.ADMINISTRATOR(title=Администратор)], orders=null)
+2024-08-07 15:43:51,525 ERROR org.example.service.jdbc.AuthServiceJdbc.registeredUser:56 - Error add user User(id=0, login=wolf, password=wolf, name=Timur, age=41, city=Moscow, role=[Roles.MANGER(title=Менеджер), Roles.ADMINISTRATOR(title=Администратор), Roles.CLIENT(title=Клиент)], orders=null)
+2024-08-07 15:44:10,880 ERROR org.example.service.jdbc.AuthServiceJdbc.registeredUser:56 - Error add user User(id=0, login=wolf, password=wolf, name=Timur, age=41, city=Moscow, role=[Roles.MANGER(title=Менеджер), Roles.CLIENT(title=Клиент), Roles.ADMINISTRATOR(title=Администратор)], orders=null)
+org.postgresql.util.PSQLException: Запрос не вернул результатов.
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:138)
+	at org.example.service.jdbc.AuthServiceJdbc.registeredUser(AuthServiceJdbc.java:41)
+	at org.example.App.main(App.java:30)
+2024-08-07 15:46:20,922 ERROR org.example.service.jdbc.AuthServiceJdbc.registeredUser:57 - Error adding user User(id=0, login=wolf, password=wolf, name=Timur, age=41, city=Moscow, role=[Roles.ADMINISTRATOR(title=Администратор), Roles.CLIENT(title=Клиент), Roles.MANGER(title=Менеджер)], orders=null)
+org.postgresql.util.PSQLException: Запрос не вернул результатов.
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:138)
+	at org.example.service.jdbc.AuthServiceJdbc.registeredUser(AuthServiceJdbc.java:41)
+	at org.example.App.main(App.java:30)
+2024-08-07 15:58:54,145 ERROR org.example.service.jdbc.AuthServiceJdbc.registeredUser:57 - Error adding user User(id=0, login=wolf, password=wolf, name=Timur, age=41, city=Moscow, role=[Roles.CLIENT(title=Клиент), Roles.ADMINISTRATOR(title=Администратор), Roles.MANGER(title=Менеджер)], orders=null)
+org.postgresql.util.PSQLException: Запрос не вернул результатов.
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:138)
+	at org.example.service.jdbc.AuthServiceJdbc.registeredUser(AuthServiceJdbc.java:41)
+	at org.example.App.main(App.java:30)
+2024-08-07 16:08:35,492 ERROR org.example.service.jdbc.AuthServiceJdbc.registeredUser:45 - Error adding user User(id=0, login=wolf, password=wolf, name=Timur, age=41, city=Moscow, role=[Roles.ADMINISTRATOR(title=Администратор), Roles.MANGER(title=Менеджер), Roles.CLIENT(title=Клиент)], orders=null)
+java.sql.BatchUpdateException: Batch entry 0 INSERT INTO car_shop.user_roles (user_id, role) VALUES (('0'::int4),('Roles.ADMINISTRATOR(title=Администратор)')) was aborted: ERROR: insert or update on table "user_roles" violates foreign key constraint "fk_user_roles_user"
+  Подробности: Key (user_id)=(0) is not present in table "user".  Call getNextException to see other errors in the batch.
+	at org.postgresql.jdbc.BatchResultHandler.handleCompletion(BatchResultHandler.java:186)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:590)
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:912)
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:936)
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1733)
+	at org.example.service.jdbc.AuthServiceJdbc.addRoles(AuthServiceJdbc.java:58)
+	at org.example.service.jdbc.AuthServiceJdbc.registeredUser(AuthServiceJdbc.java:42)
+	at org.example.App.main(App.java:30)
+Caused by: org.postgresql.util.PSQLException: ERROR: insert or update on table "user_roles" violates foreign key constraint "fk_user_roles_user"
+  Подробности: Key (user_id)=(0) is not present in table "user".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2725)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2412)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:579)
+	... 6 common frames omitted
+2024-08-07 16:11:50,499 ERROR org.example.service.jdbc.AuthServiceJdbc.registeredUser:47 - Error adding user User(id=0, login=wolf, password=wolf, name=Timur, age=41, city=Moscow, role=[Roles.MANGER(title=Менеджер), Roles.CLIENT(title=Клиент), Roles.ADMINISTRATOR(title=Администратор)], orders=null)
+org.postgresql.util.PSQLException: Запрос не вернул результатов.
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:138)
+	at org.example.service.jdbc.AuthServiceJdbc.registeredUser(AuthServiceJdbc.java:41)
+	at org.example.App.main(App.java:30)
+2024-08-07 17:56:08,362 INFO  org.example.service.jdbc.CarServiceJdbc.getAll:46 - Get all cars [Car(id=0, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=0, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=0, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=0, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=0, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good)]
