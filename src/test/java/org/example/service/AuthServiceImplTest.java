@@ -1,5 +1,7 @@
 package org.example.service;
 
+import org.example.service.inMemory.AuthServiceImpl;
+import org.example.service.inMemory.UserInformationImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

@@ -1,9 +1,10 @@
 package org.example.out;
 
+import org.example.config.LiquibaseBaseConfig;
 import org.example.in.InputData;
 import org.example.model.User;
 import org.example.service.AuthService;
-import org.example.service.AuthServiceImpl;
+import org.example.service.inMemory.AuthServiceImpl;
 
 import static org.example.in.InputCarData.carControl;
 import static org.example.in.InputUserData.clientInformation;
@@ -28,6 +29,7 @@ public class OutData {
      * Пользователь может выбрать одно из доступных действий через консольный интерфейс.</p>
      */
     public static void startApp() {
+        LiquibaseBaseConfig.get();
         boolean exit = false;
         while (!exit) {
             System.out.println("Выберите действие: 1 - зарегистрироваться, 2 - войти, 3 - выйти");

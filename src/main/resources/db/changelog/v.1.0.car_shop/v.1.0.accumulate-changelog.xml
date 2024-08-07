@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="556454" author="Alexandr Krylov">
+        <sql>
+            CREATE SCHEMA IF NOT EXISTS car_shop;
+        </sql>
+    </changeSet>
+
+    <include file="car/v.1.0.initial-car-table.xml" relativeToChangelogFile="true"/>
+    <include file="car/v.1.0.populate-car-table.xml" relativeToChangelogFile="true"/>
+    <include file="user/v.1.0.initial-user-table.xml" relativeToChangelogFile="true"/>
+    <include file="user/v.1.0.populate-user-table.xml" relativeToChangelogFile="true"/>
+    <include file="role/v.1.0.initial-role-table.xml" relativeToChangelogFile="true"/>
+    <include file="role/v.1.0.populate-xml-table.xml" relativeToChangelogFile="true"/>
+    <include file="order/v.1.0.initial-order-table.xml" relativeToChangelogFile="true"/>
+    <include file="order/v.1.0.populate-order-table.xml" relativeToChangelogFile="true"/>
+
+</databaseChangeLog>

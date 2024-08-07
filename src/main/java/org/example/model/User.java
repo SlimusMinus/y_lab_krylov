@@ -3,6 +3,7 @@ package org.example.model;
 import lombok.*;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Класс, представляющий пользователя в системе.
@@ -20,10 +21,10 @@ public class User {
     private String name;
     private int age;
     private String city;
-    private Roles role;
+    private Set <Roles> role;
     private List<Order> orders;
 
-    public User(String login, String password, String name, int age, String city, Roles role, List<Order> orders) {
+    public User(String login, String password, String name, int age, String city, Set <Roles> role, List<Order> orders) {
         this.login = login;
         this.password = password;
         this.name = name;

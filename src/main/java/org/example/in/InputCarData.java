@@ -2,7 +2,7 @@ package org.example.in;
 
 import org.example.model.Car;
 import org.example.service.CarService;
-import org.example.service.CarServiceImpl;
+import org.example.service.inMemory.CarServiceImpl;
 
 import java.time.LocalDate;
 import java.util.Scanner;

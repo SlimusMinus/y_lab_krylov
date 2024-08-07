@@ -5,7 +5,9 @@ import org.example.model.User;
 import org.example.service.AuthService;
 
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 /**
  * Класс для работы с входными данными пользователя.
@@ -37,7 +39,7 @@ public class InputData {
         System.out.println("Введите город");
         String city = scanner.next();
         newUser.setCity(city);
-        newUser.setRole(Roles.CLIENT);
+        newUser.setRole(Set.of(Roles.CLIENT));
         return newUser;
     }
     /**

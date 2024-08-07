@@ -2,6 +2,7 @@ package org.example.service;
 
 import org.example.model.User;
 import org.example.repository.UserData;
+import org.example.service.inMemory.UserInformationImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

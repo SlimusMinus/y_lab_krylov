@@ -1,0 +1,59 @@
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="user-populate-v.1.0" author="Alexandr Krylov">
+        <preConditions onFail="MARK_RAN">
+            <tableIsEmpty tableName="user" schemaName="car_shop"/>
+        </preConditions>
+        <insert tableName="user" schemaName="car_shop">
+            <column name="login" value="admin"/>
+            <column name="password" value="admin"/>
+            <column name="name" value="Alexandr"/>
+            <column name="age" value="33"/>
+            <column name="city" value="Moscow"/>
+        </insert>
+
+        <insert tableName="user" schemaName="car_shop">
+            <column name="login" value="manager1"/>
+            <column name="password" value="manager1"/>
+            <column name="name" value="John"/>
+            <column name="age" value="36"/>
+            <column name="city" value="New-York"/>
+        </insert>
+
+        <insert tableName="user" schemaName="car_shop">
+            <column name="login" value="manager2"/>
+            <column name="password" value="manager2"/>
+            <column name="name" value="Alexandr"/>
+            <column name="age" value="34"/>
+            <column name="city" value="Moscow"/>
+        </insert>
+
+        <insert tableName="user" schemaName="car_shop">
+            <column name="login" value="client1"/>
+            <column name="password" value="client1"/>
+            <column name="name" value="Tanya"/>
+            <column name="age" value="25"/>
+            <column name="city" value="London"/>
+        </insert>
+
+        <insert tableName="user" schemaName="car_shop">
+            <column name="login" value="client2"/>
+            <column name="password" value="client2"/>
+            <column name="name" value="Valera"/>
+            <column name="age" value="45"/>
+            <column name="city" value="Milan"/>
+        </insert>
+
+        <insert tableName="user" schemaName="car_shop">
+            <column name="login" value="client3"/>
+            <column name="password" value="client3"/>
+            <column name="name" value="Robert"/>
+            <column name="age" value="33"/>
+            <column name="city" value="Moscow"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
