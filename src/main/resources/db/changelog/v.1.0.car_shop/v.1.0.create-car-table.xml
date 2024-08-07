@@ -31,4 +31,18 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="car-populate-v.1.0" author="Alexandr Krylov">
+        <loadData
+                file="db/data/car-data.csv"
+                tableName="car"
+                schemaName="car_shop"
+                separator=",">
+            <column name="brand" type="string"/>
+            <column name="model" type="string"/>
+            <column name="year"/>
+            <column name="price"/>
+            <column name="condition" type="string"/>
+        </loadData>
+    </changeSet>
+
 </databaseChangeLog>

@@ -33,6 +33,20 @@
             </column>
         </createTable>
     </changeSet>
+
+    <changeSet id="user-populate-v.1.0" author="Alexandr Krylov">
+        <loadData
+                file="db/data/user-data.csv"
+                tableName="user"
+                schemaName="car_shop"
+                separator=",">
+            <column name="login" type="string"/>
+            <column name="password" type="string"/>
+            <column name="name" type="string"/>
+            <column name="age"/>
+            <column name="city" type="string"/>
+        </loadData>
+    </changeSet>
     
     
 </databaseChangeLog>
