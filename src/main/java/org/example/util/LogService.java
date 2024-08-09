@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -22,6 +23,7 @@ public class LogService {
     public LogService(String logFilePath) throws IOException {
         logEntries = Files.lines(Paths.get(logFilePath))
                 .map(LogEntry::parse)
+                .filter(Objects::nonNull)  // Убираем строки, которые не удалось распарсить
                 .collect(Collectors.toList());
     }
     /**

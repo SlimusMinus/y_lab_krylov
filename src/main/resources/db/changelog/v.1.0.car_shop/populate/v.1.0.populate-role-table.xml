@@ -1,0 +1,17 @@
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="role-populate-v.1.0" author="Alexandr Krylov">
+        <loadData
+                file="db/data/user-role-data.csv"
+                tableName="user_roles"
+                schemaName="car_shop"
+                separator=",">
+            <column name="user_id"/>
+            <column name="role" type="string"/>
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

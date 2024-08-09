@@ -1,14 +1,14 @@
 package org.example.out;
 
 import org.example.config.LiquibaseBaseConfig;
-import org.example.in.InputData;
+import org.example.in.InputAuthData;
 import org.example.model.User;
 import org.example.service.AuthService;
-import org.example.service.inMemory.AuthServiceImpl;
+import org.example.service.AuthServiceInMemory;
 
 import static org.example.in.InputCarData.carControl;
 import static org.example.in.InputUserData.clientInformation;
-import static org.example.in.InputData.checkInput;
+import static org.example.in.InputAuthData.checkInput;
 import static org.example.in.InputOrderData.ordersInformation;
 
 /**
@@ -20,7 +20,7 @@ import static org.example.in.InputOrderData.ordersInformation;
  */
 public class OutData {
 
-    private static final AuthService authService = new AuthServiceImpl();
+    private static final AuthService authService = new AuthServiceInMemory();
 
     /**
      * Запускает основной поток приложения, предоставляя пользователю возможность выбрать действие.
@@ -56,7 +56,7 @@ public class OutData {
      * {@link AuthService}. После успешной регистрации выводит сообщение о том, что регистрация завершена.</p>
      */
     private static void registerNewUser() {
-        final User newUser = InputData.getNewUser();
+        final User newUser = InputAuthData.getNewUser();
         authService.registeredUser(newUser);
         System.out.println(newUser + "\n вы успешно зарегистрированы");
     }
@@ -69,7 +69,7 @@ public class OutData {
      * соответствующие методы.</p>
      */
     private static void userAction() {
-        final Integer userId = InputData.authenticationUser(authService);
+        final Integer userId = InputAuthData.authenticationUser(authService);
         if (userId != null) {
             System.out.println("Выберите действие 1 - Управление автомобилями 2 - Обработка заказов 3 - Просмотр информации о клиентах и сотрудниках");
             int choiceAction = checkInput(3);

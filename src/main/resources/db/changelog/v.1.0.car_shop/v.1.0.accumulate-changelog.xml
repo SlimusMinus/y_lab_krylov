@@ -11,9 +11,13 @@
         </sql>
     </changeSet>
 
-    <include file="v.1.0.create-car-table.xml" relativeToChangelogFile="true"/>
-    <include file="v.1.0.create-user-table.xml" relativeToChangelogFile="true"/>
-    <include file="v.1.0.initial-role-table.xml" relativeToChangelogFile="true"/>
-    <include file="v.1.0.create-order-table.xml" relativeToChangelogFile="true"/>
+    <include file="create/v.1.0.create-car-table.xml" relativeToChangelogFile="true"/>
+    <include file="create/v.1.0.create-user-table.xml" relativeToChangelogFile="true"/>
+    <include file="create/v.1.0.create-role-table.xml" relativeToChangelogFile="true"/>
+    <include file="create/v.1.0.create-order-table.xml" relativeToChangelogFile="true"/>
+    <include file="populate/v.1.0.populate-car-table.xml" relativeToChangelogFile="true"/>
+    <include file="populate/v.1.0.populate-user-table.xml" relativeToChangelogFile="true"/>
+    <include file="populate/v.1.0.populate-role-table.xml" relativeToChangelogFile="true"/>
+    <include file="populate/v.1.0.populate-order-table.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

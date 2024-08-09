@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="user-populate-v.1.0" author="Alexandr Krylov">
+        <loadData
+                file="db/data/user-data.csv"
+                tableName="user"
+                schemaName="car_shop"
+                separator=",">
+            <column name="login" type="string"/>
+            <column name="password" type="string"/>
+            <column name="name" type="string"/>
+            <column name="age"/>
+            <column name="city" type="string"/>
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

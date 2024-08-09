@@ -2,14 +2,13 @@ package org.example.in;
 
 import org.example.model.Car;
 import org.example.model.Order;
-import org.example.repository.UserData;
-import org.example.service.OrderManagement;
-import org.example.service.inMemory.OrderManagementImpl;
+import org.example.repository.OrderStorage;
+import org.example.repository.inMemory.OrderStorageInMemory;
 
 import java.time.LocalDate;
 import java.util.Scanner;
 
-import static org.example.in.InputData.checkInput;
+import static org.example.in.InputAuthData.checkInput;
 /**
  * Класс для обработки данных заказов. Содержит методы для управления заказами.
  */
@@ -25,45 +24,45 @@ public class InputOrderData {
     public static void ordersInformation(int userId) {
         int exit;
         do {
-            OrderManagement orderManagement = new OrderManagementImpl();
+            OrderStorage orderStorage = new OrderStorageInMemory();
             System.out.println("Выберите действие 1 - создать заказ, 2 - просмотр всех заказов 3 - поиск заказа " +
                     "4 - изменение статуса заказа, 5 - отмена заказа 6 - фильтрация");
             int choice = checkInput(6);
             switch (choice) {
                 case 1: {
                     final Order newOrder = getNewOrder(userId);
-                    orderManagement.create(newOrder);
+                    orderStorage.create(newOrder);
                 }
                 break;
                 case 2: {
-                    orderManagement.getAll().forEach(System.out::println);
+                    orderStorage.getAll().forEach(System.out::println);
                 }
                 break;
                 case 3: {
                     System.out.println("Введите порядковый номер заказа");
-                    int idOrder = checkInput(orderManagement.getAll().size());
-                    final Order orderById = orderManagement.getById(idOrder);
+                    int idOrder = checkInput(orderStorage.getAll().size());
+                    final Order orderById = orderStorage.getById(idOrder);
                     System.out.println(orderById);
                 }
                 break;
                 case 4: {
-                    orderManagement.getAll().forEach(System.out::println);
+                    orderStorage.getAll().forEach(System.out::println);
                     System.out.println("Введите порядковый номер заказа");
-                    int idOrder = checkInput(orderManagement.getAll().size());
+                    int idOrder = checkInput(orderStorage.getAll().size());
                     System.out.println("Введите новый статус");
                     String newStatus = scanner.next();
-                    orderManagement.changeStatus(idOrder, newStatus);
+                    orderStorage.changeStatus(idOrder, newStatus);
                 }
                 break;
                 case 5: {
-                    orderManagement.getAll().forEach(System.out::println);
+                    orderStorage.getAll().forEach(System.out::println);
                     System.out.println("Введите порядковый номер заказа");
-                    int idOrder = checkInput(orderManagement.getAll().size());
-                    orderManagement.canceled(idOrder);
+                    int idOrder = checkInput(orderStorage.getAll().size());
+                    orderStorage.canceled(idOrder);
                 }
                 break;
                 case 6: {
-                    orderManagement.filter(Order::getDate, date -> date.isEqual(LocalDate.parse("2024-12-12"))).forEach(System.out::println);
+                    orderStorage.filter(Order::getDate, date -> date.isEqual(LocalDate.parse("2024-12-12"))).forEach(System.out::println);
                 }
                 break;
             }
@@ -95,8 +94,8 @@ public class InputOrderData {
         System.out.println("Введите состояние");
         String condition = scanner.next();
         car.setCondition(condition);
-        newOrder.setCar(car);
-        newOrder.setUser(UserData.getUsers().get(userId));
+        newOrder.setCarId(0);
+        newOrder.setUserId(userId);
         newOrder.setDate(LocalDate.now());
         newOrder.setStatus("order created");
         return newOrder;
