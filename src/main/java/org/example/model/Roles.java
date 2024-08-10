@@ -13,7 +13,7 @@ import lombok.ToString;
 @ToString
 public enum Roles {
     ADMINISTRATOR("Администратор"),
-    MANGER("Менеджер"),
+    MANAGER("Менеджер"),
     CLIENT("Клиент");
 
     private final String title;

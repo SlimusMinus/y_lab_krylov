@@ -27,8 +27,8 @@ public class UserData {
     private static final List<Order> oder1 = List.of(new Order(1, 1, 4, LocalDate.parse("2024-12-12"), "successfully"));
     private static final List<Order> oder2 = List.of(new Order(2, 5, 4, LocalDate.parse("2024-11-11"), "successfully"));
     private static final User administrator = new User(UserId++, "admin", "admin", "Alexandr", 33, "Moscow", Set.of(Roles.ADMINISTRATOR), null);
-    private static final User manager1 = new User(UserId++, "manager1", "manager1", "John", 36, "New-York", Set.of(Roles.MANGER), null);
-    private static final User manager2 = new User(UserId++, "manager2", "manager2", "Alexandr", 34, "Moscow", Set.of(Roles.MANGER), oder1);
+    private static final User manager1 = new User(UserId++, "manager1", "manager1", "John", 36, "New-York", Set.of(Roles.MANAGER), null);
+    private static final User manager2 = new User(UserId++, "manager2", "manager2", "Alexandr", 34, "Moscow", Set.of(Roles.MANAGER), oder1);
     private static final User client1 = new User(UserId++, "client1", "client1", "Tanya", 25, "London", Set.of(Roles.CLIENT), oder2);
     private static final User client2 = new User(UserId++, "client2", "client2", "Valera", 45, "Milan", Set.of(Roles.CLIENT), null);
     private static final User client3 = new User(UserId++, "client3", "client3", "Robert", 33, "Moscow", Set.of(Roles.CLIENT), null);

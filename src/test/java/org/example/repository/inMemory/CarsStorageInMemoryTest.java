@@ -34,9 +34,9 @@ class CarsStorageInMemoryTest {
     @DisplayName("сохранение нового автомобиля")
     @Test
     void save() {
-        carStorage.saveOrUpdate(carSave1);
+        carStorage.saveOrUpdate(carSave);
         Car newCar = carStorage.getAll().get(carStorage.getAll().size() - 1);
-        assertThat(newCar).isEqualTo(carSave1);
+        assertThat(newCar).isEqualTo(carSave);
     }
 
     @DisplayName("обновление данных об имеющемся автомобиле")

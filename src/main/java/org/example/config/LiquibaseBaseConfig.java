@@ -16,11 +16,26 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
 
+/**
+ * Класс для конфигурации и запуска Liquibase миграций базы данных.
+ * <p>
+ * Этот класс реализует паттерн Singleton и автоматически выполняет миграции базы данных
+ * при его создании. Он использует конфигурацию базы данных из {@link DatabaseConfig}.
+ * </p>
+ */
 @Slf4j
 public class LiquibaseBaseConfig {
     private static final LiquibaseBaseConfig INSTANCE = new LiquibaseBaseConfig();
     private static Properties properties;
 
+    /**
+     * Приватный конструктор класса, который выполняет миграции базы данных
+     * с использованием Liquibase при создании объекта.
+     * <p>
+     * Конструктор загружает конфигурацию базы данных, инициализирует Liquibase
+     * и выполняет обновление схемы базы данных на основе указанного changelog.
+     * </p>
+     */
     private LiquibaseBaseConfig(){
         try {
             try (Connection connection = DatabaseConfig.getConnection()) {
@@ -38,6 +53,15 @@ public class LiquibaseBaseConfig {
         }
     }
 
+    /**
+     * Возвращает путь к файлу changelog для Liquibase.
+     * <p>
+     * Метод загружает файл свойств, если он еще не был загружен, и извлекает путь к changelog
+     * из файла свойств.
+     * </p>
+     *
+     * @return путь к файлу changelog.
+     */
     private String getChangelogPath(){
         if(properties ==null){
             properties =new Properties();
@@ -49,7 +73,15 @@ public class LiquibaseBaseConfig {
         }
         return properties.getProperty("liquibase.changelogPath");
     }
-
+    /**
+     * Возвращает единственный экземпляр класса {@link LiquibaseBaseConfig}.
+     * <p>
+     * Используется для получения доступа к экземпляру и выполнения миграций
+     * в других частях программы.
+     * </p>
+     *
+     * @return экземпляр класса {@link LiquibaseBaseConfig}.
+     */
     public static LiquibaseBaseConfig get() {
         return INSTANCE;
     }

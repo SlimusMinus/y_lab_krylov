@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.config.DatabaseConfig;
 import org.example.model.Order;
 import org.example.repository.OrderStorage;
+import org.example.util.NotFoundException;
 
 import java.io.IOException;
 import java.sql.*;
@@ -12,11 +13,24 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+/**
+ * Реализация интерфейса {@link OrderStorage} для управления данными заказов в базе данных с использованием JDBC.
+ * <p>
+ * Этот класс предоставляет методы для создания, получения, обновления и удаления заказов, а также для фильтрации
+ * списка заказов на основе заданных критериев.
+ * </p>
+ */
 @Slf4j
 public class OrderStorageJdbc implements OrderStorage {
 
     private Connection connection;
 
+    /**
+     * Конструктор класса, устанавливающий соединение с базой данных.
+     * <p>
+     * В случае ошибки при подключении, выбрасывается исключение {@link RuntimeException}.
+     * </p>
+     */
     public OrderStorageJdbc() throws RuntimeException {
         try {
             connection = DatabaseConfig.getConnection();
@@ -25,6 +39,11 @@ public class OrderStorageJdbc implements OrderStorage {
         }
     }
 
+    /**
+     * Создает новый заказ в базе данных.
+     *
+     * @param order Объект {@link Order}, который нужно создать.
+     */
     @Override
     public void create(Order order) {
         String query = "INSERT INTO car_shop.orders (user_id, car_id, date, status) VALUES (?,?,?,?)";
@@ -42,6 +61,11 @@ public class OrderStorageJdbc implements OrderStorage {
         }
     }
 
+    /**
+     * Возвращает список всех заказов из базы данных.
+     *
+     * @return Список объектов {@link Order}.
+     */
     @Override
     public List<Order> getAll() {
         List<Order> orders = new ArrayList<>();
@@ -64,42 +88,91 @@ public class OrderStorageJdbc implements OrderStorage {
         return orders;
     }
 
+    /**
+     * Возвращает заказ из базы данных по его идентификатору.
+     *
+     * @param id Идентификатор заказа.
+     * @return Объект {@link Order} с заданным идентификатором, или пустой объект в случае ошибки.
+     */
     @Override
     public Order getById(int id) {
-        Order newOrder = new Order();
-        String query = "SELECT * FROM car_shop.orders where order_id=?";
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, id);
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                newOrder.setOrderId(resultSet.getInt("order_id"));
-                newOrder.setUserId(resultSet.getInt("user_id"));
-                newOrder.setCarId(resultSet.getInt("car_id"));
-                newOrder.setDate(resultSet.getDate("date").toLocalDate());
-                newOrder.setStatus(resultSet.getString("status"));
+        if (id > getAll().size()) {
+            log.error("Not found order with id {}", id);
+            throw new NotFoundException("Id такого пользователя не существует");
+        } else {
+            Order newOrder = new Order();
+            String query = "SELECT * FROM car_shop.orders where order_id=?";
+            try (PreparedStatement statement = connection.prepareStatement(query)) {
+                statement.setInt(1, id);
+                ResultSet resultSet = statement.executeQuery();
+                while (resultSet.next()) {
+                    newOrder.setOrderId(resultSet.getInt("order_id"));
+                    newOrder.setUserId(resultSet.getInt("user_id"));
+                    newOrder.setCarId(resultSet.getInt("car_id"));
+                    newOrder.setDate(resultSet.getDate("date").toLocalDate());
+                    newOrder.setStatus(resultSet.getString("status"));
+                }
+            } catch (SQLException e) {
+                log.error("Error fetching orders with id {}", id, e);
             }
-        } catch (SQLException e) {
-            log.error("Error fetching orders with id {}", id, e);
+            return newOrder;
         }
-        return newOrder;
     }
 
+    /**
+     * Обновляет статус заказа в базе данных.
+     *
+     * @param id     Идентификатор заказа, статус которого нужно обновить.
+     * @param status Новый статус заказа.
+     */
     @Override
     public void changeStatus(int id, String status) {
-        updateOrder(id, status);
+        if (id > getAll().size()) {
+            log.error("Not found order with id {}", id);
+            throw new NotFoundException("Id такого пользователя не существует");
+        } else {
+            updateOrder(id, status);
+        }
     }
 
+    /**
+     * Отмечает заказ как отмененный.
+     *
+     * @param id Идентификатор заказа, который нужно отменить.
+     */
     @Override
     public void canceled(int id) {
-        updateOrder(id, "canceled");
+        if (id > getAll().size()) {
+            log.error("Not found order with id {}", id);
+            throw new NotFoundException("Id такого пользователя не существует");
+        } else {
+            updateOrder(id, "canceled");
+        }
     }
 
+    /**
+     * Фильтрует список заказов на основе заданного критерия.
+     * <p>
+     * Возвращает список заказов, удовлетворяющих заданному условию.
+     * </p>
+     *
+     * @param getter    Функция для получения поля объекта {@link Order}.
+     * @param predicate Условие, которое должно быть выполнено для включения заказа в результат.
+     * @param <T>       Тип возвращаемого значения функции getter.
+     * @return Список объектов {@link Order}, которые соответствуют условию.
+     */
     @Override
     public <T> List<Order> filter(Function<Order, T> getter, Predicate<T> predicate) {
         log.info("Get all find orders");
         return getAll().stream().filter(user -> predicate.test(getter.apply(user))).toList();
     }
 
+    /**
+     * Вспомогательный метод для обновления заказа в базе данных.
+     *
+     * @param id     Идентификатор заказа, который нужно обновить.
+     * @param status Новый статус заказа.
+     */
     private void updateOrder(int id, String status) {
         Order order = getById(id);
         String query = "UPDATE car_shop.orders SET user_id=?, car_id=?, date=?, status=? WHERE order_id=?";

@@ -1,5 +1,6 @@
-package org.example.repository.inMemory;
+package org.example.service;
 
+import org.example.repository.inMemory.UserStorageInMemory;
 import org.example.service.AuthService;
 import org.example.repository.UserStorage;
 import org.example.service.AuthServiceInMemory;
@@ -12,8 +13,8 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 
 @DisplayName("Проверка системы на ")
 class AuthServiceInMemoryTest {
-    private AuthService service = new AuthServiceInMemory();
-    private UserStorage userStorage = new UserStorageInMemory();
+    private final AuthService service = new AuthServiceInMemory();
+    private final UserStorage userStorage = new UserStorageInMemory();
 
     @Test
     @DisplayName("регистрацию нового пользователя")

@@ -10,12 +10,9 @@ import lombok.*;
  *
  * <p>Аннотации:</p>
  * <ul>
- *   <li>{@code @Getter} - автоматически создает геттеры для всех полей.</li>
- *   <li>{@code @Setter} - автоматически создает сеттеры для всех полей.</li>
+ *   <li>@Data - Генерирует методы getter, setter, toString, equals и hashCode.</li>
  *   <li>{@code @AllArgsConstructor} - создает конструктор с параметрами для всех полей.</li>
  *   <li>{@code @NoArgsConstructor} - создает конструктор без параметров.</li>
- *   <li>{@code @ToString} - автоматически создает метод {@code toString}.</li>
- *   <li>{@code @EqualsAndHashCode} - автоматически создает методы {@code equals} и {@code hashCode}.</li>
  * </ul>
  */
 @Data

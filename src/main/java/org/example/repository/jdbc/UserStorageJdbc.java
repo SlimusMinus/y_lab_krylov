@@ -14,10 +14,23 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+/**
+ * Реализация интерфейса {@link UserStorage} для управления данными пользователей в базе данных с использованием JDBC.
+ * <p>
+ * Этот класс предоставляет методы для получения, фильтрации, сортировки и обновления данных пользователей в базе данных.
+ * </p>
+ */
 @Slf4j
 public class UserStorageJdbc implements UserStorage {
 
     private Connection connection;
+
+    /**
+     * Конструктор класса, устанавливающий соединение с базой данных.
+     * <p>
+     * В случае ошибки при подключении, выбрасывается исключение {@link RuntimeException}.
+     * </p>
+     */
     public UserStorageJdbc() {
         try {
             connection = DatabaseConfig.getConnection();
@@ -26,6 +39,14 @@ public class UserStorageJdbc implements UserStorage {
         }
     }
 
+    /**
+     * Возвращает список всех пользователей из базы данных.
+     * <p>
+     * Пользователи извлекаются из таблицы {@code car_shop.user} и создаются объекты {@link User}.
+     * </p>
+     *
+     * @return Список всех пользователей.
+     */
     @Override
     public List<User> getAll() {
         List <User> users = new ArrayList<>();
@@ -48,12 +69,33 @@ public class UserStorageJdbc implements UserStorage {
         return users;
     }
 
+    /**
+     * Фильтрует пользователей на основе заданного предиката.
+     * <p>
+     * Пользователи сначала извлекаются из базы данных, затем фильтруются с использованием предоставленного предиката.
+     * </p>
+     *
+     * @param <T> Тип значения, на основе которого выполняется фильтрация.
+     * @param getter Функция для извлечения значения из объекта {@link User}.
+     * @param predicate Предикат для проверки значений.
+     * @return Отфильтрованный список пользователей.
+     */
     @Override
     public <T> List<User> filter(Function<User, T> getter, Predicate<T> predicate) {
         log.info("Get all users after filter");
         return getAll().stream().filter(user -> predicate.test(getter.apply(user))).toList();
     }
 
+    /**
+     * Сортирует пользователей на основе указанного ключа.
+     * <p>
+     * Пользователи сначала извлекаются из базы данных, затем сортируются с использованием предоставленного ключа.
+     * </p>
+     *
+     * @param <T> Тип ключа для сортировки, который должен реализовывать {@link Comparable}.
+     * @param keyExtractor Функция для извлечения ключа из объекта {@link User}.
+     * @return Отсортированный список пользователей.
+     */
     @Override
     public <T extends Comparable<T>> List<User> sort(Function<User, T> keyExtractor) {
         log.info("Get all users after sort");
@@ -61,6 +103,15 @@ public class UserStorageJdbc implements UserStorage {
                 .sorted(Comparator.comparing(keyExtractor)).toList();
     }
 
+    /**
+     * Обновляет информацию о пользователе в базе данных.
+     * <p>
+     * Обновляются поля {@code login}, {@code password}, {@code name}, {@code age} и {@code city} для пользователя с указанным идентификатором.
+     * </p>
+     *
+     * @param user Объект {@link User}, содержащий обновленную информацию.
+     * @return Обновленный объект {@link User}.
+     */
     @Override
     public User update(User user) {
         log.info("User {} user was changed", user);

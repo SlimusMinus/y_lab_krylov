@@ -7689,3 +7689,1175 @@ org.postgresql.util.PSQLException: ERROR: update or delete on table "car" violat
 2024-08-09 16:41:31,601 INFO  org.example.service.AuthServiceInMemory.registeredUser:27 - New user is User(userId=0, login=master, password=master, name=Tom, age=78, city=Tokyo, role=null, orders=null) added
 2024-08-09 16:41:31,602 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
 2024-08-09 16:41:31,602 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-09 18:30:51,297 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-09 18:30:51,302 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-09 18:30:51,385 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-09 18:30:51,606 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-09 18:30:51,857 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-09 18:30:51,859 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-09 18:30:51,874 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-09 18:30:51,898 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-09 18:30:52,122 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-09 18:30:52,253 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: c29597dbf4dd479b0eded6b53632d1a3e4ebf95fa10c600f5d126072f8c6f5e2
+2024-08-09 18:30:52,766 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.8677476S
+2024-08-09 18:30:52,771 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-09 18:30:52,772 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-09 18:30:52,772 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-09 18:30:52,773 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-09 18:30:52,854 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: c328a4f0acb6fe3a95a25d586e0e526bfc1d8da8d5eaedecc3d794d345d3a067
+2024-08-09 18:30:56,419 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.6460723S
+2024-08-09 18:30:56,420 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:2636/test_db?loggerLevel=OFF)
+2024-08-09 18:30:56,621 INFO  org.example.repository.jdbc.CarStorageJdbc.delete:76 - Car with id 4 is deleting
+2024-08-09 18:30:56,630 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 18:30:56,724 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 18:30:56,732 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 18:30:56,735 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 18:30:56,772 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good)]
+2024-08-09 18:30:56,796 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=6, brand=Toyota, model=Camry, year=2022, price=15800.0, condition=good)]
+2024-08-09 18:30:56,798 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=6, brand=Toyota, model=Camry, year=2022, price=15800.0, condition=good)]
+2024-08-09 18:30:56,822 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 18:30:56,824 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 18:35:07,430 INFO  org.example.service.AuthServiceInMemory.delete:72 - Car with id - 1 removed
+2024-08-09 18:35:07,474 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-09 18:35:07,477 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-09 18:35:07,479 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-09 18:35:07,488 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-09 18:35:07,488 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-09 18:35:07,490 INFO  org.example.service.AuthServiceInMemory.saveOrUpdate:57 - Car Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good) updated
+2024-08-09 18:35:07,496 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-09 18:35:07,498 INFO  org.example.service.AuthServiceInMemory.saveOrUpdate:52 - Car Car(id=0, brand=Toyota, model=Camry, year=2022, price=15800.0, condition=good) added
+2024-08-09 18:35:07,498 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-09 18:35:07,498 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-09 18:35:07,532 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-09 18:35:07,534 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-09 18:35:07,593 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-09 18:35:07,737 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-09 18:35:07,936 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-09 18:35:07,937 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-09 18:35:07,954 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-09 18:35:07,974 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-09 18:35:08,167 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-09 18:35:08,350 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: 3a3496257bdbc7615a0b8c4cdab04cd4908b491b5a8d23732a95f89d23dda670
+2024-08-09 18:35:08,769 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.7959088S
+2024-08-09 18:35:08,774 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-09 18:35:08,775 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-09 18:35:08,775 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-09 18:35:08,776 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-09 18:35:08,906 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: e94c24ae0446f6c6a177a9e692cbbda913017d7969d7d44dcf391bb277c9b9a8
+2024-08-09 18:35:12,196 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.4205746S
+2024-08-09 18:35:12,197 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:2719/test_db?loggerLevel=OFF)
+2024-08-09 18:35:12,336 INFO  org.example.repository.jdbc.CarStorageJdbc.delete:76 - Car with id 4 is deleting
+2024-08-09 18:35:12,342 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 18:35:12,370 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 18:35:12,371 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 18:35:12,373 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 18:35:12,399 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good)]
+2024-08-09 18:35:12,424 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 18:35:12,425 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 18:35:12,457 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 18:35:12,459 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 18:35:13,006 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-09 18:35:13,137 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 614f97f2048857ec63ff543c2fefd16de5ab6a0ff039c76c73fce5279779ce08
+2024-08-09 18:35:16,238 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.2326062S
+2024-08-09 18:35:16,239 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:2730/test_db?loggerLevel=OFF)
+2024-08-09 18:35:16,265 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:53 - Get all users after filter
+2024-08-09 18:35:16,268 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:53 - Get all users after filter
+2024-08-09 18:35:16,269 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:53 - Get all users after filter
+2024-08-09 18:35:16,321 INFO  org.example.repository.jdbc.UserStorageJdbc.update:66 - User User(userId=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=null, orders=null) user was changed
+2024-08-09 18:35:16,353 INFO  org.example.repository.jdbc.UserStorageJdbc.sort:59 - Get all users after sort
+2024-08-09 18:35:16,355 INFO  org.example.repository.jdbc.UserStorageJdbc.sort:59 - Get all users after sort
+2024-08-09 18:35:16,890 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-09 18:35:17,054 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: d3bc0f51518ad255cde6632ca5b8790e43ad2a92a7784a4396e2c497deaedabc
+2024-08-09 18:35:20,149 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.2590068S
+2024-08-09 18:35:20,150 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:2741/test_db?loggerLevel=OFF)
+2024-08-09 18:35:20,205 INFO  org.example.repository.jdbc.OrderStorageJdbc.filter:99 - Get all find orders
+2024-08-09 18:35:20,875 INFO  org.example.service.AuthServiceInMemory.loginUser:47 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=[Roles.ADMINISTRATOR(title=Администратор)], orders=null) is logging
+2024-08-09 18:35:20,875 INFO  org.example.service.AuthServiceInMemory.loginUser:47 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=[Roles.CLIENT(title=Клиент)], orders=[Order(orderId=2, userId=5, carId=4, date=2024-11-11, status=successfully)]) is logging
+2024-08-09 18:35:20,878 INFO  org.example.service.AuthServiceInMemory.loginUser:51 - Uncorrected input login qwerty and password qwerty
+2024-08-09 18:35:20,879 INFO  org.example.service.AuthServiceInMemory.registeredUser:27 - New user is User(userId=0, login=master, password=master, name=Tom, age=78, city=Tokyo, role=null, orders=null) added
+2024-08-09 18:35:20,880 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-09 18:35:20,880 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-09 18:35:20,883 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-09 18:35:20,884 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-09 18:35:20,885 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-09 18:35:20,886 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-09 18:35:20,887 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-09 18:35:20,888 INFO  org.example.service.AuthServiceInMemory.update:75 - User User(userId=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=null, orders=null) user was changed
+2024-08-09 18:35:20,889 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-09 18:35:21,003 INFO  org.example.service.AuthServiceInMemory.create:44 - Order - Order(orderId=3, userId=3, carId=5, date=2024-10-10, status=successfully) is created
+2024-08-09 18:35:21,004 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-09 18:35:21,004 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-09 18:35:21,006 INFO  org.example.service.AuthServiceInMemory.filter:113 - Get all find orders
+2024-08-09 18:35:21,008 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-09 18:35:21,009 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-09 18:35:21,010 INFO  org.example.service.AuthServiceInMemory.canceled:97 - Order with 2 id is canceled
+2024-08-09 18:35:21,011 INFO  org.example.service.AuthServiceInMemory.changeStatus:83 - Change status on is ready, repository order with 1 id
+2024-08-09 18:37:53,458 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-09 18:37:53,462 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-09 18:37:53,854 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-09 18:37:53,998 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-09 18:37:54,181 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-09 18:39:16,416 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-09 18:39:16,420 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-09 18:39:16,491 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-09 18:39:16,668 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-09 18:39:16,851 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-09 18:39:56,348 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-09 18:39:56,352 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-09 18:39:56,554 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-09 18:39:56,719 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-09 18:39:56,895 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-09 18:39:56,896 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-09 18:39:56,909 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-09 18:39:56,931 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-09 18:39:57,141 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-09 18:39:57,303 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: 07c1e4980767048d3c027cbe3d415622941ba8915c66cec56152dd6fd3b21884
+2024-08-09 18:39:57,646 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.7151633S
+2024-08-09 18:39:57,651 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-09 18:39:57,651 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-09 18:39:57,652 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-09 18:39:57,652 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-09 18:39:57,785 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 39d73b4eb45f12b8db81c3ae142651c009823a16c0731ec7453788b4faf0ce3c
+2024-08-09 18:40:00,882 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.2300343S
+2024-08-09 18:40:00,883 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:2821/test_db?loggerLevel=OFF)
+2024-08-09 18:40:01,073 INFO  org.example.service.AuthServiceJdbc.loginUser:62 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=null, orders=null) is logging
+2024-08-09 18:40:01,112 INFO  org.example.service.AuthServiceJdbc.loginUser:62 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=null, orders=null) is logging
+2024-08-09 18:40:01,113 INFO  org.example.service.AuthServiceJdbc.loginUser:66 - Uncorrected input login qwerty and password qwerty
+2024-08-09 18:43:24,041 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-09 18:43:24,046 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-09 18:43:24,256 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-09 18:43:24,426 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-09 18:43:24,601 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-09 18:43:24,602 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-09 18:43:24,615 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-09 18:43:24,635 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-09 18:43:24,826 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-09 18:43:24,945 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: 8dc838ab33d09f918ad63bdace3d661b9c04a377e56f6d01e8af15ba6851c008
+2024-08-09 18:43:25,299 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.6639893S
+2024-08-09 18:43:25,303 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-09 18:43:25,303 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-09 18:43:25,303 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-09 18:43:25,304 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-09 18:43:25,380 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 1f645f36d487421a69c3c13f2bb85a424bb5bcb5cd9a45c1848cafab62fb809a
+2024-08-09 18:43:28,222 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT2.9184011S
+2024-08-09 18:43:28,223 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:2857/test_db?loggerLevel=OFF)
+2024-08-09 18:50:01,134 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-09 18:50:01,138 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-09 18:50:01,338 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-09 18:50:01,509 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-09 18:50:01,699 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-09 18:50:01,700 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-09 18:50:01,713 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-09 18:50:01,733 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-09 18:50:01,920 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-09 18:50:02,068 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: 5ce6dbbcc900c12feefe949ef38320c02af148ec8f0fdd70414fbf2b16944975
+2024-08-09 18:50:02,422 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.6885628S
+2024-08-09 18:50:02,426 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-09 18:50:02,427 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-09 18:50:02,427 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-09 18:50:02,428 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-09 18:50:02,561 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 26cc219af99cd5d5571089bd58d70c3d8cbff4624dec49aaba2b6e222e01afee
+2024-08-09 18:50:05,510 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.0820122S
+2024-08-09 18:50:05,512 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:2920/test_db?loggerLevel=OFF)
+2024-08-09 18:51:11,547 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-09 18:51:11,552 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-09 18:51:11,765 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-09 18:51:11,936 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-09 18:51:12,109 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-09 18:51:12,110 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-09 18:51:12,124 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-09 18:51:12,144 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-09 18:51:12,347 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-09 18:51:12,500 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: 7519a403c82caf22f4e7c4835b8c0e91cfa32c65c59064ac8341bbdf20878b05
+2024-08-09 18:51:12,860 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.7160561S
+2024-08-09 18:51:12,864 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-09 18:51:12,865 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-09 18:51:12,865 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-09 18:51:12,866 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-09 18:51:12,994 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 20e695f0c94b3fa6d0789c5bb021e816d85f31118eddaab93009ad1468016aeb
+2024-08-09 18:51:15,961 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.0950145S
+2024-08-09 18:51:15,961 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:2938/test_db?loggerLevel=OFF)
+2024-08-09 18:53:26,634 INFO  org.example.service.AuthServiceInMemory.delete:72 - Car with id - 1 removed
+2024-08-09 18:53:26,675 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-09 18:53:26,678 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-09 18:53:26,678 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-09 18:53:26,687 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-09 18:53:26,688 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-09 18:53:26,689 INFO  org.example.service.AuthServiceInMemory.saveOrUpdate:57 - Car Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good) updated
+2024-08-09 18:53:26,695 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-09 18:53:26,696 INFO  org.example.service.AuthServiceInMemory.saveOrUpdate:52 - Car Car(id=0, brand=Toyota, model=Camry, year=2022, price=15800.0, condition=good) added
+2024-08-09 18:53:26,696 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-09 18:53:26,696 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-09 18:53:26,726 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-09 18:53:26,728 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-09 18:53:26,783 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-09 18:53:26,932 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-09 18:53:27,102 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-09 18:53:27,103 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-09 18:53:27,117 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-09 18:53:27,134 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-09 18:53:27,330 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-09 18:53:27,479 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: 88b5227ef6e87473531c6215dd7d142c734b60ed0206409b35c401936cda95b2
+2024-08-09 18:53:27,830 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.6965353S
+2024-08-09 18:53:27,835 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-09 18:53:27,836 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-09 18:53:27,836 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-09 18:53:27,837 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-09 18:53:27,968 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: cea2b4ae040179e56cf33de609b562b3aafc8b2996b62fbadce2b169d883dd67
+2024-08-09 18:53:30,866 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.0293321S
+2024-08-09 18:53:30,867 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:2968/test_db?loggerLevel=OFF)
+2024-08-09 18:53:31,009 INFO  org.example.repository.jdbc.CarStorageJdbc.delete:76 - Car with id 4 is deleting
+2024-08-09 18:53:31,015 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 18:53:31,049 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 18:53:31,051 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 18:53:31,052 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 18:53:31,082 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good)]
+2024-08-09 18:53:31,107 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 18:53:31,108 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 18:53:31,144 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 18:53:31,146 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 18:53:31,673 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-09 18:53:31,790 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 19ae7fd511834ef96bdce25590884a1848591245329c6b602ee9dde77fbe968f
+2024-08-09 18:53:34,746 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.0723811S
+2024-08-09 18:53:34,746 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:2980/test_db?loggerLevel=OFF)
+2024-08-09 18:53:34,774 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:53 - Get all users after filter
+2024-08-09 18:53:34,777 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:53 - Get all users after filter
+2024-08-09 18:53:34,780 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:53 - Get all users after filter
+2024-08-09 18:53:34,840 INFO  org.example.repository.jdbc.UserStorageJdbc.update:66 - User User(userId=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=null, orders=null) user was changed
+2024-08-09 18:53:34,877 INFO  org.example.repository.jdbc.UserStorageJdbc.sort:59 - Get all users after sort
+2024-08-09 18:53:34,880 INFO  org.example.repository.jdbc.UserStorageJdbc.sort:59 - Get all users after sort
+2024-08-09 18:53:35,430 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-09 18:53:35,545 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 7ac65aafb8f1d5255e6b08f4f6dbd68f511b6222f877044ab1ff3106783f6947
+2024-08-09 18:53:38,489 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.059135S
+2024-08-09 18:53:38,489 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:2989/test_db?loggerLevel=OFF)
+2024-08-09 18:53:38,540 INFO  org.example.repository.jdbc.OrderStorageJdbc.filter:99 - Get all find orders
+2024-08-09 18:53:39,132 INFO  org.example.service.AuthServiceInMemory.loginUser:47 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=[Roles.ADMINISTRATOR(title=Администратор)], orders=null) is logging
+2024-08-09 18:53:39,133 INFO  org.example.service.AuthServiceInMemory.loginUser:47 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=[Roles.CLIENT(title=Клиент)], orders=[Order(orderId=2, userId=5, carId=4, date=2024-11-11, status=successfully)]) is logging
+2024-08-09 18:53:39,137 INFO  org.example.service.AuthServiceInMemory.loginUser:51 - Uncorrected input login qwerty and password qwerty
+2024-08-09 18:53:39,138 INFO  org.example.service.AuthServiceInMemory.registeredUser:27 - New user is User(userId=7, login=master, password=master, name=Tom, age=78, city=Tokyo, role=[Roles.ADMINISTRATOR(title=Администратор), Roles.MANGER(title=Менеджер)], orders=null) added
+2024-08-09 18:53:39,139 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-09 18:53:39,139 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-09 18:53:39,143 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-09 18:53:39,144 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-09 18:53:39,149 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-09 18:53:39,151 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-09 18:53:39,151 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-09 18:53:39,153 INFO  org.example.service.AuthServiceInMemory.update:75 - User User(userId=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=null, orders=null) user was changed
+2024-08-09 18:53:39,153 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-09 18:53:39,155 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-09 18:53:39,278 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 5e6e567a111dc2fe468408143a8bd61f35019cbb33e941cd6967bdf415c19c70
+2024-08-09 18:53:42,233 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.0778827S
+2024-08-09 18:53:42,233 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:3002/test_db?loggerLevel=OFF)
+2024-08-09 18:53:42,273 INFO  org.example.service.AuthServiceJdbc.loginUser:62 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=null, orders=null) is logging
+2024-08-09 18:53:42,274 INFO  org.example.service.AuthServiceJdbc.loginUser:62 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=null, orders=null) is logging
+2024-08-09 18:53:42,275 INFO  org.example.service.AuthServiceJdbc.loginUser:66 - Uncorrected input login qwerty and password qwerty
+2024-08-09 18:53:42,894 INFO  org.example.service.AuthServiceInMemory.create:44 - Order - Order(orderId=3, userId=3, carId=5, date=2024-10-10, status=successfully) is created
+2024-08-09 18:53:42,894 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-09 18:53:42,895 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-09 18:53:42,897 INFO  org.example.service.AuthServiceInMemory.filter:113 - Get all find orders
+2024-08-09 18:53:42,900 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-09 18:53:42,900 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-09 18:53:42,901 INFO  org.example.service.AuthServiceInMemory.canceled:97 - Order with 2 id is canceled
+2024-08-09 18:53:42,903 INFO  org.example.service.AuthServiceInMemory.changeStatus:83 - Change status on is ready, repository order with 1 id
+2024-08-09 19:16:01,013 WARN  org.example.repository.jdbc.RoleStorageJdbc.getAll:47 - Unknown role: Администратор
+2024-08-09 19:16:01,014 WARN  org.example.repository.jdbc.RoleStorageJdbc.getAll:47 - Unknown role: Менеджер
+2024-08-09 19:16:30,639 WARN  org.example.repository.jdbc.RoleStorageJdbc.getAll:47 - Unknown role: Менеджер
+2024-08-09 21:24:21,422 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-09 21:24:21,427 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-09 21:24:21,633 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-09 21:24:21,802 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-09 21:24:21,993 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-09 21:24:21,995 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-09 21:24:22,011 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-09 21:24:22,034 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-09 21:24:22,233 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-09 21:24:22,398 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: 82bec138842f032edd798b3d6f777592037016fd778822a42edda6aaeb9cb52b
+2024-08-09 21:24:22,752 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.7169466S
+2024-08-09 21:24:22,756 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-09 21:24:22,757 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-09 21:24:22,757 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-09 21:24:22,758 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-09 21:24:22,887 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 20463c5769cffa9dcf980483639e94aa4d128c03ea0a534a12a5cbccb1ebac7c
+2024-08-09 21:24:25,947 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.1889728S
+2024-08-09 21:24:25,947 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:9439/test_db?loggerLevel=OFF)
+2024-08-09 21:29:21,658 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-09 21:29:21,663 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-09 21:29:21,863 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-09 21:29:22,029 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-09 21:29:22,204 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-09 21:29:22,205 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-09 21:29:22,220 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-09 21:29:22,244 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-09 21:29:22,455 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-09 21:29:22,677 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: 3f6c48e4d8dc007fcb1b0e6e7df5d26f2a1480ba2ba9d21fde17d83f59cc26b2
+2024-08-09 21:29:23,082 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.8372432S
+2024-08-09 21:29:23,087 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-09 21:29:23,088 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-09 21:29:23,088 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-09 21:29:23,089 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-09 21:29:23,275 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 490de15333aba3042d81aa0db9e981851ebcdc17ecd36e7858407e42636288bc
+2024-08-09 21:29:26,339 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.2503452S
+2024-08-09 21:29:26,340 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:9537/test_db?loggerLevel=OFF)
+2024-08-09 21:30:10,151 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-09 21:30:10,155 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-09 21:30:10,359 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-09 21:30:10,531 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-09 21:30:10,715 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-09 21:30:10,716 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-09 21:30:10,730 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-09 21:30:10,750 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-09 21:30:10,951 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-09 21:30:11,159 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: 6a0a28859bbc90c19e14ef3e1ec90a013af4abd1fd9e3195fe30cf5568d66d4f
+2024-08-09 21:30:11,532 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.7819927S
+2024-08-09 21:30:11,536 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-09 21:30:11,537 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-09 21:30:11,537 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-09 21:30:11,538 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-09 21:30:11,716 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 69f6405b12779fdfe27be8aceb6ff1532ef1b52411e7e48ec791d2f7d31cd43a
+2024-08-09 21:30:15,117 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.578895S
+2024-08-09 21:30:15,118 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:9562/test_db?loggerLevel=OFF)
+2024-08-09 21:32:41,380 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-09 21:32:41,384 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-09 21:32:41,583 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-09 21:32:41,760 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-09 21:32:41,935 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-09 21:32:41,937 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-09 21:32:41,950 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-09 21:32:41,971 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-09 21:32:42,173 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-09 21:32:42,387 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: 7ac16c94c627a5b6fa726e8e4e6d8f9ff052f8eef3a2f1cfbfadf2b2e26b4743
+2024-08-09 21:32:42,810 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.8388358S
+2024-08-09 21:32:42,816 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-09 21:32:42,816 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-09 21:32:42,817 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-09 21:32:42,817 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-09 21:32:43,024 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 623d97a494afbeb59324261bc2098e75b8a8a4ef087fac436735120852370647
+2024-08-09 21:32:46,104 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.2860193S
+2024-08-09 21:32:46,104 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:9584/test_db?loggerLevel=OFF)
+2024-08-09 21:32:54,926 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-09 21:32:54,930 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-09 21:32:54,989 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-09 21:32:55,165 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-09 21:32:55,349 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-09 21:32:55,350 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-09 21:32:55,363 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-09 21:32:55,385 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-09 21:32:55,585 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-09 21:32:55,768 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: 165a13c615145eb0dd037fd2b14d36be64097fbb534cfc936c1bbd788f6039d1
+2024-08-09 21:32:56,149 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.7637319S
+2024-08-09 21:32:56,155 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-09 21:32:56,156 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-09 21:32:56,156 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-09 21:32:56,157 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-09 21:32:56,349 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 5cc8dc0de29da547cd59669b9f0d24bb25a03b22369cf680db90b5805b9accd8
+2024-08-09 21:32:59,446 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.2894084S
+2024-08-09 21:32:59,447 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:9596/test_db?loggerLevel=OFF)
+2024-08-09 21:32:59,644 INFO  org.example.service.AuthServiceJdbc.loginUser:62 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=null, orders=null) is logging
+2024-08-09 21:32:59,682 INFO  org.example.service.AuthServiceJdbc.loginUser:62 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=null, orders=null) is logging
+2024-08-09 21:32:59,683 INFO  org.example.service.AuthServiceJdbc.loginUser:66 - Uncorrected input login qwerty and password qwerty
+2024-08-09 21:37:38,840 INFO  org.example.service.AuthServiceInMemory.delete:72 - Car with id - 1 removed
+2024-08-09 21:37:38,879 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-09 21:37:38,880 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-09 21:37:38,881 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-09 21:37:38,890 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-09 21:37:38,891 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-09 21:37:38,892 INFO  org.example.service.AuthServiceInMemory.saveOrUpdate:57 - Car Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good) updated
+2024-08-09 21:37:38,897 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-09 21:37:38,898 INFO  org.example.service.AuthServiceInMemory.saveOrUpdate:52 - Car Car(id=0, brand=Toyota, model=Camry, year=2022, price=15800.0, condition=good) added
+2024-08-09 21:37:38,899 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-09 21:37:38,899 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-09 21:37:38,928 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-09 21:37:38,931 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-09 21:37:38,990 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-09 21:37:39,147 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-09 21:37:39,319 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-09 21:37:39,321 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-09 21:37:39,335 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-09 21:37:39,354 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-09 21:37:39,558 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-09 21:37:39,709 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: a5e068077e954190a1e277483cbbbe340d31be9c2cb02b67dc252a9cac7ff33c
+2024-08-09 21:37:40,082 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.7285889S
+2024-08-09 21:37:40,087 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-09 21:37:40,087 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-09 21:37:40,088 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-09 21:37:40,088 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-09 21:37:40,202 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 1bf835fd407585029b5da73c38a074e1e80b80c72f597044573aec5971e72f00
+2024-08-09 21:37:44,278 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT4.1899909S
+2024-08-09 21:37:44,279 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:9682/test_db?loggerLevel=OFF)
+2024-08-09 21:37:44,429 INFO  org.example.repository.jdbc.CarStorageJdbc.delete:76 - Car with id 4 is deleting
+2024-08-09 21:37:44,436 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 21:37:44,470 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 21:37:44,473 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 21:37:44,475 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 21:37:44,505 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good)]
+2024-08-09 21:37:44,531 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 21:37:44,532 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 21:37:44,565 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 21:37:44,567 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:47 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-09 21:37:45,066 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-09 21:37:45,174 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: dddc098a93fa8690149062355086f769ee200986f298c078d96f9ff4db58dfc6
+2024-08-09 21:37:48,167 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.1015884S
+2024-08-09 21:37:48,168 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:9693/test_db?loggerLevel=OFF)
+2024-08-09 21:37:48,193 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:53 - Get all users after filter
+2024-08-09 21:37:48,195 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:53 - Get all users after filter
+2024-08-09 21:37:48,196 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:53 - Get all users after filter
+2024-08-09 21:37:48,244 INFO  org.example.repository.jdbc.UserStorageJdbc.update:66 - User User(userId=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=null, orders=null) user was changed
+2024-08-09 21:37:48,273 INFO  org.example.repository.jdbc.UserStorageJdbc.sort:59 - Get all users after sort
+2024-08-09 21:37:48,275 INFO  org.example.repository.jdbc.UserStorageJdbc.sort:59 - Get all users after sort
+2024-08-09 21:37:48,728 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-09 21:37:48,844 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 85eb3d31b2e438c25db057a2238d6eb076d611d46e471b8c544982cc2671111c
+2024-08-09 21:37:51,787 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.058945S
+2024-08-09 21:37:51,787 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:9702/test_db?loggerLevel=OFF)
+2024-08-09 21:37:51,844 INFO  org.example.repository.jdbc.OrderStorageJdbc.filter:99 - Get all find orders
+2024-08-09 21:37:52,460 INFO  org.example.service.AuthServiceInMemory.loginUser:47 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=[Roles.ADMINISTRATOR(title=Администратор)], orders=null) is logging
+2024-08-09 21:37:52,460 INFO  org.example.service.AuthServiceInMemory.loginUser:47 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=[Roles.CLIENT(title=Клиент)], orders=[Order(orderId=2, userId=5, carId=4, date=2024-11-11, status=successfully)]) is logging
+2024-08-09 21:37:52,463 INFO  org.example.service.AuthServiceInMemory.loginUser:51 - Uncorrected input login qwerty and password qwerty
+2024-08-09 21:37:52,465 INFO  org.example.service.AuthServiceInMemory.registeredUser:27 - New user is User(userId=7, login=master, password=master, name=Tom, age=78, city=Tokyo, role=[Roles.ADMINISTRATOR(title=Администратор), Roles.MANAGER(title=Менеджер)], orders=null) added
+2024-08-09 21:37:52,465 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-09 21:37:52,465 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-09 21:37:52,473 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-09 21:37:52,474 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-09 21:37:52,475 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-09 21:37:52,476 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-09 21:37:52,476 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-09 21:37:52,478 INFO  org.example.service.AuthServiceInMemory.update:75 - User User(userId=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=null, orders=null) user was changed
+2024-08-09 21:37:52,478 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-09 21:37:52,479 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-09 21:37:52,604 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 0c0675b00711ab2b5488c3f9aac2e3fd8f622bda7d8c20bcbdb1f2cd58922825
+2024-08-09 21:37:55,511 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.0310929S
+2024-08-09 21:37:55,511 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:9715/test_db?loggerLevel=OFF)
+2024-08-09 21:37:55,559 INFO  org.example.service.AuthServiceJdbc.loginUser:62 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=null, orders=null) is logging
+2024-08-09 21:37:55,560 INFO  org.example.service.AuthServiceJdbc.loginUser:62 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=null, orders=null) is logging
+2024-08-09 21:37:55,561 INFO  org.example.service.AuthServiceJdbc.loginUser:66 - Uncorrected input login qwerty and password qwerty
+2024-08-09 21:37:56,257 INFO  org.example.service.AuthServiceInMemory.create:44 - Order - Order(orderId=3, userId=3, carId=5, date=2024-10-10, status=successfully) is created
+2024-08-09 21:37:56,258 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-09 21:37:56,258 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-09 21:37:56,260 INFO  org.example.service.AuthServiceInMemory.filter:113 - Get all find orders
+2024-08-09 21:37:56,261 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-09 21:37:56,262 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-09 21:37:56,262 INFO  org.example.service.AuthServiceInMemory.canceled:97 - Order with 2 id is canceled
+2024-08-09 21:37:56,263 INFO  org.example.service.AuthServiceInMemory.changeStatus:83 - Change status on is ready, repository order with 1 id
+2024-08-09 21:40:34,580 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-09 21:40:34,584 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-09 21:40:34,641 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-09 21:40:34,809 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-09 21:40:34,993 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-09 21:40:34,994 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-09 21:40:35,007 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-09 21:40:35,031 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-09 21:40:35,234 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-09 21:40:35,400 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: 60f10c70a76efffdb361b5c4cba613c8af70641d00da3aa602fd2d3c25e8720f
+2024-08-09 21:40:35,749 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.7177177S
+2024-08-09 21:40:35,754 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-09 21:40:35,754 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-09 21:40:35,755 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-09 21:40:35,755 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-09 21:40:35,908 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 525adf771dc1e149dc961d32be801f956e3ec8b2cbefc7c0fdc5c3bb82aa2782
+2024-08-09 21:40:38,981 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.2252682S
+2024-08-09 21:40:38,981 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:9749/test_db?loggerLevel=OFF)
+2024-08-09 21:40:39,175 INFO  org.example.service.AuthServiceJdbc.loginUser:62 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=null, orders=null) is logging
+2024-08-09 21:40:39,211 INFO  org.example.service.AuthServiceJdbc.loginUser:62 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=null, orders=null) is logging
+2024-08-09 21:40:39,212 INFO  org.example.service.AuthServiceJdbc.loginUser:66 - Uncorrected input login qwerty and password qwerty
+2024-08-10 14:12:08,118 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-10 14:12:08,121 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-10 14:12:08,182 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-10 14:12:08,422 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-10 14:12:08,649 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-10 14:12:08,650 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-10 14:12:08,664 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-10 14:12:08,688 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-10 14:12:08,927 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-10 14:12:09,070 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: c35e5ff96b0d726b4685537c7088b41e5de679494bda91c1ebafa2c0ca765383
+2024-08-10 14:12:09,450 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.7617843S
+2024-08-10 14:12:09,455 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-10 14:12:09,455 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-10 14:12:09,456 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-10 14:12:09,456 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:12:09,553 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 60ecb16c66a38957b707661cce930a3d4fd47651bdafdaf3ea221fd353ddcf68
+2024-08-10 14:12:12,558 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.1017646S
+2024-08-10 14:12:12,559 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5041/test_db?loggerLevel=OFF)
+2024-08-10 14:12:12,795 INFO  org.example.service.AuthServiceJdbc.loginUser:104 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=null, orders=null) is logging
+2024-08-10 14:12:12,839 INFO  org.example.service.AuthServiceJdbc.loginUser:104 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=null, orders=null) is logging
+2024-08-10 14:12:12,841 INFO  org.example.service.AuthServiceJdbc.loginUser:108 - Uncorrected input login qwerty and password qwerty
+2024-08-10 14:28:41,545 INFO  org.example.service.AuthServiceInMemory.delete:72 - Car with id - 1 removed
+2024-08-10 14:28:41,586 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-10 14:28:41,588 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-10 14:28:41,589 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-10 14:28:41,598 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 14:28:41,598 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 14:28:41,599 INFO  org.example.service.AuthServiceInMemory.saveOrUpdate:57 - Car Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good) updated
+2024-08-10 14:28:41,605 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 14:28:41,607 INFO  org.example.service.AuthServiceInMemory.saveOrUpdate:52 - Car Car(id=0, brand=Toyota, model=Camry, year=2022, price=15800.0, condition=good) added
+2024-08-10 14:28:41,607 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 14:28:41,608 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 14:28:41,638 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-10 14:28:41,640 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-10 14:28:41,698 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-10 14:28:41,854 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-10 14:28:42,030 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-10 14:28:42,032 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-10 14:28:42,045 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-10 14:28:42,063 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-10 14:28:42,250 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-10 14:28:42,362 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: b123c3a6cd8900c71ac6e6a97febdb6530aa910f95ff9f62d1633404f0ce6ff0
+2024-08-10 14:28:42,745 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.6824195S
+2024-08-10 14:28:42,750 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-10 14:28:42,750 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-10 14:28:42,750 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-10 14:28:42,751 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:28:42,827 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: feec94c31864e8a72f87668e8578d6ba9bc3b10a0a82310f5d3818fdeedacb91
+2024-08-10 14:28:45,784 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.0327039S
+2024-08-10 14:28:45,785 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5235/test_db?loggerLevel=OFF)
+2024-08-10 14:28:45,925 INFO  org.example.repository.jdbc.CarStorageJdbc.delete:109 - Car with id 4 is deleting
+2024-08-10 14:28:45,931 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:28:45,966 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:28:45,968 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:28:45,970 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:28:46,003 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good)]
+2024-08-10 14:28:46,033 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:28:46,034 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:28:46,074 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:28:46,077 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:28:46,537 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:28:46,612 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 10d487c3427c1cbb47db03064ee011f0e812b216450911cd940da94241e0cb4e
+2024-08-10 14:28:49,514 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT2.9768126S
+2024-08-10 14:28:49,515 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5246/test_db?loggerLevel=OFF)
+2024-08-10 14:28:49,540 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:85 - Get all users after filter
+2024-08-10 14:28:49,542 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:85 - Get all users after filter
+2024-08-10 14:28:49,544 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:85 - Get all users after filter
+2024-08-10 14:28:49,592 INFO  org.example.repository.jdbc.UserStorageJdbc.update:117 - User User(userId=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=null, orders=null) user was changed
+2024-08-10 14:28:49,621 INFO  org.example.repository.jdbc.UserStorageJdbc.sort:101 - Get all users after sort
+2024-08-10 14:28:49,623 INFO  org.example.repository.jdbc.UserStorageJdbc.sort:101 - Get all users after sort
+2024-08-10 14:28:50,099 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:28:50,175 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 4ab5d68e9f68989082499162cace29df62b2a8a352d95bda90662688e3cf2771
+2024-08-10 14:28:53,321 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.2221325S
+2024-08-10 14:28:53,322 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5255/test_db?loggerLevel=OFF)
+2024-08-10 14:28:53,375 INFO  org.example.repository.jdbc.OrderStorageJdbc.filter:150 - Get all find orders
+2024-08-10 14:28:53,910 INFO  org.example.service.AuthServiceInMemory.loginUser:47 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=[Roles.ADMINISTRATOR(title=Администратор)], orders=null) is logging
+2024-08-10 14:28:53,911 INFO  org.example.service.AuthServiceInMemory.loginUser:47 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=[Roles.CLIENT(title=Клиент)], orders=[Order(orderId=2, userId=5, carId=4, date=2024-11-11, status=successfully)]) is logging
+2024-08-10 14:28:53,920 INFO  org.example.service.AuthServiceInMemory.loginUser:51 - Uncorrected input login qwerty and password qwerty
+2024-08-10 14:28:53,922 INFO  org.example.service.AuthServiceInMemory.registeredUser:27 - New user is User(userId=7, login=master, password=master, name=Tom, age=78, city=Tokyo, role=[Roles.MANAGER(title=Менеджер), Roles.ADMINISTRATOR(title=Администратор)], orders=null) added
+2024-08-10 14:28:53,923 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 14:28:53,923 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 14:28:53,925 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-10 14:28:53,926 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-10 14:28:53,927 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-10 14:28:53,929 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 14:28:53,929 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 14:28:53,930 INFO  org.example.service.AuthServiceInMemory.update:75 - User User(userId=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=null, orders=null) user was changed
+2024-08-10 14:28:53,930 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 14:28:53,932 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:28:54,006 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: df1f116c4d07121b7555f7e5e0f5c7d04447490242ff74a65d9d6eabc061cc69
+2024-08-10 14:28:57,729 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.7970943S
+2024-08-10 14:28:57,729 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5268/test_db?loggerLevel=OFF)
+2024-08-10 14:28:57,777 INFO  org.example.service.AuthServiceJdbc.loginUser:104 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=null, orders=null) is logging
+2024-08-10 14:28:57,778 INFO  org.example.service.AuthServiceJdbc.loginUser:104 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=null, orders=null) is logging
+2024-08-10 14:28:57,779 INFO  org.example.service.AuthServiceJdbc.loginUser:108 - Uncorrected input login qwerty and password qwerty
+2024-08-10 14:28:58,360 INFO  org.example.service.AuthServiceInMemory.create:44 - Order - Order(orderId=3, userId=3, carId=5, date=2024-10-10, status=successfully) is created
+2024-08-10 14:28:58,360 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-10 14:28:58,360 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-10 14:28:58,362 INFO  org.example.service.AuthServiceInMemory.filter:113 - Get all find orders
+2024-08-10 14:28:58,364 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-10 14:28:58,365 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-10 14:28:58,367 INFO  org.example.service.AuthServiceInMemory.canceled:97 - Order with 2 id is canceled
+2024-08-10 14:28:58,369 INFO  org.example.service.AuthServiceInMemory.changeStatus:83 - Change status on is ready, repository order with 1 id
+2024-08-10 14:31:02,038 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-10 14:31:02,042 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-10 14:31:02,244 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-10 14:31:02,409 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-10 14:31:02,591 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-10 14:31:02,592 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-10 14:31:02,605 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-10 14:31:02,625 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-10 14:31:02,827 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-10 14:31:02,963 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: f39d201ea721d79cf7a97fff9426e1c6f7d3bc72a9b7be2c98ed16921b7ba2cb
+2024-08-10 14:31:03,311 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.685099S
+2024-08-10 14:31:03,316 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-10 14:31:03,316 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-10 14:31:03,317 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-10 14:31:03,318 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:31:03,410 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: c87e7c6674d8bdb199ac66f158367efea43dd4d91fb159b5d4ab11920e964dbc
+2024-08-10 14:31:06,435 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.1175023S
+2024-08-10 14:31:06,436 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5303/test_db?loggerLevel=OFF)
+2024-08-10 14:31:20,535 INFO  org.example.service.AuthServiceInMemory.delete:72 - Car with id - 1 removed
+2024-08-10 14:31:20,575 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-10 14:31:20,577 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-10 14:31:20,578 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-10 14:31:20,587 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 14:31:20,587 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 14:31:20,589 INFO  org.example.service.AuthServiceInMemory.saveOrUpdate:57 - Car Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good) updated
+2024-08-10 14:31:20,595 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 14:31:20,597 INFO  org.example.service.AuthServiceInMemory.saveOrUpdate:52 - Car Car(id=0, brand=Toyota, model=Camry, year=2022, price=15800.0, condition=good) added
+2024-08-10 14:31:20,597 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 14:31:20,597 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 14:31:20,627 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-10 14:31:20,630 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-10 14:31:20,693 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-10 14:31:20,847 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-10 14:31:21,025 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-10 14:31:21,026 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-10 14:31:21,040 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-10 14:31:21,057 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-10 14:31:21,257 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-10 14:31:21,392 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: bfdb1299a7fe3a743d9719c9b4d0880f62f3a5f8d6e8e9f00559a130c7bab457
+2024-08-10 14:31:21,774 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.7174041S
+2024-08-10 14:31:21,779 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-10 14:31:21,779 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-10 14:31:21,780 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-10 14:31:21,780 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:31:21,890 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 1170bfa165d732775a09a72c60e7920e2f63313fcb0ab7a5977d43fef7eef530
+2024-08-10 14:31:24,874 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.0939266S
+2024-08-10 14:31:24,875 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5317/test_db?loggerLevel=OFF)
+2024-08-10 14:31:25,040 INFO  org.example.repository.jdbc.CarStorageJdbc.delete:109 - Car with id 4 is deleting
+2024-08-10 14:31:25,048 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:31:25,084 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:31:25,087 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:31:25,090 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:31:25,129 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good)]
+2024-08-10 14:31:25,162 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:31:25,164 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:31:25,201 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:31:25,204 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:31:25,701 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:31:25,816 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: aa82a885ff3edaee025c782bc618d29406d2cf42aa33bec1857a1b766f745dbb
+2024-08-10 14:31:28,809 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.10741S
+2024-08-10 14:31:28,809 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5329/test_db?loggerLevel=OFF)
+2024-08-10 14:31:28,835 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:85 - Get all users after filter
+2024-08-10 14:31:28,838 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:85 - Get all users after filter
+2024-08-10 14:31:28,840 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:85 - Get all users after filter
+2024-08-10 14:31:28,889 INFO  org.example.repository.jdbc.UserStorageJdbc.update:117 - User User(userId=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=null, orders=null) user was changed
+2024-08-10 14:31:28,919 INFO  org.example.repository.jdbc.UserStorageJdbc.sort:101 - Get all users after sort
+2024-08-10 14:31:28,921 INFO  org.example.repository.jdbc.UserStorageJdbc.sort:101 - Get all users after sort
+2024-08-10 14:31:29,399 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:31:29,508 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: e53aac08578a7eb1cd2ebfd51a71b9e79b8d68c257d1f8cf168dd21a40b8c832
+2024-08-10 14:31:32,669 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.2696907S
+2024-08-10 14:31:32,670 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5338/test_db?loggerLevel=OFF)
+2024-08-10 14:31:32,721 INFO  org.example.repository.jdbc.OrderStorageJdbc.filter:150 - Get all find orders
+2024-08-10 14:31:33,286 INFO  org.example.service.AuthServiceInMemory.loginUser:47 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=[Roles.ADMINISTRATOR(title=Администратор)], orders=null) is logging
+2024-08-10 14:31:33,287 INFO  org.example.service.AuthServiceInMemory.loginUser:47 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=[Roles.CLIENT(title=Клиент)], orders=[Order(orderId=2, userId=5, carId=4, date=2024-11-11, status=successfully)]) is logging
+2024-08-10 14:31:33,289 INFO  org.example.service.AuthServiceInMemory.loginUser:51 - Uncorrected input login qwerty and password qwerty
+2024-08-10 14:31:33,295 INFO  org.example.service.AuthServiceInMemory.registeredUser:27 - New user is User(userId=7, login=master, password=master, name=Tom, age=78, city=Tokyo, role=[Roles.ADMINISTRATOR(title=Администратор), Roles.MANAGER(title=Менеджер)], orders=null) added
+2024-08-10 14:31:33,296 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 14:31:33,296 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 14:31:33,298 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-10 14:31:33,299 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-10 14:31:33,299 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-10 14:31:33,300 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 14:31:33,301 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 14:31:33,302 INFO  org.example.service.AuthServiceInMemory.update:75 - User User(userId=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=null, orders=null) user was changed
+2024-08-10 14:31:33,302 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 14:31:33,303 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:31:33,418 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 85ffed8deba51a8d8a9197a0e403a36174e4605d889300f44da320f8dc276c13
+2024-08-10 14:31:36,342 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.0382291S
+2024-08-10 14:31:36,342 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5351/test_db?loggerLevel=OFF)
+2024-08-10 14:31:36,389 INFO  org.example.service.AuthServiceJdbc.loginUser:104 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=null, orders=null) is logging
+2024-08-10 14:31:36,390 INFO  org.example.service.AuthServiceJdbc.loginUser:104 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=null, orders=null) is logging
+2024-08-10 14:31:36,391 INFO  org.example.service.AuthServiceJdbc.loginUser:108 - Uncorrected input login qwerty and password qwerty
+2024-08-10 14:31:37,150 INFO  org.example.service.AuthServiceInMemory.create:44 - Order - Order(orderId=3, userId=3, carId=5, date=2024-10-10, status=successfully) is created
+2024-08-10 14:31:37,151 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-10 14:31:37,151 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-10 14:31:37,152 INFO  org.example.service.AuthServiceInMemory.filter:113 - Get all find orders
+2024-08-10 14:31:37,154 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-10 14:31:37,155 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-10 14:31:37,156 INFO  org.example.service.AuthServiceInMemory.canceled:97 - Order with 2 id is canceled
+2024-08-10 14:31:37,157 INFO  org.example.service.AuthServiceInMemory.changeStatus:83 - Change status on is ready, repository order with 1 id
+2024-08-10 14:32:26,481 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-10 14:32:26,485 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-10 14:32:26,690 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-10 14:32:26,868 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-10 14:32:27,090 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-10 14:32:27,091 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-10 14:32:27,104 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-10 14:32:27,125 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-10 14:32:27,314 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-10 14:32:27,469 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: c7dc848ae81fbdb1b2bd39a665854f41a4534575108c6b022ad99558976d15a9
+2024-08-10 14:32:27,898 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.7731187S
+2024-08-10 14:32:27,904 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-10 14:32:27,904 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-10 14:32:27,905 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-10 14:32:27,905 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:32:28,032 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 58c74cf669577cd59409660e59b9a66c619f2fcc6cf6754ce271f7f67850970a
+2024-08-10 14:32:31,144 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.2385393S
+2024-08-10 14:32:31,144 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5374/test_db?loggerLevel=OFF)
+2024-08-10 14:32:31,315 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=6, brand=Toyota, model=Camry, year=2022, price=15800.0, condition=good)]
+2024-08-10 14:32:31,322 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=6, brand=Toyota, model=Camry, year=2022, price=15800.0, condition=good)]
+2024-08-10 14:34:33,475 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-10 14:34:33,479 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-10 14:34:33,692 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-10 14:34:33,859 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-10 14:34:34,042 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-10 14:34:34,043 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-10 14:34:34,057 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-10 14:34:34,075 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-10 14:34:34,287 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-10 14:34:34,409 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: 88e7e374d4333f1baf199a875c356b96de2b846a447caf09bf664c9871006d8d
+2024-08-10 14:34:34,767 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.6917878S
+2024-08-10 14:34:34,772 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-10 14:34:34,773 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-10 14:34:34,773 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-10 14:34:34,774 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:34:34,850 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 649ae6eed77705988104560fc308c08e25dcf09e2caae9285302b55d2123f23a
+2024-08-10 14:34:37,717 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT2.9435892S
+2024-08-10 14:34:37,718 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5393/test_db?loggerLevel=OFF)
+2024-08-10 14:34:37,880 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=6, brand=Toyota, model=Camry, year=2022, price=15800.0, condition=good)]
+2024-08-10 14:34:45,279 INFO  org.example.service.AuthServiceInMemory.delete:72 - Car with id - 1 removed
+2024-08-10 14:34:45,323 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-10 14:34:45,325 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-10 14:34:45,326 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-10 14:34:45,336 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 14:34:45,336 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 14:34:45,338 INFO  org.example.service.AuthServiceInMemory.saveOrUpdate:57 - Car Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good) updated
+2024-08-10 14:34:45,343 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 14:34:45,345 INFO  org.example.service.AuthServiceInMemory.saveOrUpdate:52 - Car Car(id=0, brand=Toyota, model=Camry, year=2022, price=15800.0, condition=good) added
+2024-08-10 14:34:45,345 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 14:34:45,345 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 14:34:45,377 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-10 14:34:45,379 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-10 14:34:45,439 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-10 14:34:45,589 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-10 14:34:45,761 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-10 14:34:45,763 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-10 14:34:45,778 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-10 14:34:45,798 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-10 14:34:45,994 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-10 14:34:46,135 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: e8af920cb307b47916e180d0235e4e9cccf8f489c15d5ad1bff5fe13302bca98
+2024-08-10 14:34:46,543 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.7447096S
+2024-08-10 14:34:46,548 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-10 14:34:46,548 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-10 14:34:46,549 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-10 14:34:46,549 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:34:46,676 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 0b6a3ff4b67ef2c7b63853729e79d1b3a00ab5dfedbaea7d9942371ae0bb0a22
+2024-08-10 14:34:49,909 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.3607226S
+2024-08-10 14:34:49,910 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5405/test_db?loggerLevel=OFF)
+2024-08-10 14:34:50,067 INFO  org.example.repository.jdbc.CarStorageJdbc.delete:109 - Car with id 4 is deleting
+2024-08-10 14:34:50,074 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:34:50,110 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:34:50,113 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:34:50,116 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:34:50,155 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good)]
+2024-08-10 14:34:50,183 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:34:50,221 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:34:50,223 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:34:50,810 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:34:50,996 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 411c1f92171710d14c3dfb1b6461af6a64821fcd80ea5136d75d010e05939a02
+2024-08-10 14:34:54,106 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.2953511S
+2024-08-10 14:34:54,106 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5417/test_db?loggerLevel=OFF)
+2024-08-10 14:34:54,130 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:85 - Get all users after filter
+2024-08-10 14:34:54,133 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:85 - Get all users after filter
+2024-08-10 14:34:54,135 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:85 - Get all users after filter
+2024-08-10 14:34:54,182 INFO  org.example.repository.jdbc.UserStorageJdbc.update:117 - User User(userId=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=null, orders=null) user was changed
+2024-08-10 14:34:54,212 INFO  org.example.repository.jdbc.UserStorageJdbc.sort:101 - Get all users after sort
+2024-08-10 14:34:54,213 INFO  org.example.repository.jdbc.UserStorageJdbc.sort:101 - Get all users after sort
+2024-08-10 14:34:54,778 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:34:54,956 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 9b19618550970c1bfdf06c1534bc47da5f6a6a6c4c22e607739f9733816b61e6
+2024-08-10 14:34:58,106 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.3278083S
+2024-08-10 14:34:58,106 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5427/test_db?loggerLevel=OFF)
+2024-08-10 14:34:58,158 INFO  org.example.repository.jdbc.OrderStorageJdbc.filter:150 - Get all find orders
+2024-08-10 14:34:58,828 INFO  org.example.service.AuthServiceInMemory.loginUser:47 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=[Roles.ADMINISTRATOR(title=Администратор)], orders=null) is logging
+2024-08-10 14:34:58,829 INFO  org.example.service.AuthServiceInMemory.loginUser:47 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=[Roles.CLIENT(title=Клиент)], orders=[Order(orderId=2, userId=5, carId=4, date=2024-11-11, status=successfully)]) is logging
+2024-08-10 14:34:58,831 INFO  org.example.service.AuthServiceInMemory.loginUser:51 - Uncorrected input login qwerty and password qwerty
+2024-08-10 14:34:58,833 INFO  org.example.service.AuthServiceInMemory.registeredUser:27 - New user is User(userId=7, login=master, password=master, name=Tom, age=78, city=Tokyo, role=[Roles.MANAGER(title=Менеджер), Roles.ADMINISTRATOR(title=Администратор)], orders=null) added
+2024-08-10 14:34:58,833 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 14:34:58,833 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 14:34:58,837 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-10 14:34:58,837 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-10 14:34:58,837 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-10 14:34:58,839 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 14:34:58,840 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 14:34:58,841 INFO  org.example.service.AuthServiceInMemory.update:75 - User User(userId=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=null, orders=null) user was changed
+2024-08-10 14:34:58,842 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 14:34:58,844 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:34:59,016 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 6efb285e54fd30688f1f69f4d11153f920c90e8fbac576adbdc06563848848d0
+2024-08-10 14:35:02,169 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.3247925S
+2024-08-10 14:35:02,170 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5442/test_db?loggerLevel=OFF)
+2024-08-10 14:35:02,217 INFO  org.example.service.AuthServiceJdbc.loginUser:104 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=null, orders=null) is logging
+2024-08-10 14:35:02,219 INFO  org.example.service.AuthServiceJdbc.loginUser:104 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=null, orders=null) is logging
+2024-08-10 14:35:02,220 INFO  org.example.service.AuthServiceJdbc.loginUser:108 - Uncorrected input login qwerty and password qwerty
+2024-08-10 14:35:03,054 INFO  org.example.service.AuthServiceInMemory.create:44 - Order - Order(orderId=3, userId=3, carId=5, date=2024-10-10, status=successfully) is created
+2024-08-10 14:35:03,055 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-10 14:35:03,055 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-10 14:35:03,056 INFO  org.example.service.AuthServiceInMemory.filter:113 - Get all find orders
+2024-08-10 14:35:03,057 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-10 14:35:03,058 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-10 14:35:03,059 INFO  org.example.service.AuthServiceInMemory.canceled:97 - Order with 2 id is canceled
+2024-08-10 14:35:03,060 INFO  org.example.service.AuthServiceInMemory.changeStatus:83 - Change status on is ready, repository order with 1 id
+2024-08-10 14:35:15,571 INFO  org.example.service.AuthServiceInMemory.delete:72 - Car with id - 1 removed
+2024-08-10 14:35:15,616 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-10 14:35:15,618 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-10 14:35:15,619 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-10 14:35:15,628 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 14:35:15,629 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 14:35:15,630 INFO  org.example.service.AuthServiceInMemory.saveOrUpdate:57 - Car Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good) updated
+2024-08-10 14:35:15,638 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 14:35:15,640 INFO  org.example.service.AuthServiceInMemory.saveOrUpdate:52 - Car Car(id=0, brand=Toyota, model=Camry, year=2022, price=15800.0, condition=good) added
+2024-08-10 14:35:15,641 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 14:35:15,641 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 14:35:15,676 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-10 14:35:15,679 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-10 14:35:15,741 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-10 14:35:15,883 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-10 14:35:16,063 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-10 14:35:16,065 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-10 14:35:16,079 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-10 14:35:16,099 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-10 14:35:16,293 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-10 14:35:16,497 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: 318d60c5e6458c7613df8cbd810faa413d74a049038e6739a335cf40db25b256
+2024-08-10 14:35:16,897 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.7982607S
+2024-08-10 14:35:16,902 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-10 14:35:16,902 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-10 14:35:16,903 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-10 14:35:16,903 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:35:17,093 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: cbba891a661b655858fa6eaed3610173144db7fc394a4997d0cd8c6618c1b114
+2024-08-10 14:35:20,217 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.3132517S
+2024-08-10 14:35:20,217 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5465/test_db?loggerLevel=OFF)
+2024-08-10 14:35:20,361 INFO  org.example.repository.jdbc.CarStorageJdbc.delete:109 - Car with id 4 is deleting
+2024-08-10 14:35:20,368 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:35:20,403 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:35:20,405 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:35:20,407 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:35:20,436 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good)]
+2024-08-10 14:35:20,462 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:35:20,464 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:35:21,053 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:35:21,238 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 91144f6ca172f5a32410467fda2013674ab0104c7620cdc70eedeb390d6e98b7
+2024-08-10 14:35:24,390 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.3365595S
+2024-08-10 14:35:24,390 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5474/test_db?loggerLevel=OFF)
+2024-08-10 14:35:24,415 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:85 - Get all users after filter
+2024-08-10 14:35:24,417 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:85 - Get all users after filter
+2024-08-10 14:35:24,419 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:85 - Get all users after filter
+2024-08-10 14:35:24,466 INFO  org.example.repository.jdbc.UserStorageJdbc.update:117 - User User(userId=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=null, orders=null) user was changed
+2024-08-10 14:35:24,496 INFO  org.example.repository.jdbc.UserStorageJdbc.sort:101 - Get all users after sort
+2024-08-10 14:35:24,498 INFO  org.example.repository.jdbc.UserStorageJdbc.sort:101 - Get all users after sort
+2024-08-10 14:35:25,103 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:35:25,284 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 9b0212b91780d3c43e021f3ab71ed471c4b82d5f0e7cfd1c5f8c71767607a8cf
+2024-08-10 14:35:28,297 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.1938093S
+2024-08-10 14:35:28,297 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5483/test_db?loggerLevel=OFF)
+2024-08-10 14:35:28,350 INFO  org.example.repository.jdbc.OrderStorageJdbc.filter:150 - Get all find orders
+2024-08-10 14:35:28,910 INFO  org.example.service.AuthServiceInMemory.loginUser:47 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=[Roles.ADMINISTRATOR(title=Администратор)], orders=null) is logging
+2024-08-10 14:35:28,910 INFO  org.example.service.AuthServiceInMemory.loginUser:47 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=[Roles.CLIENT(title=Клиент)], orders=[Order(orderId=2, userId=5, carId=4, date=2024-11-11, status=successfully)]) is logging
+2024-08-10 14:35:28,913 INFO  org.example.service.AuthServiceInMemory.loginUser:51 - Uncorrected input login qwerty and password qwerty
+2024-08-10 14:35:28,914 INFO  org.example.service.AuthServiceInMemory.registeredUser:27 - New user is User(userId=7, login=master, password=master, name=Tom, age=78, city=Tokyo, role=[Roles.MANAGER(title=Менеджер), Roles.ADMINISTRATOR(title=Администратор)], orders=null) added
+2024-08-10 14:35:28,914 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 14:35:28,914 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 14:35:28,916 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-10 14:35:28,918 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-10 14:35:28,918 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-10 14:35:28,919 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 14:35:28,919 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 14:35:28,920 INFO  org.example.service.AuthServiceInMemory.update:75 - User User(userId=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=null, orders=null) user was changed
+2024-08-10 14:35:28,920 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 14:35:28,922 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:35:29,042 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: ed1674bef27969c8c12c06207b56a6460d3abe20bb8b19db43a0b60fa32cd4ee
+2024-08-10 14:35:31,999 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.0776453S
+2024-08-10 14:35:32,000 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5496/test_db?loggerLevel=OFF)
+2024-08-10 14:35:32,048 INFO  org.example.service.AuthServiceJdbc.loginUser:104 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=null, orders=null) is logging
+2024-08-10 14:35:32,049 INFO  org.example.service.AuthServiceJdbc.loginUser:104 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=null, orders=null) is logging
+2024-08-10 14:35:32,050 INFO  org.example.service.AuthServiceJdbc.loginUser:108 - Uncorrected input login qwerty and password qwerty
+2024-08-10 14:35:32,725 INFO  org.example.service.AuthServiceInMemory.create:44 - Order - Order(orderId=3, userId=3, carId=5, date=2024-10-10, status=successfully) is created
+2024-08-10 14:35:32,725 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-10 14:35:32,726 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-10 14:35:32,728 INFO  org.example.service.AuthServiceInMemory.filter:113 - Get all find orders
+2024-08-10 14:35:32,730 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-10 14:35:32,731 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-10 14:35:32,733 INFO  org.example.service.AuthServiceInMemory.canceled:97 - Order with 2 id is canceled
+2024-08-10 14:35:32,734 INFO  org.example.service.AuthServiceInMemory.changeStatus:83 - Change status on is ready, repository order with 1 id
+2024-08-10 14:35:55,722 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-10 14:35:55,726 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-10 14:35:55,923 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-10 14:35:56,106 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-10 14:35:56,333 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-10 14:35:56,334 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-10 14:35:56,348 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-10 14:35:56,371 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-10 14:35:56,561 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-10 14:35:56,727 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: 081c35804a9f71d397fb84139c7a05188189acce4c879a23108289f21fd3d6ab
+2024-08-10 14:35:57,126 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.7543745S
+2024-08-10 14:35:57,130 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-10 14:35:57,131 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-10 14:35:57,131 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-10 14:35:57,132 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:35:57,272 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 5ef96db0c81da084683eff3e552a7b8393a82f5d878ef6971af4523b1eb1d8e8
+2024-08-10 14:36:00,367 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.2347699S
+2024-08-10 14:36:00,368 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5522/test_db?loggerLevel=OFF)
+2024-08-10 14:36:00,528 INFO  org.example.repository.jdbc.CarStorageJdbc.delete:109 - Car with id 99 is deleting
+2024-08-10 14:36:00,534 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:65 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:37:37,622 INFO  org.example.repository.jdbc.CarStorageJdbc.delete:109 - Car with id 18 is deleting
+2024-08-10 14:37:44,824 INFO  org.example.repository.jdbc.CarStorageJdbc.delete:109 - Car with id 18 is deleting
+2024-08-10 14:50:21,995 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-10 14:50:21,998 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-10 14:50:22,206 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-10 14:50:22,383 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-10 14:50:22,575 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-10 14:50:22,576 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-10 14:50:22,589 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-10 14:50:22,606 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-10 14:50:22,797 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-10 14:50:22,917 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: a702d32b33df032e1f44c8574825f0a8633ac978b372cd3c9131b40719a63161
+2024-08-10 14:50:23,250 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.6443403S
+2024-08-10 14:50:23,255 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-10 14:50:23,255 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-10 14:50:23,256 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-10 14:50:23,256 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:50:23,342 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: b81b0975d899e924fc623bb69cf6014ecac2e0af853e26355369d244735be97c
+2024-08-10 14:50:26,317 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.0604806S
+2024-08-10 14:50:26,317 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5834/test_db?loggerLevel=OFF)
+2024-08-10 14:50:26,499 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:66 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 14:50:26,505 ERROR org.example.repository.jdbc.CarStorageJdbc.delete:107 - Not found car with id 800
+2024-08-10 14:58:36,937 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-10 14:58:36,941 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-10 14:58:37,147 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-10 14:58:37,327 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-10 14:58:37,513 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-10 14:58:37,515 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-10 14:58:37,528 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-10 14:58:37,547 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-10 14:58:37,750 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-10 14:58:37,910 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: 338b818afd317c403fc9e7b316d516f0b60a631a25e71fa58be115292e2a62b8
+2024-08-10 14:58:38,258 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.7113816S
+2024-08-10 14:58:38,263 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-10 14:58:38,263 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-10 14:58:38,264 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-10 14:58:38,264 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 14:58:38,373 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 719c2d1ed01f7b0187653b75e7b363e21dd74563d63481825db8f2abd985da61
+2024-08-10 14:58:42,154 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.8892571S
+2024-08-10 14:58:42,155 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5916/test_db?loggerLevel=OFF)
+2024-08-10 14:58:42,341 ERROR org.example.repository.jdbc.OrderStorageJdbc.getById:100 - Not found order with id 800
+2024-08-10 15:01:28,627 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-10 15:01:28,632 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-10 15:01:28,846 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-10 15:01:29,028 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-10 15:01:29,217 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-10 15:01:29,218 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-10 15:01:29,231 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-10 15:01:29,249 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-10 15:01:29,447 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-10 15:01:29,604 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: c7ea6b35ef4a979030ba3a901409e059f078d972d4f7d274ec97d74cc51a7d4d
+2024-08-10 15:01:29,953 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.7039176S
+2024-08-10 15:01:29,959 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-10 15:01:29,959 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-10 15:01:29,960 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-10 15:01:29,960 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 15:01:30,089 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 098aae0d11f16fa39299652e58e8968c9aad0192a51fa68a6fdf9c33254f646d
+2024-08-10 15:01:33,036 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.0759707S
+2024-08-10 15:01:33,037 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5952/test_db?loggerLevel=OFF)
+2024-08-10 15:01:33,224 ERROR org.example.repository.jdbc.OrderStorageJdbc.changeStatus:131 - Not found order with id 800
+2024-08-10 15:03:33,767 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-10 15:03:33,770 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-10 15:03:33,826 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-10 15:03:34,001 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-10 15:03:34,190 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-10 15:03:34,191 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-10 15:03:34,205 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-10 15:03:34,228 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-10 15:03:34,423 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-10 15:03:34,596 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: 1b84231a3cc748d38c56c4ef8b4f975fbab72c94157780a3526509b1ff8f7992
+2024-08-10 15:03:34,978 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.7508297S
+2024-08-10 15:03:34,984 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-10 15:03:34,984 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-10 15:03:34,985 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-10 15:03:34,985 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 15:03:35,114 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: bbf20f29d03a965fe284285f4c96866468a374839c9120d73cd2d0fec4900548
+2024-08-10 15:03:38,044 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.0584756S
+2024-08-10 15:03:38,045 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5968/test_db?loggerLevel=OFF)
+2024-08-10 15:03:38,232 ERROR org.example.repository.jdbc.OrderStorageJdbc.getById:100 - Not found order with id 800
+2024-08-10 15:03:38,320 INFO  org.example.repository.jdbc.OrderStorageJdbc.filter:166 - Get all find orders
+2024-08-10 15:03:38,379 ERROR org.example.repository.jdbc.OrderStorageJdbc.changeStatus:131 - Not found order with id 800
+2024-08-10 15:03:38,488 ERROR org.example.repository.jdbc.OrderStorageJdbc.canceled:146 - Not found order with id 800
+2024-08-10 15:04:45,675 INFO  org.example.service.AuthServiceInMemory.delete:72 - Car with id - 1 removed
+2024-08-10 15:04:45,715 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-10 15:04:45,717 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-10 15:04:45,718 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-10 15:04:45,726 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 15:04:45,727 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 15:04:45,728 INFO  org.example.service.AuthServiceInMemory.saveOrUpdate:57 - Car Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good) updated
+2024-08-10 15:04:45,733 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 15:04:45,734 INFO  org.example.service.AuthServiceInMemory.saveOrUpdate:52 - Car Car(id=0, brand=Toyota, model=Camry, year=2022, price=15800.0, condition=good) added
+2024-08-10 15:04:45,735 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 15:04:45,735 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-10 15:04:45,765 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-10 15:04:45,767 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-10 15:04:45,832 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-10 15:04:45,980 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-10 15:04:46,159 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-10 15:04:46,160 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-10 15:04:46,174 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-10 15:04:46,192 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-10 15:04:46,388 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-10 15:04:46,532 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: 800c5c946104e7015307aaa71cc96bc0d0f3aaeab63dc6b94fef7f9332d1538c
+2024-08-10 15:04:46,902 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.7092255S
+2024-08-10 15:04:46,906 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-10 15:04:46,906 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-10 15:04:46,907 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-10 15:04:46,907 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 15:04:47,032 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 830efe6c06efde0b185386dfd8052bd4e10566b0970434ded78b1b59e831a256
+2024-08-10 15:04:49,990 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.0829317S
+2024-08-10 15:04:49,991 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:5998/test_db?loggerLevel=OFF)
+2024-08-10 15:04:50,154 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:66 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 15:04:50,159 INFO  org.example.repository.jdbc.CarStorageJdbc.delete:115 - Car with id 4 is deleting
+2024-08-10 15:04:50,160 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:66 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 15:04:50,188 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:66 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 15:04:50,190 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:66 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 15:04:50,191 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:66 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 15:04:50,217 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:66 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good)]
+2024-08-10 15:04:50,242 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:66 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 15:04:50,243 ERROR org.example.repository.jdbc.CarStorageJdbc.delete:107 - Not found car with id 800
+2024-08-10 15:04:50,267 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:66 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 15:04:50,269 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:66 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-10 15:04:50,725 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 15:04:50,842 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: cfb10a1d8e2e946bfa7b5e898a6d32ad1956bc1f9f2b923f865381c28490e9c5
+2024-08-10 15:04:53,843 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.1174631S
+2024-08-10 15:04:53,843 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:6013/test_db?loggerLevel=OFF)
+2024-08-10 15:04:53,867 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:85 - Get all users after filter
+2024-08-10 15:04:53,870 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:85 - Get all users after filter
+2024-08-10 15:04:53,872 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:85 - Get all users after filter
+2024-08-10 15:04:53,921 INFO  org.example.repository.jdbc.UserStorageJdbc.update:117 - User User(userId=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=null, orders=null) user was changed
+2024-08-10 15:04:53,950 INFO  org.example.repository.jdbc.UserStorageJdbc.sort:101 - Get all users after sort
+2024-08-10 15:04:53,952 INFO  org.example.repository.jdbc.UserStorageJdbc.sort:101 - Get all users after sort
+2024-08-10 15:04:54,469 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 15:04:54,571 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 080dd67bcb607d5789c474419988a1ff856b58325d51b2c0f13b24b9127897d1
+2024-08-10 15:04:57,680 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.2109828S
+2024-08-10 15:04:57,681 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:6023/test_db?loggerLevel=OFF)
+2024-08-10 15:04:57,706 ERROR org.example.repository.jdbc.OrderStorageJdbc.getById:100 - Not found order with id 800
+2024-08-10 15:04:57,757 INFO  org.example.repository.jdbc.OrderStorageJdbc.filter:166 - Get all find orders
+2024-08-10 15:04:57,807 ERROR org.example.repository.jdbc.OrderStorageJdbc.changeStatus:131 - Not found order with id 800
+2024-08-10 15:04:57,911 ERROR org.example.repository.jdbc.OrderStorageJdbc.canceled:146 - Not found order with id 800
+2024-08-10 15:04:58,359 INFO  org.example.service.AuthServiceInMemory.loginUser:47 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=[Roles.ADMINISTRATOR(title=Администратор)], orders=null) is logging
+2024-08-10 15:04:58,361 INFO  org.example.service.AuthServiceInMemory.loginUser:47 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=[Roles.CLIENT(title=Клиент)], orders=[Order(orderId=2, userId=5, carId=4, date=2024-11-11, status=successfully)]) is logging
+2024-08-10 15:04:58,364 INFO  org.example.service.AuthServiceInMemory.loginUser:51 - Uncorrected input login qwerty and password qwerty
+2024-08-10 15:04:58,366 INFO  org.example.service.AuthServiceInMemory.registeredUser:27 - New user is User(userId=7, login=master, password=master, name=Tom, age=78, city=Tokyo, role=[Roles.MANAGER(title=Менеджер), Roles.ADMINISTRATOR(title=Администратор)], orders=null) added
+2024-08-10 15:04:58,366 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 15:04:58,366 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 15:04:58,370 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-10 15:04:58,371 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-10 15:04:58,372 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-10 15:04:58,373 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 15:04:58,373 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 15:04:58,375 INFO  org.example.service.AuthServiceInMemory.update:75 - User User(userId=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=null, orders=null) user was changed
+2024-08-10 15:04:58,375 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-10 15:04:58,376 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-10 15:04:58,498 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 1412df081341c77e8cd3761f576d4894624ca0158aecfa63d21afa78c88a6df6
+2024-08-10 15:05:01,461 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.084999S
+2024-08-10 15:05:01,462 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:6042/test_db?loggerLevel=OFF)
+2024-08-10 15:05:01,509 INFO  org.example.service.AuthServiceJdbc.loginUser:104 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=null, orders=null) is logging
+2024-08-10 15:05:01,511 INFO  org.example.service.AuthServiceJdbc.loginUser:104 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=null, orders=null) is logging
+2024-08-10 15:05:01,511 INFO  org.example.service.AuthServiceJdbc.loginUser:108 - Uncorrected input login qwerty and password qwerty
+2024-08-10 15:05:02,113 INFO  org.example.service.AuthServiceInMemory.create:44 - Order - Order(orderId=3, userId=3, carId=5, date=2024-10-10, status=successfully) is created
+2024-08-10 15:05:02,113 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-10 15:05:02,113 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-10 15:05:02,115 INFO  org.example.service.AuthServiceInMemory.filter:113 - Get all find orders
+2024-08-10 15:05:02,117 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-10 15:05:02,117 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-10 15:05:02,119 INFO  org.example.service.AuthServiceInMemory.canceled:97 - Order with 2 id is canceled
+2024-08-10 15:05:02,120 INFO  org.example.service.AuthServiceInMemory.changeStatus:83 - Change status on is ready, repository order with 1 id

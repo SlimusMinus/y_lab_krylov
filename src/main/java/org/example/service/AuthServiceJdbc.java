@@ -10,6 +10,25 @@ import org.example.repository.jdbc.UserStorageJdbc;
 import java.io.IOException;
 import java.sql.*;
 
+/**
+ * Реализация интерфейса {@link AuthService}, обеспечивающая авторизацию и регистрацию пользователей в базе данных с использованием JDBC.
+ * <p>
+ * Класс использует подключение к базе данных для выполнения операций регистрации и входа пользователей.
+ * <p>
+ * Основные методы включают:
+ * <ul>
+ *   <li>{@link #registeredUser(User)} - Регистрация нового пользователя в системе, включая сохранение его данных и ролей.</li>
+ *   <li>{@link #loginUser(String, String)} - Авторизация пользователя на основе логина и пароля.</li>
+ * </ul>
+ * <p>
+ * Класс также использует аннотацию Lombok {@link Slf4j} для логирования операций.
+ * <p>
+ * При создании экземпляра класса устанавливается подключение к базе данных с использованием настроек из {@link DatabaseConfig}.
+ * Если возникает ошибка при подключении, она логируется.
+ *
+ * @see AuthService
+ * @see UserStorageJdbc
+ */
 @Slf4j
 public class AuthServiceJdbc implements AuthService {
 
@@ -17,6 +36,11 @@ public class AuthServiceJdbc implements AuthService {
 
     private final UserStorage userStorage = new UserStorageJdbc();
 
+    /**
+     * Конструктор класса. Устанавливает подключение к базе данных.
+     * <p>
+     * Если происходит ошибка при получении подключения, она логируется.
+     */
     public AuthServiceJdbc() {
         try {
             this.connection = DatabaseConfig.getConnection();
@@ -25,6 +49,14 @@ public class AuthServiceJdbc implements AuthService {
         }
     }
 
+    /**
+     * Регистрирует нового пользователя в системе.
+     * <p>
+     * В базу данных сохраняются логин, пароль, имя, возраст и город пользователя.
+     * Также сохраняются роли пользователя, которые связываются с его идентификатором.
+     *
+     * @param user Объект {@link User}, содержащий данные пользователя и его роли.
+     */
     @Override
     public void registeredUser(User user) {
         String queryUser = "INSERT INTO car_shop.user (login, password, name, age, city) VALUES (?,?,?,?,?)";
@@ -55,6 +87,16 @@ public class AuthServiceJdbc implements AuthService {
         }
     }
 
+    /**
+     * Проверяет логин и пароль пользователя для авторизации.
+     * <p>
+     * Если пользователь найден и данные совпадают, возвращается его идентификатор.
+     * В противном случае возвращается 0.
+     *
+     * @param login    Логин пользователя.
+     * @param password Пароль пользователя.
+     * @return Идентификатор пользователя при успешной авторизации или 0 при неудачной попытке.
+     */
     @Override
     public int loginUser(String login, String password) {
         for (var user : userStorage.getAll()) {
