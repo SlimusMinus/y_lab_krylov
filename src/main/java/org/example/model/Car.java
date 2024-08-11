@@ -10,22 +10,27 @@ import lombok.*;
  *
  * <p>Аннотации:</p>
  * <ul>
- *   <li>{@code @Getter} - автоматически создает геттеры для всех полей.</li>
- *   <li>{@code @Setter} - автоматически создает сеттеры для всех полей.</li>
+ *   <li>@Data - Генерирует методы getter, setter, toString, equals и hashCode.</li>
  *   <li>{@code @AllArgsConstructor} - создает конструктор с параметрами для всех полей.</li>
  *   <li>{@code @NoArgsConstructor} - создает конструктор без параметров.</li>
- *   <li>{@code @ToString} - автоматически создает метод {@code toString}.</li>
- *   <li>{@code @EqualsAndHashCode} - автоматически создает методы {@code equals} и {@code hashCode}.</li>
  * </ul>
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Car {
-    int id;
-    String brand;
-    String model;
-    int year;
-    double price;
+    private int id;
+    private String brand;
+    private String model;
+    private int year;
+    private double price;
     private String condition;
+
+    public Car(String brand, String model, int year, double price, String condition) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.price = price;
+        this.condition = condition;
+    }
 }

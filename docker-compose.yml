@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16.3
+    container_name: postgres_app_car_shop
+    environment:
+      POSTGRES_USER: alexandr
+      POSTGRES_PASSWORD: krylov
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      
+volumes:
+  db_data:

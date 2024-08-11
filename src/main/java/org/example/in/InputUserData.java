@@ -1,12 +1,12 @@
 package org.example.in;
 
 import org.example.model.User;
-import org.example.service.UserInformation;
-import org.example.service.UserInformationImpl;
+import org.example.repository.UserStorage;
+import org.example.repository.inMemory.UserStorageInMemory;
 
 import java.util.Scanner;
 
-import static org.example.in.InputData.checkInput;
+import static org.example.in.InputAuthData.checkInput;
 
 /**
  * Класс для обработки данных пользователей. Содержит методы для просмотра, фильтрации, сортировки и редактирования пользователей.
@@ -22,7 +22,7 @@ public class InputUserData {
         do {
             System.out.println("Выберите действие 1 - просмотр всех пользователей, 2 - фильтрация 3 - сортировка 4 - редактирование");
             int choice = checkInput(4);
-            UserInformation information = new UserInformationImpl();
+            UserStorage information = new UserStorageInMemory();
             switch (choice) {
                 case 1: {
                     information.getAll().forEach(System.out::println);
@@ -42,7 +42,7 @@ public class InputUserData {
                 break;
                 case 4: {
                     final User editUser = editUser(information);
-                    information.edit(editUser);
+                    information.update(editUser);
                 }
                 break;
             }System.out.println("Если вы хотите продолжить работу с просмотром информации о клиентах и сотрудниках нажмите 1, если нет - 2");
@@ -56,7 +56,7 @@ public class InputUserData {
      * @param choiceSorted выбор параметра сортировки (1 - город, 2 - имя, 3 - возраст)
      * @param information объект UserInformation для выполнения операций
      */
-    private static void sort(int choiceSorted, UserInformation information) {
+    private static void sort(int choiceSorted, UserStorage information) {
         switch (choiceSorted) {
             case 1:
                 information.sort(User::getCity).forEach(System.out::println);
@@ -76,7 +76,7 @@ public class InputUserData {
      * @param choiceFilter выбор параметра фильтрации (1 - город, 2 - имя, 3 - возраст)
      * @param information объект UserInformation для выполнения операций
      */
-    private static void filter(int choiceFilter, UserInformation information) {
+    private static void filter(int choiceFilter, UserStorage information) {
         switch (choiceFilter) {
             case 1:
                 information.filter(User::getCity, city -> city.equals("Moscow")).forEach(System.out::println);
@@ -96,7 +96,7 @@ public class InputUserData {
      * @param information объект UserInformation для выполнения операций
      * @return отредактированный пользователь
      */
-    private static User editUser(UserInformation information) {
+    private static User editUser(UserStorage information) {
         information.getAll().forEach(System.out::println);
         System.out.println("Введите порядковый номер юзера");
         int choiceEdit = checkInput(information.getAll().size());
