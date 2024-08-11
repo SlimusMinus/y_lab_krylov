@@ -8861,3 +8861,250 @@ org.postgresql.util.PSQLException: ERROR: update or delete on table "car" violat
 2024-08-10 15:05:02,117 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
 2024-08-10 15:05:02,119 INFO  org.example.service.AuthServiceInMemory.canceled:97 - Order with 2 id is canceled
 2024-08-10 15:05:02,120 INFO  org.example.service.AuthServiceInMemory.changeStatus:83 - Change status on is ready, repository order with 1 id
+2024-08-11 17:54:05,642 INFO  org.example.config.LiquibaseBaseConfig.<init>:46 - Migration is successfully
+2024-08-11 17:57:01,571 INFO  org.example.config.LiquibaseBaseConfig.<init>:46 - Migration is successfully
+2024-08-11 17:58:02,007 INFO  org.example.config.LiquibaseBaseConfig.<init>:46 - Migration is successfully
+2024-08-11 18:03:17,263 INFO  org.example.config.LiquibaseBaseConfig.<init>:46 - Migration is successfully
+2024-08-11 18:03:49,801 INFO  org.example.config.LiquibaseBaseConfig.<init>:46 - Migration is successfully
+2024-08-11 18:10:03,017 INFO  org.example.config.LiquibaseBaseConfig.<init>:46 - Migration is successfully
+2024-08-11 18:10:58,399 ERROR org.example.config.LiquibaseBaseConfig.<init>:48 - SQL got exception liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.1.0.car_shop/create/v.1.0.create-role-table.xml::role-constraintName-v.1.1::Alexandr Krylov:
+     Reason: 
+          db/changelog/changelog-master.xml : Not precondition failed
+
+2024-08-11 18:11:13,899 ERROR org.example.config.LiquibaseBaseConfig.<init>:48 - SQL got exception liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.1.0.car_shop/create/v.1.0.create-role-table.xml::role-constraintName-v.1.1::Alexandr Krylov:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "car_shop.user_roles" does not exist [Failed SQL: (0) ALTER TABLE car_shop.user_roles ADD CONSTRAINT fk_user_roles_user FOREIGN KEY (user_id) REFERENCES car_shop."user" (user_id)]
+2024-08-11 18:11:36,754 ERROR org.example.config.LiquibaseBaseConfig.<init>:48 - SQL got exception liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.1.0.car_shop/create/v.1.0.create-role-table.xml::role-constraintName-v.1.1::Alexandr Krylov:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "car_shop.user_roles" does not exist [Failed SQL: (0) ALTER TABLE car_shop.user_roles ADD CONSTRAINT fk_user_roles_user FOREIGN KEY (user_id) REFERENCES car_shop."user" (user_id)]
+2024-08-11 18:12:42,901 ERROR org.example.config.LiquibaseBaseConfig.<init>:48 - SQL got exception liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.1.0.car_shop/create/v.1.0.create-role-table.xml::role-constraintName-v.1.1::Alexandr Krylov:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "car_shop.user_roles" does not exist [Failed SQL: (0) ALTER TABLE car_shop.user_roles ADD CONSTRAINT fk_user_roles_user FOREIGN KEY (user_id) REFERENCES car_shop."user" (user_id)]
+2024-08-11 18:13:04,195 ERROR org.example.config.LiquibaseBaseConfig.<init>:48 - SQL got exception liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.1.0.car_shop/create/v.1.0.create-role-table.xml::role-constraintName-v.1.1::Alexandr Krylov:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "car_shop.user_roles" does not exist [Failed SQL: (0) ALTER TABLE car_shop.user_roles ADD CONSTRAINT fk_user_roles_user FOREIGN KEY (user_id) REFERENCES car_shop."user" (user_id)]
+2024-08-11 18:14:12,201 ERROR org.example.config.LiquibaseBaseConfig.<init>:48 - SQL got exception liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.1.0.car_shop/create/v.1.0.create-role-table.xml::role-constraintName-v.1.1::Alexandr Krylov:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "car_shop.user_roles" does not exist [Failed SQL: (0) ALTER TABLE car_shop.user_roles ADD CONSTRAINT fk_user_roles_user FOREIGN KEY (user_id) REFERENCES car_shop."user" (user_id)]
+2024-08-11 18:15:45,349 ERROR org.example.config.LiquibaseBaseConfig.<init>:48 - SQL got exception liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.1.0.car_shop/create/v.1.0.create-role-table.xml::role-constraintName-v.1.1::Alexandr Krylov:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "car_shop.user_roles" does not exist [Failed SQL: (0) ALTER TABLE car_shop.user_roles ADD CONSTRAINT fk_user_roles_user FOREIGN KEY (user_id) REFERENCES car_shop."user" (user_id)]
+2024-08-11 18:16:32,106 INFO  org.example.config.LiquibaseBaseConfig.<init>:46 - Migration is successfully
+2024-08-11 18:19:01,597 ERROR org.example.config.LiquibaseBaseConfig.<init>:48 - SQL got exception liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.1.0.car_shop/create/v.1.0.create-role-table.xml::role-constraintName-v.1.1::Alexandr Krylov:
+     Reason: 
+          db/changelog/changelog-master.xml : Not precondition failed
+
+2024-08-11 18:19:40,943 ERROR org.example.config.LiquibaseBaseConfig.<init>:48 - SQL got exception liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.1.0.car_shop/create/v.1.0.create-role-table.xml::role-constraintName-v.1.1::Alexandr Krylov:
+     Reason: 
+          db/changelog/changelog-master.xml : Not precondition failed
+
+2024-08-11 18:20:32,285 ERROR org.example.config.LiquibaseBaseConfig.<init>:48 - SQL got exception liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.1.0.car_shop/create/v.1.0.create-role-table.xml::role-constraintName-v.1.1::Alexandr Krylov:
+     Reason: 
+          db/changelog/changelog-master.xml : Not precondition failed
+
+2024-08-11 18:20:47,625 ERROR org.example.config.LiquibaseBaseConfig.<init>:48 - SQL got exception liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.1.0.car_shop/create/v.1.0.create-role-table.xml::role-constraintName-v.1.1::Alexandr Krylov:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "car_shop.user_roles" does not exist [Failed SQL: (0) ALTER TABLE car_shop.user_roles ADD CONSTRAINT fk_user_roles_user FOREIGN KEY (user_id) REFERENCES car_shop."user" (user_id)]
+2024-08-11 18:21:36,144 INFO  org.example.config.LiquibaseBaseConfig.<init>:46 - Migration is successfully
+2024-08-11 23:18:35,124 ERROR org.example.config.LiquibaseBaseConfig.<init>:48 - SQL got exception liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: liquibase.exception.SetupException: Error parsing line 16 column 26 of db/changelog/v.1.0.car_shop/create/v.1.0.create-car-table.xml: cvc-complex-type.2.1: Element 'createSequence' must have no character or element information item [children], because the type's content type is empty.
+2024-08-11 23:21:04,709 ERROR org.example.config.LiquibaseBaseConfig.<init>:48 - SQL got exception liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.1.0.car_shop/populate/v.1.0.populate-car-table.xml::car-populate-v.1.0::Alexandr Krylov:
+     Reason: liquibase.exception.DatabaseException: ERROR: null value in column "car_id" of relation "car" violates not-null constraint
+  Подробности: Failing row contains (null, BMW, M4, 2024, 25000.00, new). [Failed SQL: (0) INSERT INTO car_shop.car (brand, model, year, price, condition) VALUES ('BMW', 'M4', 2024, 25000.00, 'new'),('Volvo', 'S40', 2023, 17500.00, 'good'),('Mercedes', 'SLS', 2024, 25000.00, 'new'),('Volvo', 'S60', 2019, 25000.00, 'good'),('Audi', 'Q3', 2020, 19500.80, 'good');]
+2024-08-11 23:23:37,031 ERROR org.example.config.LiquibaseBaseConfig.<init>:48 - SQL got exception liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.1.0.car_shop/populate/v.1.0.populate-car-table.xml::car-populate-v.1.0::Alexandr Krylov:
+     Reason: liquibase.exception.DatabaseException: ERROR: null value in column "car_id" of relation "car" violates not-null constraint
+  Подробности: Failing row contains (null, BMW, M4, 2024, 25000.00, new). [Failed SQL: (0) INSERT INTO car_shop.car (brand, model, year, price, condition) VALUES ('BMW', 'M4', 2024, 25000.00, 'new'),('Volvo', 'S40', 2023, 17500.00, 'good'),('Mercedes', 'SLS', 2024, 25000.00, 'new'),('Volvo', 'S60', 2019, 25000.00, 'good'),('Audi', 'Q3', 2020, 19500.80, 'good');]
+2024-08-11 23:26:10,355 ERROR org.example.config.LiquibaseBaseConfig.<init>:48 - SQL got exception liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.1.0.car_shop/populate/v.1.0.populate-car-table.xml::car-populate-v.1.0::Alexandr Krylov:
+     Reason: liquibase.exception.DatabaseException: ERROR: null value in column "car_id" of relation "car" violates not-null constraint
+  Подробности: Failing row contains (null, BMW, M4, 2024, 25000.00, new). [Failed SQL: (0) INSERT INTO car_shop.car (brand, model, year, price, condition) VALUES ('BMW', 'M4', 2024, 25000.00, 'new'),('Volvo', 'S40', 2023, 17500.00, 'good'),('Mercedes', 'SLS', 2024, 25000.00, 'new'),('Volvo', 'S60', 2019, 25000.00, 'good'),('Audi', 'Q3', 2020, 19500.80, 'good');]
+2024-08-11 23:28:09,135 INFO  org.example.config.LiquibaseBaseConfig.<init>:46 - Migration is successfully
+2024-08-11 23:31:17,729 ERROR org.example.config.LiquibaseBaseConfig.<init>:48 - SQL got exception liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.1.0.car_shop/populate/v.1.0.populate-order-table.xml::order-auto-increment-v.1.1::Alexandr Krylov:
+     Reason: liquibase.exception.DatabaseException: ERROR: column "order_id" of relation "orders" is an identity column [Failed SQL: (0) ALTER TABLE car_shop.orders ALTER COLUMN  order_id SET DEFAULT nextval('car_shop.orders_order_id_seq')]
+2024-08-11 23:31:41,410 ERROR org.example.config.LiquibaseBaseConfig.<init>:48 - SQL got exception liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.1.0.car_shop/create/v.1.0.create-car-table.xml::car-initial-v.1.0::Alexandr Krylov:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "public.car" does not exist [Failed SQL: (0) ALTER TABLE public.car ALTER COLUMN  car_id SET DEFAULT nextval('public."car_shop.car_id_seq"')]
+2024-08-11 23:33:55,627 ERROR org.example.config.LiquibaseBaseConfig.<init>:48 - SQL got exception liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.1.0.car_shop/create/v.1.0.create-car-table.xml::car-initial-v.1.0::Alexandr Krylov:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "public.car" does not exist [Failed SQL: (0) ALTER TABLE public.car ALTER COLUMN  car_id SET DEFAULT nextval('public."car_shop.car_id_seq"')]
+2024-08-11 23:35:21,503 ERROR org.example.config.LiquibaseBaseConfig.<init>:48 - SQL got exception liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.1.0.car_shop/create/v.1.0.create-car-table.xml::car-initial-v.1.0::Alexandr Krylov:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "public.car" does not exist [Failed SQL: (0) ALTER TABLE public.car ALTER COLUMN  car_id SET DEFAULT nextval('public."car_shop.car_id_seq"')]
+2024-08-11 23:35:30,393 ERROR org.example.config.LiquibaseBaseConfig.<init>:48 - SQL got exception liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.1.0.car_shop/create/v.1.0.create-car-table.xml::car-initial-v.1.0::Alexandr Krylov:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "public.car" does not exist [Failed SQL: (0) ALTER TABLE public.car ALTER COLUMN  car_id SET DEFAULT nextval('public."car_shop.car_id_seq"')]
+2024-08-11 23:36:22,579 ERROR org.example.config.LiquibaseBaseConfig.<init>:48 - SQL got exception liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v.1.0.car_shop/create/v.1.0.create-car-table.xml::car-initial-v.1.0::Alexandr Krylov:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "public.car" does not exist [Failed SQL: (0) ALTER TABLE public.car ALTER COLUMN  car_id SET DEFAULT nextval('public."car_shop.car_id_seq"')]
+2024-08-11 23:37:41,863 INFO  org.example.config.LiquibaseBaseConfig.<init>:46 - Migration is successfully
+2024-08-11 23:43:26,068 INFO  org.example.config.LiquibaseBaseConfig.<init>:46 - Migration is successfully
+2024-08-11 23:43:35,200 INFO  org.example.service.AuthServiceInMemory.delete:72 - Car with id - 1 removed
+2024-08-11 23:43:35,246 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-11 23:43:35,248 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-11 23:43:35,249 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-11 23:43:35,258 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-11 23:43:35,258 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-11 23:43:35,259 INFO  org.example.service.AuthServiceInMemory.saveOrUpdate:57 - Car Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good) updated
+2024-08-11 23:43:35,265 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-11 23:43:35,266 INFO  org.example.service.AuthServiceInMemory.saveOrUpdate:52 - Car Car(id=0, brand=Toyota, model=Camry, year=2022, price=15800.0, condition=good) added
+2024-08-11 23:43:35,267 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-11 23:43:35,267 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-11 23:43:35,315 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-11 23:43:35,318 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-11 23:43:35,386 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-11 23:43:35,566 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-11 23:43:35,783 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-11 23:43:35,784 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-11 23:43:35,798 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-11 23:43:35,821 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-11 23:43:36,114 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-11 23:43:36,234 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: 92db9629086115dd6f844c5c05e0c6cd2d75b810e81220f80ed36ae326317f93
+2024-08-11 23:43:36,585 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.7637082S
+2024-08-11 23:43:36,590 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-11 23:43:36,590 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-11 23:43:36,591 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-11 23:43:36,592 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-11 23:43:36,664 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: e3462408a4dbbe348dc7c52103be9b2bba1b25e2de25fa0d0c583f45a765a8ea
+2024-08-11 23:43:39,605 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.0132896S
+2024-08-11 23:43:39,606 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:4544/test_db?loggerLevel=OFF)
+2024-08-11 23:43:39,753 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:78 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-11 23:43:39,758 INFO  org.example.repository.jdbc.CarStorageJdbc.delete:126 - Car with id 4 is deleting
+2024-08-11 23:43:39,759 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:78 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-11 23:43:39,792 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:78 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-11 23:43:39,795 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:78 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-11 23:43:39,796 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:78 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-11 23:43:39,828 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:78 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good)]
+2024-08-11 23:43:39,856 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:78 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-11 23:43:39,857 ERROR org.example.repository.jdbc.CarStorageJdbc.delete:119 - Not found car with id 800
+2024-08-11 23:43:39,886 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:78 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-11 23:43:39,888 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:78 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-11 23:43:40,375 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-11 23:43:40,454 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 4e4763c2cd273fdfd9968101946b527a418ef2ed4b2901c08b4adeeb48efc6de
+2024-08-11 23:43:43,754 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.3786781S
+2024-08-11 23:43:43,754 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:4555/test_db?loggerLevel=OFF)
+2024-08-11 23:43:43,780 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:96 - Get all users after filter
+2024-08-11 23:43:43,783 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:96 - Get all users after filter
+2024-08-11 23:43:43,785 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:96 - Get all users after filter
+2024-08-11 23:43:43,836 INFO  org.example.repository.jdbc.UserStorageJdbc.update:128 - User User(userId=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=null, orders=null) user was changed
+2024-08-11 23:43:43,866 INFO  org.example.repository.jdbc.UserStorageJdbc.sort:112 - Get all users after sort
+2024-08-11 23:43:43,869 INFO  org.example.repository.jdbc.UserStorageJdbc.sort:112 - Get all users after sort
+2024-08-11 23:43:44,268 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-11 23:43:44,344 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 6c86287c090f3d759157a773b3a64da27cd9e1d312355b85731a559845baaf80
+2024-08-11 23:43:47,218 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT2.9499934S
+2024-08-11 23:43:47,218 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:4565/test_db?loggerLevel=OFF)
+2024-08-11 23:43:47,245 ERROR org.example.repository.jdbc.OrderStorageJdbc.getById:111 - Not found order with id 800
+2024-08-11 23:43:47,298 INFO  org.example.repository.jdbc.OrderStorageJdbc.filter:174 - Get all find orders
+2024-08-11 23:43:47,348 ERROR org.example.repository.jdbc.OrderStorageJdbc.changeStatus:141 - Not found order with id 800
+2024-08-11 23:43:47,451 ERROR org.example.repository.jdbc.OrderStorageJdbc.canceled:155 - Not found order with id 800
+2024-08-11 23:43:47,876 INFO  org.example.service.AuthServiceInMemory.loginUser:47 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=[Roles.ADMINISTRATOR(title=Администратор)], orders=null) is logging
+2024-08-11 23:43:47,877 INFO  org.example.service.AuthServiceInMemory.loginUser:47 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=[Roles.CLIENT(title=Клиент)], orders=[Order(orderId=2, userId=5, carId=4, date=2024-11-11, status=successfully)]) is logging
+2024-08-11 23:43:47,879 INFO  org.example.service.AuthServiceInMemory.loginUser:51 - Uncorrected input login qwerty and password qwerty
+2024-08-11 23:43:47,880 INFO  org.example.service.AuthServiceInMemory.registeredUser:27 - New user is User(userId=7, login=master, password=master, name=Tom, age=78, city=Tokyo, role=[Roles.MANAGER(title=Менеджер), Roles.ADMINISTRATOR(title=Администратор)], orders=null) added
+2024-08-11 23:43:47,881 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-11 23:43:47,881 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-11 23:43:47,884 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-11 23:43:47,885 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-11 23:43:47,886 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-11 23:43:47,887 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-11 23:43:47,888 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-11 23:43:47,888 INFO  org.example.service.AuthServiceInMemory.update:75 - User User(userId=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=null, orders=null) user was changed
+2024-08-11 23:43:47,889 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-11 23:43:47,891 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-11 23:43:47,977 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: e2cf8bfde930c7a1dfaa23b94c8844e8c3f0ec4b3504e88e3c0a5084b0cfe726
+2024-08-11 23:43:50,951 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.0597734S
+2024-08-11 23:43:50,951 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:4584/test_db?loggerLevel=OFF)
+2024-08-11 23:43:51,000 INFO  org.example.service.AuthServiceJdbc.loginUser:104 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=null, orders=null) is logging
+2024-08-11 23:43:51,001 INFO  org.example.service.AuthServiceJdbc.loginUser:104 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=null, orders=null) is logging
+2024-08-11 23:43:51,003 INFO  org.example.service.AuthServiceJdbc.loginUser:108 - Uncorrected input login qwerty and password qwerty
+2024-08-11 23:43:51,681 INFO  org.example.service.AuthServiceInMemory.create:44 - Order - Order(orderId=3, userId=3, carId=5, date=2024-10-10, status=successfully) is created
+2024-08-11 23:43:51,681 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-11 23:43:51,682 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-11 23:43:51,683 INFO  org.example.service.AuthServiceInMemory.filter:113 - Get all find orders
+2024-08-11 23:43:51,685 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-11 23:43:51,686 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-11 23:43:51,687 INFO  org.example.service.AuthServiceInMemory.canceled:97 - Order with 2 id is canceled
+2024-08-11 23:43:51,688 INFO  org.example.service.AuthServiceInMemory.changeStatus:83 - Change status on is ready, repository order with 1 id
+2024-08-11 23:49:03,700 ERROR org.example.config.LiquibaseBaseConfig.<init>:48 - SQL got exception liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: liquibase.exception.SetupException: Error parsing line 1 column 60 of db/changelog/v.1.0.car_shop/create/v.1.0.create-car-table.xml: cvc-elt.1.a: Cannot find the declaration of element 'changeSet'.
+2024-08-11 23:49:31,947 INFO  org.example.config.LiquibaseBaseConfig.<init>:46 - Migration is successfully
+2024-08-11 23:51:42,678 INFO  org.example.config.LiquibaseBaseConfig.<init>:46 - Migration is successfully
+2024-08-11 23:54:39,390 INFO  org.example.config.LiquibaseBaseConfig.<init>:46 - Migration is successfully
+2024-08-11 23:56:32,218 INFO  org.example.service.AuthServiceInMemory.delete:72 - Car with id - 1 removed
+2024-08-11 23:56:32,262 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-11 23:56:32,264 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-11 23:56:32,265 INFO  org.example.service.AuthServiceInMemory.filter:89 - Get all find cars
+2024-08-11 23:56:32,274 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-11 23:56:32,275 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-11 23:56:32,277 INFO  org.example.service.AuthServiceInMemory.saveOrUpdate:57 - Car Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good) updated
+2024-08-11 23:56:32,282 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-11 23:56:32,284 INFO  org.example.service.AuthServiceInMemory.saveOrUpdate:52 - Car Car(id=0, brand=Toyota, model=Camry, year=2022, price=15800.0, condition=good) added
+2024-08-11 23:56:32,285 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-11 23:56:32,285 INFO  org.example.service.AuthServiceInMemory.getAll:36 - Get all cars
+2024-08-11 23:56:32,316 INFO  org.testcontainers.images.PullPolicy.defaultPolicy:59 - Image pull policy will be performed by: DefaultPullPolicy()
+2024-08-11 23:56:32,318 INFO  org.testcontainers.utility.ImageNameSubstitutor.instance:55 - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2024-08-11 23:56:32,374 INFO  org.testcontainers.DockerClientFactory.getOrInitializeStrategy:148 - Testcontainers version: 1.20.1
+2024-08-11 23:56:32,527 INFO  o.t.dockerclient.DockerClientProviderStrategy.lambda$loadConfiguredStrategy$9:383 - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2024-08-11 23:56:32,706 INFO  o.t.dockerclient.DockerClientProviderStrategy.tryOutStrategy:293 - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2024-08-11 23:56:32,707 INFO  org.testcontainers.DockerClientFactory.client:206 - Docker host IP address is localhost
+2024-08-11 23:56:32,721 INFO  org.testcontainers.DockerClientFactory.client:213 - Connected to docker: 
+  Server Version: 24.0.7
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 15849 MB
+2024-08-11 23:56:32,743 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:387 - Creating container for image: testcontainers/ryuk:0.8.1
+2024-08-11 23:56:32,930 INFO  org.testcontainers.utility.RegistryAuthLocator.runCredentialProvider:292 - Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+2024-08-11 23:56:33,049 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:451 - Container testcontainers/ryuk:0.8.1 is starting: c3b4d5a4d54101ff7303d57f30f9729f8d7365e5512ffc54fa31612355d75936
+2024-08-11 23:56:33,461 INFO  tc.testcontainers/ryuk:0.8.1.tryStart:541 - Container testcontainers/ryuk:0.8.1 started in PT0.7182098S
+2024-08-11 23:56:33,467 INFO  org.testcontainers.utility.RyukResourceReaper.init:43 - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2024-08-11 23:56:33,467 INFO  org.testcontainers.DockerClientFactory.client:243 - Checking the system...
+2024-08-11 23:56:33,467 INFO  org.testcontainers.DockerClientFactory.check:264 - ✔︎ Docker server version should be at least 1.6.0
+2024-08-11 23:56:33,468 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-11 23:56:33,555 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 3a006d5440d6b81e544993559782dade3a97ea4964951c400287ad1970e11cc4
+2024-08-11 23:56:37,777 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT4.3094659S
+2024-08-11 23:56:37,778 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:4792/test_db?loggerLevel=OFF)
+2024-08-11 23:56:37,923 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:78 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-11 23:56:37,929 INFO  org.example.repository.jdbc.CarStorageJdbc.delete:126 - Car with id 4 is deleting
+2024-08-11 23:56:37,930 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:78 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-11 23:56:37,962 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:78 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-11 23:56:37,965 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:78 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-11 23:56:37,967 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:78 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-11 23:56:37,995 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:78 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good), Car(id=4, brand=BMW, model=S60, year=2021, price=25000.0, condition=good)]
+2024-08-11 23:56:38,022 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:78 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-11 23:56:38,023 ERROR org.example.repository.jdbc.CarStorageJdbc.delete:119 - Not found car with id 800
+2024-08-11 23:56:38,047 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:78 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-11 23:56:38,049 INFO  org.example.repository.jdbc.CarStorageJdbc.getAll:78 - Get all cars [Car(id=1, brand=BMW, model=M4, year=2024, price=25000.0, condition=new), Car(id=2, brand=Volvo, model=S40, year=2023, price=17500.0, condition=good), Car(id=3, brand=Mercedes, model=SLS, year=2024, price=25000.0, condition=new), Car(id=4, brand=Volvo, model=S60, year=2019, price=25000.0, condition=good), Car(id=5, brand=Audi, model=Q3, year=2020, price=19500.8, condition=good)]
+2024-08-11 23:56:38,489 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-11 23:56:38,581 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: cccc30ff394d663f61f08604b2dea0dc017262d63595edbe6898efc6914fd73f
+2024-08-11 23:56:42,740 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT4.2515057S
+2024-08-11 23:56:42,741 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:4803/test_db?loggerLevel=OFF)
+2024-08-11 23:56:42,766 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:96 - Get all users after filter
+2024-08-11 23:56:42,768 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:96 - Get all users after filter
+2024-08-11 23:56:42,770 INFO  org.example.repository.jdbc.UserStorageJdbc.filter:96 - Get all users after filter
+2024-08-11 23:56:42,818 INFO  org.example.repository.jdbc.UserStorageJdbc.update:128 - User User(userId=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=null, orders=null) user was changed
+2024-08-11 23:56:42,846 INFO  org.example.repository.jdbc.UserStorageJdbc.sort:112 - Get all users after sort
+2024-08-11 23:56:42,848 INFO  org.example.repository.jdbc.UserStorageJdbc.sort:112 - Get all users after sort
+2024-08-11 23:56:43,285 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-11 23:56:43,387 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 433e6a30bd3050750ee18f907dfc6f52e6c6ff7a0e45e41a6c9907fa7ef0a079
+2024-08-11 23:56:47,529 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT4.2442342S
+2024-08-11 23:56:47,530 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:4812/test_db?loggerLevel=OFF)
+2024-08-11 23:56:47,556 ERROR org.example.repository.jdbc.OrderStorageJdbc.getById:111 - Not found order with id 800
+2024-08-11 23:56:47,607 INFO  org.example.repository.jdbc.OrderStorageJdbc.filter:174 - Get all find orders
+2024-08-11 23:56:47,656 ERROR org.example.repository.jdbc.OrderStorageJdbc.changeStatus:141 - Not found order with id 800
+2024-08-11 23:56:47,767 ERROR org.example.repository.jdbc.OrderStorageJdbc.canceled:155 - Not found order with id 800
+2024-08-11 23:56:48,197 INFO  org.example.service.AuthServiceInMemory.loginUser:47 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=[Roles.ADMINISTRATOR(title=Администратор)], orders=null) is logging
+2024-08-11 23:56:48,197 INFO  org.example.service.AuthServiceInMemory.loginUser:47 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=[Roles.CLIENT(title=Клиент)], orders=[Order(orderId=2, userId=5, carId=4, date=2024-11-11, status=successfully)]) is logging
+2024-08-11 23:56:48,200 INFO  org.example.service.AuthServiceInMemory.loginUser:51 - Uncorrected input login qwerty and password qwerty
+2024-08-11 23:56:48,201 INFO  org.example.service.AuthServiceInMemory.registeredUser:27 - New user is User(userId=7, login=master, password=master, name=Tom, age=78, city=Tokyo, role=[Roles.MANAGER(title=Менеджер), Roles.ADMINISTRATOR(title=Администратор)], orders=null) added
+2024-08-11 23:56:48,201 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-11 23:56:48,201 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-11 23:56:48,203 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-11 23:56:48,203 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-11 23:56:48,204 INFO  org.example.service.AuthServiceInMemory.filter:49 - Get all users after filter
+2024-08-11 23:56:48,205 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-11 23:56:48,205 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-11 23:56:48,206 INFO  org.example.service.AuthServiceInMemory.update:75 - User User(userId=5, login=client222, password=client222, name=Pavel, age=45, city=Ivanovo, role=null, orders=null) user was changed
+2024-08-11 23:56:48,206 INFO  org.example.service.AuthServiceInMemory.getAll:35 - Get all users
+2024-08-11 23:56:48,208 INFO  tc.postgres:16.3.tryStart:387 - Creating container for image: postgres:16.3
+2024-08-11 23:56:48,304 INFO  tc.postgres:16.3.tryStart:451 - Container postgres:16.3 is starting: 45681a940b4d35b346aa96b94d32a4a53d9a69f42ed5b15625fcc068bc00e78d
+2024-08-11 23:56:51,570 INFO  tc.postgres:16.3.tryStart:541 - Container postgres:16.3 started in PT3.3619469S
+2024-08-11 23:56:51,570 INFO  tc.postgres:16.3.containerIsStarted:219 - Container is started (JDBC URL: jdbc:postgresql://localhost:4831/test_db?loggerLevel=OFF)
+2024-08-11 23:56:51,618 INFO  org.example.service.AuthServiceJdbc.loginUser:104 - User User(userId=1, login=admin, password=admin, name=Alexandr, age=33, city=Moscow, role=null, orders=null) is logging
+2024-08-11 23:56:51,619 INFO  org.example.service.AuthServiceJdbc.loginUser:104 - User User(userId=4, login=client1, password=client1, name=Tanya, age=25, city=London, role=null, orders=null) is logging
+2024-08-11 23:56:51,619 INFO  org.example.service.AuthServiceJdbc.loginUser:108 - Uncorrected input login qwerty and password qwerty
+2024-08-11 23:56:52,284 INFO  org.example.service.AuthServiceInMemory.create:44 - Order - Order(orderId=3, userId=3, carId=5, date=2024-10-10, status=successfully) is created
+2024-08-11 23:56:52,285 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-11 23:56:52,285 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-11 23:56:52,286 INFO  org.example.service.AuthServiceInMemory.filter:113 - Get all find orders
+2024-08-11 23:56:52,288 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-11 23:56:52,289 INFO  org.example.service.AuthServiceInMemory.getAll:59 - Show all orders
+2024-08-11 23:56:52,290 INFO  org.example.service.AuthServiceInMemory.canceled:97 - Order with 2 id is canceled
+2024-08-11 23:56:52,291 INFO  org.example.service.AuthServiceInMemory.changeStatus:83 - Change status on is ready, repository order with 1 id

@@ -11,7 +11,7 @@
         </preConditions>
 
         <createTable tableName="car" schemaName="car_shop">
-            <column name="car_id" type="SERIAL">
+            <column name="car_id" type="INTEGER">
                 <constraints primaryKey="true"/>
             </column>
             <column name="brand" type="TEXT">

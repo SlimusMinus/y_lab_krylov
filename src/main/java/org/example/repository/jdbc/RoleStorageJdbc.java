@@ -20,7 +20,7 @@ import java.util.Set;
  * </p>
  */
 @Slf4j
-public class RoleStorageJdbc implements RoleStorage {
+public class RoleStorageJdbc implements RoleStorage, AutoCloseable {
 
     private Connection connection;
 
@@ -35,6 +35,18 @@ public class RoleStorageJdbc implements RoleStorage {
             connection = DatabaseConfig.getConnection();
         } catch (SQLException | IOException e) {
             log.error("Error get connection", e);
+        }
+    }
+
+    @Override
+    public void close() throws Exception {
+        if (connection != null) {
+            try {
+                connection.close();
+                log.info("Connection closed successfully.");
+            } catch (SQLException e) {
+                log.error("Error closing connection", e);
+            }
         }
     }
 

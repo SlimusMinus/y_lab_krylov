@@ -13,7 +13,7 @@
         </preConditions>
 
         <createTable tableName="user" schemaName="car_shop">
-            <column name="user_id" type="SERIAL">
+            <column name="user_id" type="INTEGER">
                 <constraints primaryKey="true"/>
             </column>
             <column name="login" type="TEXT">

@@ -21,7 +21,7 @@ import java.util.function.Predicate;
  * </p>
  */
 @Slf4j
-public class UserStorageJdbc implements UserStorage {
+public class UserStorageJdbc implements UserStorage, AutoCloseable {
 
     private Connection connection;
 
@@ -38,6 +38,17 @@ public class UserStorageJdbc implements UserStorage {
             log.error("Error get connection", e);
         }
     }
+    @Override
+    public void close() throws Exception {
+        if (connection != null) {
+            try {
+                connection.close();
+                log.info("Connection closed successfully.");
+            } catch (SQLException e) {
+                log.error("Error closing connection", e);
+            }
+        }
+    }
 
     /**
      * Возвращает список всех пользователей из базы данных.
@@ -51,8 +62,8 @@ public class UserStorageJdbc implements UserStorage {
     public List<User> getAll() {
         List <User> users = new ArrayList<>();
         String query = "SELECT * FROM car_shop.user";
-        try (Statement statement = connection.createStatement()) {
-            ResultSet resultSet = statement.executeQuery(query);
+        try (Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query)) {
             while (resultSet.next()){
                 User user = new User();
                 user.setUserId(resultSet.getInt("user_id"));

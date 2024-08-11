@@ -21,7 +21,7 @@ import java.util.function.Predicate;
  * </p>
  */
 @Slf4j
-public class OrderStorageJdbc implements OrderStorage {
+public class OrderStorageJdbc implements OrderStorage, AutoCloseable {
 
     private Connection connection;
 
@@ -36,6 +36,18 @@ public class OrderStorageJdbc implements OrderStorage {
             connection = DatabaseConfig.getConnection();
         } catch (SQLException | IOException e) {
             log.error("Error get connection ", e);
+        }
+    }
+
+    @Override
+    public void close() throws Exception {
+        if (connection != null) {
+            try {
+                connection.close();
+                log.info("Connection closed successfully.");
+            } catch (SQLException e) {
+                log.error("Error closing connection", e);
+            }
         }
     }
 
@@ -186,4 +198,5 @@ public class OrderStorageJdbc implements OrderStorage {
             log.error("Error change status {} orders with id {}", status, id, e);
         }
     }
+
 }

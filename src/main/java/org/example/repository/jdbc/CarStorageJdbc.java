@@ -21,7 +21,7 @@ import java.util.function.Predicate;
  * </p>
  */
 @Slf4j
-public class CarStorageJdbc implements CarStorage {
+public class CarStorageJdbc implements CarStorage, AutoCloseable {
     private Connection connection;
 
     /**
@@ -38,6 +38,18 @@ public class CarStorageJdbc implements CarStorage {
         }
     }
 
+    @Override
+    public void close() {
+        if (connection != null) {
+            try {
+                connection.close();
+                log.info("Connection closed successfully.");
+            } catch (SQLException e) {
+                log.error("Error closing connection", e);
+            }
+        }
+    }
+
     /**
      * Возвращает список всех автомобилей, хранящихся в базе данных.
      *
@@ -48,8 +60,8 @@ public class CarStorageJdbc implements CarStorage {
         List<Car> cars = new ArrayList<>();
         String query = "SELECT * FROM car_shop.car";
 
-        try (Statement statement = connection.createStatement()) {
-            ResultSet resultSet = statement.executeQuery(query);
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(query)) {
             while (resultSet.next()) {
                 Car car = new Car();
                 car.setId(resultSet.getInt("car_id"));
@@ -153,16 +165,21 @@ public class CarStorageJdbc implements CarStorage {
         }
 
         int affectedRows = statement.executeUpdate();
-        if (affectedRows > 0) {
-            if (car.getId() == 0) {
-                try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
-                    if (generatedKeys.next()) {
-                        car.setId(generatedKeys.getInt(1));
-                    }
-                }
-            }
+        return processGeneratedKeys(car, statement, affectedRows);
+    }
+
+    private static Car processGeneratedKeys(Car car, PreparedStatement statement, int affectedRows) throws SQLException {
+        if (affectedRows == 0) {
+            return null;
+        }
+        if (car.getId() != 0) {
             return car;
         }
-        return null;
+        try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
+            if (generatedKeys.next()) {
+                car.setId(generatedKeys.getInt(1));
+            }
+        }
+        return car;
     }
 }

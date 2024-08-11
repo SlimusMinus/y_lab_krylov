@@ -10,7 +10,7 @@
             </not>
         </preConditions>
         <createTable tableName="user_roles" schemaName="car_shop">
-            <column name="role_id" type="SERIAL">
+            <column name="role_id" type="INTEGER">
                 <constraints primaryKey="true"/>
             </column>
             <column name="user_id" type="INTEGER">
