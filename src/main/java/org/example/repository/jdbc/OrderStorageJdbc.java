@@ -70,7 +70,6 @@ public class OrderStorageJdbc implements OrderStorage {
     public List<Order> getAll() {
         List<Order> orders = new ArrayList<>();
         String query = "SELECT * FROM car_shop.orders";
-
         try (Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
@@ -99,24 +98,23 @@ public class OrderStorageJdbc implements OrderStorage {
         if (id > getAll().size()) {
             log.error("Not found order with id {}", id);
             throw new NotFoundException("Id такого пользователя не существует");
-        } else {
-            Order newOrder = new Order();
-            String query = "SELECT * FROM car_shop.orders where order_id=?";
-            try (PreparedStatement statement = connection.prepareStatement(query)) {
-                statement.setInt(1, id);
-                ResultSet resultSet = statement.executeQuery();
-                while (resultSet.next()) {
-                    newOrder.setOrderId(resultSet.getInt("order_id"));
-                    newOrder.setUserId(resultSet.getInt("user_id"));
-                    newOrder.setCarId(resultSet.getInt("car_id"));
-                    newOrder.setDate(resultSet.getDate("date").toLocalDate());
-                    newOrder.setStatus(resultSet.getString("status"));
-                }
-            } catch (SQLException e) {
-                log.error("Error fetching orders with id {}", id, e);
-            }
-            return newOrder;
         }
+        Order newOrder = new Order();
+        String query = "SELECT * FROM car_shop.orders where order_id=?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                newOrder.setOrderId(resultSet.getInt("order_id"));
+                newOrder.setUserId(resultSet.getInt("user_id"));
+                newOrder.setCarId(resultSet.getInt("car_id"));
+                newOrder.setDate(resultSet.getDate("date").toLocalDate());
+                newOrder.setStatus(resultSet.getString("status"));
+            }
+        } catch (SQLException e) {
+            log.error("Error fetching orders with id {}", id, e);
+        }
+        return newOrder;
     }
 
     /**
@@ -130,9 +128,8 @@ public class OrderStorageJdbc implements OrderStorage {
         if (id > getAll().size()) {
             log.error("Not found order with id {}", id);
             throw new NotFoundException("Id такого пользователя не существует");
-        } else {
-            updateOrder(id, status);
         }
+        updateOrder(id, status);
     }
 
     /**
@@ -145,9 +142,8 @@ public class OrderStorageJdbc implements OrderStorage {
         if (id > getAll().size()) {
             log.error("Not found order with id {}", id);
             throw new NotFoundException("Id такого пользователя не существует");
-        } else {
-            updateOrder(id, "canceled");
         }
+        updateOrder(id, "canceled");
     }
 
     /**

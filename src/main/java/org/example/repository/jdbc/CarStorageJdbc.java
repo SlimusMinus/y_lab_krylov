@@ -87,7 +87,7 @@ public class CarStorageJdbc implements CarStorage {
         }
         try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             final Car newCar = getCar(car, statement);
-            if (newCar != null){
+            if (newCar != null) {
                 return newCar;
             }
         } catch (SQLException e) {
@@ -103,19 +103,17 @@ public class CarStorageJdbc implements CarStorage {
      */
     @Override
     public void delete(int id) {
-        if(id > getAll().size()){
+        if (id > getAll().size()) {
             log.error("Not found car with id {}", id);
             throw new NotFoundException("Id такого автомобиля не существует");
         }
-        else{
-            String query = "DELETE FROM car_shop.car WHERE car_id=?";
-            try (PreparedStatement statement = connection.prepareStatement(query)) {
-                statement.setInt(1, id);
-                statement.executeUpdate();
-                log.info("Car with id {} is deleting", id);
-            } catch (SQLException e) {
-                log.error("Error deleting car with id {}", id, e);
-            }
+        String query = "DELETE FROM car_shop.car WHERE car_id=?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, id);
+            statement.executeUpdate();
+            log.info("Car with id {} is deleting", id);
+        } catch (SQLException e) {
+            log.error("Error deleting car with id {}", id, e);
         }
     }
 
