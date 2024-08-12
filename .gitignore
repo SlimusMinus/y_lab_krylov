@@ -4,7 +4,8 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
-*.idea
+/log/
+/.idea/
 *.iws
 *.iml
 *.ipr
