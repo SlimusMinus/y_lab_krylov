@@ -38,6 +38,18 @@ public class UserStorageJdbc implements UserStorage, AutoCloseable {
             log.error("Error get connection", e);
         }
     }
+
+    /**
+     * Закрывает соединение с базой данных.
+     * <p>
+     * Если соединение с базой данных было установлено (не равно {@code null}),
+     * метод пытается его закрыть. В случае успешного закрытия в журнал записывается
+     * информационное сообщение. Если возникает ошибка при закрытии соединения,
+     * она записывается в журнал как ошибка.
+     * </p>
+     *
+     * @throws SQLException Если произошла ошибка при закрытии соединения.
+     */
     @Override
     public void close() throws Exception {
         if (connection != null) {

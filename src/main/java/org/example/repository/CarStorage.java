@@ -19,6 +19,8 @@ public interface CarStorage {
      */
     List<Car> getAll();
 
+    Car getById(int id);
+
     /**
      * Сохраняет новый автомобиль или обновляет данные об существующем автомобиле.
      *

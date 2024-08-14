@@ -37,6 +37,11 @@ public class CarStorageInMemory implements CarStorage {
         return carData.getCars().values().stream().toList();
     }
 
+    @Override
+    public Car getById(int id){
+        return null;
+    }
+
     /**
      * Сохраняет новый автомобиль или обновляет данные об существующем автомобиле.
      *

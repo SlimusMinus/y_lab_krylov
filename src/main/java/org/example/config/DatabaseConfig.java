@@ -27,7 +27,7 @@ public class DatabaseConfig {
     private static String password;
 
     @Getter
-    private static final String PROPERTIES_FILE_PATH = "src/main/resources/db/database.properties";
+    private static final String PROPERTIES_FILE_PATH = "/db/database.properties";
 
     /**
      * Загружает свойства базы данных из файла.
@@ -36,7 +36,10 @@ public class DatabaseConfig {
     private static void loadProperties() throws IOException {
         if (properties == null) {
             properties = new Properties();
-            try (InputStream is = new FileInputStream(PROPERTIES_FILE_PATH)) {
+            try (InputStream is = DatabaseConfig.class.getResourceAsStream(PROPERTIES_FILE_PATH)) {
+                if (is == null) {
+                    throw new IOException("Файл свойств не найден по пути: " + PROPERTIES_FILE_PATH);
+                }
                 properties.load(is);
             }
         }

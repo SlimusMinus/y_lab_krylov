@@ -1,5 +1,9 @@
 package org.example;
 
+import org.example.model.Car;
+import org.example.repository.CarStorage;
+import org.example.repository.jdbc.CarStorageJdbc;
+
 import static org.example.out.OutData.startApp;
 
 /**
@@ -11,7 +15,12 @@ import static org.example.out.OutData.startApp;
  */
 public class App {
     public static void main(String[] args) {
-        startApp();
+        //startApp();
+        CarStorage storage = new CarStorageJdbc();
+        final Car car = storage.getById(2);
+        System.out.println(car);
+
+
     }
 }
 
