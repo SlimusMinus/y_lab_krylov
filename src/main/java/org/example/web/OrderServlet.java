@@ -14,9 +14,19 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Servlet для управления заказами.
+ * Обрабатывает запросы на отображение, фильтрацию, добавление, редактирование, отмену и изменение статуса заказов.
+ */
 public class OrderServlet extends HttpServlet {
     private OrderStorage storage;
 
+    /**
+     * Инициализация сервлета.
+     * Загружает драйвер PostgreSQL и инициализирует объект {@link OrderStorage} для работы с хранилищем заказов.
+     *
+     * @throws ServletException если происходит ошибка при инициализации сервлета.
+     */
     @Override
     public void init() throws ServletException {
         try {
@@ -28,6 +38,16 @@ public class OrderServlet extends HttpServlet {
         super.init();
     }
 
+    /**
+     * Обрабатывает GET-запросы.
+     * В зависимости от параметра "action" выполняет получение заказа по идентификатору, фильтрацию заказов,
+     * редактирование, отмену заказа, изменение статуса заказа или отображение списка всех заказов.
+     *
+     * @param req  запрос, содержащий параметры для обработки.
+     * @param resp ответ на запрос.
+     * @throws ServletException если происходит ошибка при обработке запроса.
+     * @throws IOException если происходит ошибка ввода-вывода при обработке запроса.
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
@@ -57,7 +77,7 @@ public class OrderServlet extends HttpServlet {
                 storage.canceled(Integer.parseInt(id));
                 showAll(req, resp);
                 break;
-            case "change status":
+            case "change-status":
                 String newStatus = req.getParameter("status");
                 storage.changeStatus(Integer.parseInt(id), newStatus);
                 showAll(req, resp);
@@ -67,6 +87,15 @@ public class OrderServlet extends HttpServlet {
         }
     }
 
+    /**
+     * Обрабатывает POST-запросы.
+     * Создает новый заказ на основе переданных параметров и сохраняет его в хранилище.
+     *
+     * @param req  запрос, содержащий данные для создания нового заказа.
+     * @param resp ответ на запрос.
+     * @throws ServletException если происходит ошибка при обработке запроса.
+     * @throws IOException если происходит ошибка ввода-вывода при обработке запроса.
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
@@ -79,6 +108,14 @@ public class OrderServlet extends HttpServlet {
         resp.sendRedirect("orders");
     }
 
+    /**
+     * Возвращает список заказов, отфильтрованный по указанным параметрам.
+     *
+     * @param nameFilter имя фильтра (например, "brand", "status").
+     * @param params     значение фильтра.
+     * @return список отфильтрованных заказов.
+     * @throws NotFoundException если фильтр не соответствует ожидаемым значениям.
+     */
     private List<Order> getFilteredOrder(String nameFilter, String params) {
         return switch (nameFilter) {
             case "brand" -> storage.filter(Order::getDate, date -> date.isEqual(LocalDate.parse(params)));
@@ -87,6 +124,14 @@ public class OrderServlet extends HttpServlet {
         };
     }
 
+    /**
+     * Отображает список всех заказов.
+     *
+     * @param req  запрос, содержащий данные для отображения.
+     * @param resp ответ на запрос.
+     * @throws ServletException если происходит ошибка при обработке запроса.
+     * @throws IOException если происходит ошибка ввода-вывода при обработке запроса.
+     */
     private void showAll(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Order> orders = storage.getAll();
         req.setAttribute("orders", orders);

@@ -1,6 +1,7 @@
 package org.example.repository;
 
 import org.example.model.Car;
+import org.example.util.NotFoundException;
 
 import java.util.List;
 import java.util.function.Function;
@@ -19,6 +20,19 @@ public interface CarStorage {
      */
     List<Car> getAll();
 
+    /**
+     * Возвращает объект {@link Car} по его уникальному идентификатору.
+     * <p>
+     * Метод осуществляет поиск автомобиля в хранилище данных по заданному идентификатору.
+     * Если автомобиль с таким идентификатором не найден, может быть выброшено исключение
+     * или возвращен null, в зависимости от реализации.
+     * </p>
+     *
+     * @param id уникальный идентификатор автомобиля.
+     * @return объект {@link Car}, соответствующий заданному идентификатору, или null, если автомобиль не найден.
+     * @throws NotFoundException если автомобиль с указанным идентификатором не найден
+     * (если реализация предполагает выброс данного исключения).
+     */
     Car getById(int id);
 
     /**

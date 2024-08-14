@@ -2,9 +2,11 @@ package org.example.repository.jdbc;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.config.DatabaseConfig;
+import org.example.model.Order;
 import org.example.model.User;
 import org.example.repository.UserStorage;
 import org.example.repository.inMemory.data.UserData;
+import org.example.util.NotFoundException;
 
 import java.io.IOException;
 import java.sql.*;
@@ -72,24 +74,46 @@ public class UserStorageJdbc implements UserStorage, AutoCloseable {
      */
     @Override
     public List<User> getAll() {
-        List <User> users = new ArrayList<>();
         String query = "SELECT * FROM car_shop.user";
         try (Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(query)) {
-            while (resultSet.next()){
-                User user = new User();
-                user.setUserId(resultSet.getInt("user_id"));
-                user.setLogin(resultSet.getString("login"));
-                user.setPassword(resultSet.getString("password"));
-                user.setName(resultSet.getString("name"));
-                user.setAge(resultSet.getInt("age"));
-                user.setCity(resultSet.getString("city"));
-                users.add(user);
-            }
+             ResultSet resultSet = statement.executeQuery(query)) {
+            return extractUsersFromResultSet(resultSet);
         } catch (SQLException e) {
             log.error("SQL got exception", e);
+            return new ArrayList<>(); // возвращаем пустой список в случае ошибки
         }
-        return users;
+    }
+
+    /**
+     * Возвращает пользователя из базы данных по его идентификатору.
+     * <p>
+     * Этот метод выполняет SQL-запрос для поиска пользователя с заданным идентификатором в таблице `car_shop.user`.
+     * Если пользователь с таким идентификатором найден, возвращается соответствующий объект {@link User}.
+     * Если пользователь не найден, выбрасывается исключение {@link NotFoundException}.
+     * В случае ошибки при выполнении SQL-запроса, возвращается {@code null}.
+     * </p>
+     *
+     * @param id Идентификатор пользователя, который необходимо найти.
+     * @return Объект {@link User}, соответствующий заданному идентификатору, или {@code null} в случае ошибки.
+     * @throws NotFoundException Если пользователь с заданным идентификатором не найден.
+     */
+    @Override
+    public User getById(int id) {
+        String query = "SELECT * FROM car_shop.user WHERE user_id=?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, id);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                List<User> users = extractUsersFromResultSet(resultSet);
+                if (users.isEmpty()) {
+                    log.error("Not found user with id {}", id);
+                    throw new NotFoundException("Id такого пользователя не существует");
+                }
+                return users.get(0);
+            }
+        } catch (SQLException e) {
+            log.error("Error fetching user with id {}", id, e);
+            return null;
+        }
     }
 
     /**
@@ -140,14 +164,12 @@ public class UserStorageJdbc implements UserStorage, AutoCloseable {
         log.info("User {} user was changed", user);
         String query= "UPDATE car_shop.user SET login=?, password=?, name=?, age=?, city=? WHERE user_id=?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-
             statement.setString(1, user.getLogin());
             statement.setString(2, user.getPassword());
             statement.setString(3, user.getName());
             statement.setInt(4, user.getAge());
             statement.setString(5, user.getCity());
             statement.setInt(6, user.getUserId());
-
             int affectedRows = statement.executeUpdate();
             if (affectedRows == 0) {
                log.error("Updating user failed, no rows affected.");
@@ -157,4 +179,31 @@ public class UserStorageJdbc implements UserStorage, AutoCloseable {
         }
         return user;
     }
+
+    /**
+     * Извлекает список объектов {@link User} из переданного {@link ResultSet}.
+     * <p>
+     * Метод перебирает все строки результата запроса и создает новый объект {@link User} для каждой строки,
+     * заполняя его данными из соответствующих столбцов. Затем добавляет созданный объект в список пользователей.
+     * </p>
+     *
+     * @param resultSet результат выполнения SQL-запроса, содержащий данные пользователей.
+     * @return список объектов {@link User}, извлеченных из переданного {@link ResultSet}.
+     * @throws SQLException если происходит ошибка при доступе к данным из {@link ResultSet}.
+     */
+    private List<User> extractUsersFromResultSet(ResultSet resultSet) throws SQLException {
+        List<User> users = new ArrayList<>();
+        while (resultSet.next()) {
+            User user = new User();
+            user.setUserId(resultSet.getInt("user_id"));
+            user.setLogin(resultSet.getString("login"));
+            user.setPassword(resultSet.getString("password"));
+            user.setName(resultSet.getString("name"));
+            user.setAge(resultSet.getInt("age"));
+            user.setCity(resultSet.getString("city"));
+            users.add(user);
+        }
+        return users;
+    }
+
 }

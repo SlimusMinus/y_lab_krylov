@@ -2,30 +2,28 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>Cars</title>
+  <title>Users</title>
   <jsp:useBean id="user" class="org.example.model.User" scope="request"/>
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/styles.css">
 </head>
 <body>
 
 <table border="1">
   <tr>
-    <th>login</th>
-    <th>password</th>
+    <th>№</th>
     <th>name</th>
     <th>age</th>
     <th>city</th>
     <th></th>
     <th></th>
   </tr>
-  <c:forEach items="${users}" var="user">
+  <c:forEach items="${users}" var="user" varStatus="status">
     <tr>
-      <td>${user.login}</td>
-      <td>${user.password}</td>
+      <td>${status.index + 1}</td>
       <td>${user.name}</td>
       <td>${user.age}</td>
       <td>${user.city}</td>
-      <td><a href="cars?action=delete&id=${user.userId}">Delete</a></td>
-      <td><a href="cars?action=edit&id=${user.userId}">Update</a></td>
+      <td><a href="users?action=update&id=${user.userId}">Update</a></td>
     </tr>
   </c:forEach>
 </table>

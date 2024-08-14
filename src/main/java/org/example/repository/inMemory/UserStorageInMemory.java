@@ -36,6 +36,11 @@ public class UserStorageInMemory implements UserStorage {
         return UserData.getUsers().values().stream().toList();
     }
 
+    @Override
+    public User getById(int id) {
+        return null;
+    }
+
     /**
      * Фильтрует пользователей по заданному критерию.
      *

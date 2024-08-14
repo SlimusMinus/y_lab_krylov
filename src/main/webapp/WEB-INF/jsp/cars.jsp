@@ -4,12 +4,14 @@
 <head>
     <title>Cars</title>
     <jsp:useBean id="car" class="org.example.model.Car" scope="request"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/styles.css">
 </head>
 <body>
 <a href="cars?action=edit">Add Car</a>
 <br><br>
 <table border="1">
     <tr>
+        <th>№</th>
         <th>Brand</th>
         <th>Model</th>
         <th>Year</th>
@@ -18,8 +20,9 @@
         <th></th>
         <th></th>
     </tr>
-    <c:forEach items="${cars}" var="car">
+    <c:forEach items="${cars}" var="car" varStatus="status">
         <tr>
+            <td>${status.index + 1}</td>
             <td>${car.brand}</td>
             <td>${car.model}</td>
             <td>${car.year}</td>

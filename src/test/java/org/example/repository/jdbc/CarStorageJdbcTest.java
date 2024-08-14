@@ -24,14 +24,14 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 @Slf4j
 @DisplayName("Тестирование класса CarStorageJdbc")
 class CarStorageJdbcTest extends AbstractStorageJdbcTest {
-    private CarStorage carServiceJdbc;
+    private CarStorage storage;
 
     /**
      * Инициализация {@link CarStorageJdbc} перед каждым тестом.
      */
     @BeforeEach
     public void setUpCar() {
-        carServiceJdbc = new CarStorageJdbc();
+        storage = new CarStorageJdbc();
     }
 
     /**
@@ -41,16 +41,29 @@ class CarStorageJdbcTest extends AbstractStorageJdbcTest {
     @Test
     @DisplayName("Проверка получения всех автомобилей")
     void testGetAll() {
-        List<Car> cars = carServiceJdbc.getAll();
+        List<Car> cars = storage.getAll();
         assertAll(
                 () -> assertThat(cars).hasSize(5),
-                () -> assertThat(carServiceJdbc.getAll())
+                () -> assertThat(storage.getAll())
                         .usingRecursiveComparison()
                         .ignoringFields("car_id")
                         .isEqualTo(CAR_LIST)
         );
     }
 
+    /**
+     * Тестирует метод {@link CarStorageJdbc#getById(int)}.
+     * <p>
+     * Проверяет, что метод возвращает автомобиль с заданным идентификатором,
+     * и что полученный объект совпадает с ожидаемым значением.
+     * </p>
+     */
+    @Test
+    @DisplayName("Тестирование метода getById(int) для получения автомобиля по идентификатору")
+    void getById() {
+        Car car = storage.getById(GET_CAR_ID);
+        assertThat(car2).isEqualTo(car);
+    }
 
     /**
      * Проверяет корректность работы метода {@link CarStorageJdbc#saveOrUpdate(Car)} для обновления существующего автомобиля.
@@ -59,8 +72,8 @@ class CarStorageJdbcTest extends AbstractStorageJdbcTest {
     @Test
     @DisplayName("Проверка обновления существующего автомобиля")
     void update() {
-        carServiceJdbc.saveOrUpdate(carUpdate);
-        Car carUpdate = carServiceJdbc.getAll().get(car4.getId());
+        storage.saveOrUpdate(carUpdate);
+        Car carUpdate = storage.getAll().get(car4.getId());
         assertThat(carUpdate).isEqualTo(carUpdate);
 
     }
@@ -72,8 +85,8 @@ class CarStorageJdbcTest extends AbstractStorageJdbcTest {
     @Test
     @DisplayName("Проверка удаления автомобиля")
     void delete() {
-        carServiceJdbc.delete(car4.getId());
-        List<Car> cars = carServiceJdbc.getAll();
+        storage.delete(car4.getId());
+        List<Car> cars = storage.getAll();
         assertThat(cars).doesNotContain(car4);
     }
 
@@ -84,7 +97,7 @@ class CarStorageJdbcTest extends AbstractStorageJdbcTest {
     @Test
     @DisplayName("Проверка на удаление не существующего автомобиля")
     void deleteNotFound(){
-        assertThatThrownBy(()->carServiceJdbc.delete(NOT_EXIST_ID)).isInstanceOf(NotFoundException.class);
+        assertThatThrownBy(()-> storage.delete(NOT_EXIST_ID)).isInstanceOf(NotFoundException.class);
     }
 
     /**
@@ -94,9 +107,9 @@ class CarStorageJdbcTest extends AbstractStorageJdbcTest {
     @Test
     @DisplayName("Проверка фильтрации автомобилей")
     void filter() {
-        final List<Car> listVolvo = carServiceJdbc.filter(Car::getBrand, brand -> brand.equals("Volvo"));
-        final List<Car> listNewCar = carServiceJdbc.filter(Car::getCondition, condition -> condition.equals("new"));
-        final List<Car> filterPriceCar = carServiceJdbc.filter(Car::getPrice, price -> price == 25000);
+        final List<Car> listVolvo = storage.filter(Car::getBrand, brand -> brand.equals("Volvo"));
+        final List<Car> listNewCar = storage.filter(Car::getCondition, condition -> condition.equals("new"));
+        final List<Car> filterPriceCar = storage.filter(Car::getPrice, price -> price == 25000);
         assertAll(
                 () -> assertThat(listVolvo).containsAll(brandFilteredCars),
                 () -> assertThat(listNewCar).containsAll(conditionFilteredCars),

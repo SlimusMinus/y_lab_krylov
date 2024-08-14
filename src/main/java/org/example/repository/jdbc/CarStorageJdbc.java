@@ -96,7 +96,6 @@ public class CarStorageJdbc implements CarStorage, AutoCloseable {
      * @return Объект {@link Car}, соответствующий заданному идентификатору,
      * или {@code null}, если автомобиль не найден.
      */
-
     @Override
     public Car getById(int id) {
         Car car = null;

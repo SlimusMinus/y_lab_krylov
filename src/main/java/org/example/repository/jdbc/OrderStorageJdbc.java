@@ -92,7 +92,7 @@ public class OrderStorageJdbc implements OrderStorage, AutoCloseable {
     @Override
     public List<Order> getAll() {
         List<Order> orders = new ArrayList<>();
-        String query = "SELECT * FROM car_shop.orders";
+        String query = "SELECT * FROM car_shop.orders ORDER BY order_id";
         try (Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
@@ -142,7 +142,7 @@ public class OrderStorageJdbc implements OrderStorage, AutoCloseable {
     @Override
     public void changeStatus(int id, String status) {
         boolean orderNotExists = getAll().stream().noneMatch(order -> order.getOrderId() == id);
-        if (orderNotExists){
+        if (orderNotExists) {
             log.error("Not found order with id {}", id);
             throw new NotFoundException("Id такого пользователя не существует");
         }
@@ -205,7 +205,18 @@ public class OrderStorageJdbc implements OrderStorage, AutoCloseable {
         }
     }
 
-
+    /**
+     * Устанавливает параметры объекта {@link Order} на основе данных из результирующего набора {@link ResultSet}.
+     * <p>
+     * Этот метод извлекает данные из {@link ResultSet} и заполняет ими поля объекта {@link Order}.
+     * Поля, которые заполняются, включают: идентификатор заказа, идентификатор пользователя,
+     * идентификатор автомобиля, дата заказа, статус заказа.
+     * </p>
+     *
+     * @param newOrder  Объект {@link Order}, который будет заполнен данными.
+     * @param resultSet Результирующий набор {@link ResultSet}, содержащий данные из базы данных.
+     * @throws SQLException Если происходит ошибка при доступе к данным в {@link ResultSet}.
+     */
     private static void setParamsOrder(Order newOrder, ResultSet resultSet) throws SQLException {
         newOrder.setOrderId(resultSet.getInt("order_id"));
         newOrder.setUserId(resultSet.getInt("user_id"));
@@ -213,6 +224,4 @@ public class OrderStorageJdbc implements OrderStorage, AutoCloseable {
         newOrder.setDate(resultSet.getDate("date").toLocalDate());
         newOrder.setStatus(resultSet.getString("status"));
     }
-
-
 }

@@ -3,6 +3,7 @@
 <head>
     <title>Edit car</title>
     <jsp:useBean id="car" class="org.example.model.Car" scope="request"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/styles.css">
 </head>
 <body>
     <form method="post" action="cars">
