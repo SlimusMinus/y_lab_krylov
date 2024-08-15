@@ -1,8 +1,11 @@
 package org.example;
 
+import org.example.mapper.CarMapper;
 import org.example.model.Car;
 import org.example.repository.CarStorage;
 import org.example.repository.jdbc.CarStorageJdbc;
+
+import java.util.List;
 
 import static org.example.out.OutData.startApp;
 
@@ -15,12 +18,7 @@ import static org.example.out.OutData.startApp;
  */
 public class App {
     public static void main(String[] args) {
-        //startApp();
-        CarStorage storage = new CarStorageJdbc();
-        final Car car = storage.getById(2);
-        System.out.println(car);
-
-
+        startApp();
     }
 }
 

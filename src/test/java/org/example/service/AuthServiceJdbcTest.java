@@ -1,19 +1,17 @@
 package org.example.service;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.model.Roles;
 import org.example.repository.RoleStorage;
 import org.example.repository.UserStorage;
-import org.example.repository.inMemory.UserStorageInMemory;
 import org.example.repository.jdbc.AbstractStorageJdbcTest;
 import org.example.repository.jdbc.RoleStorageJdbc;
 import org.example.repository.jdbc.UserStorageJdbc;
+import org.example.service.authentication.AuthService;
+import org.example.service.authentication.AuthServiceJdbc;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.testcontainers.junit.jupiter.Testcontainers;
-
-import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.example.dataTest.Users.*;

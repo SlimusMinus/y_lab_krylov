@@ -3,7 +3,7 @@ package org.example.repository.inMemory;
 import org.example.model.User;
 import org.example.repository.inMemory.data.UserData;
 import org.example.repository.UserStorage;
-import org.example.service.AuthServiceInMemory;
+import org.example.service.authentication.AuthServiceInMemory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

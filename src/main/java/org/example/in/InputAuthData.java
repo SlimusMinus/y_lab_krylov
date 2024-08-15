@@ -2,7 +2,7 @@ package org.example.in;
 
 import org.example.model.Roles;
 import org.example.model.User;
-import org.example.service.AuthService;
+import org.example.service.authentication.AuthService;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

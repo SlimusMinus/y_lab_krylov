@@ -4,7 +4,7 @@ import org.example.repository.CarStorage;
 import org.example.repository.inMemory.data.OrderData;
 import org.example.model.Order;
 import org.example.repository.OrderStorage;
-import org.example.service.AuthServiceInMemory;
+import org.example.service.authentication.AuthServiceInMemory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

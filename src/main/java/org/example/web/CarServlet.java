@@ -1,17 +1,23 @@
 package org.example.web;
 
+import org.example.dto.CarDTO;
+import org.example.mapper.CarMapper;
 import org.example.model.Car;
 import org.example.repository.CarStorage;
 import org.example.repository.jdbc.CarStorageJdbc;
 import org.example.util.NotFoundException;
+import org.example.web.json.JsonUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * Servlet для управления объектами {@link Car}.
@@ -21,12 +27,6 @@ public class CarServlet extends HttpServlet {
 
     private CarStorage storage;
 
-    /**
-     * Инициализация сервлета.
-     * Загружает драйвер PostgreSQL и инициализирует объект {@link CarStorage} для работы с хранилищем автомобилей.
-     *
-     * @throws ServletException если происходит ошибка при инициализации сервлета.
-     */
     @Override
     public void init() throws ServletException {
         try {
@@ -38,86 +38,45 @@ public class CarServlet extends HttpServlet {
         super.init();
     }
 
-    /**
-     * Обрабатывает GET-запросы.
-     * В зависимости от параметра "action" выполняет фильтрацию, удаление, редактирование автомобилей
-     * или отображение списка всех автомобилей.
-     *
-     * @param req  запрос, содержащий параметры.
-     * @param resp ответ на запрос.
-     * @throws ServletException если происходит ошибка при обработке запроса.
-     * @throws IOException если происходит ошибка ввода-вывода при обработке запроса.
-     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
+        resp.setStatus(HttpServletResponse.SC_OK);
         String action = req.getParameter("action");
-        if (action == null) {
-            showAll(req, resp);
-        }
-        String id = req.getParameter("id");
-        switch (Objects.requireNonNull(action)) {
-            case "filter":
-                String nameFilter = req.getParameter("name-filter");
-                String params = req.getParameter("params");
-                req.setAttribute("cars", getFilteredCars(nameFilter, params));
-                req.getRequestDispatcher("/WEB-INF/jsp/cars.jsp").forward(req, resp);
-                break;
-            case "delete":
-                storage.delete(Integer.parseInt(id));
-                resp.sendRedirect("cars");
-                break;
-            case "edit":
-                Car car;
-                if (id == null) {
-                    car = new Car();
-                } else {
-                    car = storage.getById(Integer.parseInt(id));
-                }
-                req.setAttribute("car", car);
-                req.getRequestDispatcher("/WEB-INF/jsp/edit-car.jsp").forward(req, resp);
-                break;
-            default:
-                showAll(req, resp);
+        if (action != null && action.equals("filter")) {
+            String nameFilter = req.getParameter("name-filter");
+            String params = req.getParameter("params");
+            showAll(resp, getFilteredCars(nameFilter, params));
+        } else {
+            showAll(resp, storage.getAll());
         }
     }
 
-    /**
-     * Обрабатывает POST-запросы.
-     * Сохраняет или обновляет информацию об автомобиле на основе переданных параметров.
-     *
-     * @param req  запрос, содержащий данные автомобиля.
-     * @param resp ответ на запрос.
-     * @throws ServletException если происходит ошибка при обработке запроса.
-     * @throws IOException если происходит ошибка ввода-вывода при обработке запроса.
-     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
+        int id = 0;
+        resp.setStatus(HttpServletResponse.SC_CREATED);
+        saveOrUpdateCar(req, resp, id);
+    }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+        int id = Integer.parseInt(req.getParameter("id"));
+        resp.setStatus(HttpServletResponse.SC_OK);
+        saveOrUpdateCar(req, resp, id);
+    }
+
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
-        String brand = req.getParameter("brand");
-        String model = req.getParameter("model");
-        int year = Integer.parseInt(req.getParameter("year"));
-        double price = Double.parseDouble(req.getParameter("price"));
-        String condition = req.getParameter("condition");
-        Car newCar;
-        if (id == null || id.isEmpty()) {
-            newCar = new Car(brand, model, year, price, condition);
-        } else {
-            newCar = new Car(Integer.parseInt(id), brand, model, year, price, condition);
-        }
-        storage.saveOrUpdate(newCar);
+        storage.delete(Integer.parseInt(id));
+        resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
         resp.sendRedirect("cars");
     }
 
-    /**
-     * Возвращает список автомобилей, отфильтрованный по указанным параметрам.
-     *
-     * @param nameFilter имя фильтра (например, "brand", "condition", "price").
-     * @param params     значение фильтра.
-     * @return список отфильтрованных автомобилей.
-     * @throws NotFoundException если фильтр не соответствует ожидаемым значениям.
-     */
     private List<Car> getFilteredCars(String nameFilter, String params) {
         return switch (nameFilter) {
             case "brand" -> storage.filter(Car::getBrand, brand -> brand.equals(params));
@@ -127,17 +86,22 @@ public class CarServlet extends HttpServlet {
         };
     }
 
-    /**
-     * Отображает список всех автомобилей.
-     *
-     * @param req  запрос, содержащий данные для отображения.
-     * @param resp ответ на запрос.
-     * @throws ServletException если происходит ошибка при обработке запроса.
-     * @throws IOException если происходит ошибка ввода-вывода при обработке запроса.
-     */
-    private void showAll(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Car> cars = storage.getAll();
-        req.setAttribute("cars", cars);
-        req.getRequestDispatcher("/WEB-INF/jsp/cars.jsp").forward(req, resp);
+    private void showAll(HttpServletResponse resp, List<Car> cars) throws IOException {
+        final List<CarDTO> all = cars.stream()
+                .map(CarMapper.INSTANCE::carToCarDTO)
+                .collect(Collectors.toList());
+        String jsonResponse = JsonUtil.writeValue(all);
+        resp.setContentType("application/json");
+        resp.getWriter().write(jsonResponse);
+    }
+
+    private void saveOrUpdateCar(HttpServletRequest req, HttpServletResponse resp, int id) throws IOException {
+        Car newCar = JsonUtil.readValue(req.getReader().lines().collect(Collectors.joining()), Car.class);
+        if (id == 0) {
+            newCar.setId(id);
+        }
+        storage.saveOrUpdate(newCar);
+        resp.setContentType("application/json");
+        resp.sendRedirect("cars");
     }
 }

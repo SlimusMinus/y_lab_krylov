@@ -1,4 +1,4 @@
-package org.example.service;
+package org.example.service.authentication;
 
 import org.example.repository.inMemory.data.UserData;
 import org.example.model.User;
