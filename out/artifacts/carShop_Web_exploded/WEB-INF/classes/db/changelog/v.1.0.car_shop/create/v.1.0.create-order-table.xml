@@ -32,7 +32,7 @@
     </changeSet>
 
     <changeSet id="create-fk_orders_user-v.1.0" author="Alexandr Krylov">
-        <addForeignKeyConstraint baseTableName="orders" baseColumnNames="order_id"
+        <addForeignKeyConstraint baseTableName="orders" baseColumnNames="user_id"
                                  constraintName="fk_orders_user" baseTableSchemaName="car_shop"
                                  referencedTableName="user" referencedColumnNames="user_id"
                                  referencedTableSchemaName="car_shop"/>

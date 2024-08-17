@@ -1,9 +1,14 @@
 package org.example.web;
 
+import lombok.extern.slf4j.Slf4j;
+import org.example.dto.OrderDTO;
+import org.example.mapper.OrderMapper;
 import org.example.model.Order;
 import org.example.repository.OrderStorage;
 import org.example.repository.jdbc.OrderStorageJdbc;
 import org.example.util.NotFoundException;
+import org.example.util.ValidationDTO;
+import org.example.web.json.JsonUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,13 +18,17 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * Servlet для управления заказами.
  * Обрабатывает запросы на отображение, фильтрацию, добавление, редактирование, отмену и изменение статуса заказов.
  */
+@Slf4j
 public class OrderServlet extends HttpServlet {
     private OrderStorage storage;
+    private ValidationDTO validationDTO;
+
 
     /**
      * Инициализация сервлета.
@@ -35,106 +44,82 @@ public class OrderServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
         storage = new OrderStorageJdbc();
+        validationDTO = new ValidationDTO();
         super.init();
     }
 
-    /**
-     * Обрабатывает GET-запросы.
-     * В зависимости от параметра "action" выполняет получение заказа по идентификатору, фильтрацию заказов,
-     * редактирование, отмену заказа, изменение статуса заказа или отображение списка всех заказов.
-     *
-     * @param req  запрос, содержащий параметры для обработки.
-     * @param resp ответ на запрос.
-     * @throws ServletException если происходит ошибка при обработке запроса.
-     * @throws IOException если происходит ошибка ввода-вывода при обработке запроса.
-     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
+        resp.setStatus(HttpServletResponse.SC_OK);
         String action = req.getParameter("action");
-        if (action == null) {
-            showAll(req, resp);
+        String id = req.getParameter("id");
+        if(action != null && action.equals("get-by-id")){
+            Order orderById = storage.getById(Integer.parseInt(id));
+            String jsonResponse = JsonUtil.writeValue(OrderMapper.INSTANCE.getOdderDTO(orderById));
+            resp.setContentType("application/json");
+            resp.setCharacterEncoding("UTF-8");
+            resp.getWriter().write(jsonResponse);
+        } else if (action != null && action.equals("filter")) {
+            String nameFilter = req.getParameter("name-filter");
+            String params = req.getParameter("params");
+            final List<Order> filteredOrder = getFilteredOrder(nameFilter, params);
+            showAll(resp, filteredOrder);
+        } else {
+            showAll(resp, storage.getAll());
         }
+    }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+        String action = req.getParameter("action");
         String id = req.getParameter("id");
         switch (Objects.requireNonNull(action)) {
-            case "get-by-id":
-                List<Order> orderById = List.of(storage.getById(Integer.parseInt(id)));
-                req.setAttribute("orders", orderById);
-                req.getRequestDispatcher("/WEB-INF/jsp/orders.jsp").forward(req, resp);
-                break;
-            case "filter":
-                String nameFilter = req.getParameter("name-filter");
-                String params = req.getParameter("params");
-                req.setAttribute("cars", getFilteredOrder(nameFilter, params));
-                req.getRequestDispatcher("/WEB-INF/jsp/orders.jsp").forward(req, resp);
-                break;
-            case "edit":
-                Order order = new Order();
-                req.setAttribute("order", order);
-                req.getRequestDispatcher("/WEB-INF/jsp/edit-orders.jsp").forward(req, resp);
-                break;
             case "canceled":
                 storage.canceled(Integer.parseInt(id));
-                showAll(req, resp);
+                resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
+                showAll(resp, storage.getAll());
+                resp.sendRedirect("orders");
                 break;
             case "change-status":
                 String newStatus = req.getParameter("status");
                 storage.changeStatus(Integer.parseInt(id), newStatus);
-                showAll(req, resp);
+                resp.setStatus(HttpServletResponse.SC_ACCEPTED);
+                showAll(resp, storage.getAll());
                 break;
             default:
-                showAll(req, resp);
+                showAll(resp, storage.getAll());
         }
     }
 
-    /**
-     * Обрабатывает POST-запросы.
-     * Создает новый заказ на основе переданных параметров и сохраняет его в хранилище.
-     *
-     * @param req  запрос, содержащий данные для создания нового заказа.
-     * @param resp ответ на запрос.
-     * @throws ServletException если происходит ошибка при обработке запроса.
-     * @throws IOException если происходит ошибка ввода-вывода при обработке запроса.
-     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
-        int userId = Integer.parseInt(req.getParameter("userId"));
-        int carId = Integer.parseInt(req.getParameter("carId"));
-        LocalDate date = LocalDate.parse(req.getParameter("date"));
-        String status = req.getParameter("status");
-        Order order = new Order(userId, carId, date, status);
-        storage.create(order);
-        resp.sendRedirect("orders");
+        OrderDTO orderDTO = JsonUtil.readValue(req.getReader().lines().collect(Collectors.joining()), OrderDTO.class);
+        if(validationDTO.isValidObjectDTO(resp, orderDTO)){
+            Order order = OrderMapper.INSTANCE.getOrder(orderDTO);
+            storage.create(order);
+            resp.setStatus(HttpServletResponse.SC_CREATED);
+            resp.sendRedirect("orders");
+        }
     }
 
-    /**
-     * Возвращает список заказов, отфильтрованный по указанным параметрам.
-     *
-     * @param nameFilter имя фильтра (например, "brand", "status").
-     * @param params     значение фильтра.
-     * @return список отфильтрованных заказов.
-     * @throws NotFoundException если фильтр не соответствует ожидаемым значениям.
-     */
     private List<Order> getFilteredOrder(String nameFilter, String params) {
         return switch (nameFilter) {
-            case "brand" -> storage.filter(Order::getDate, date -> date.isEqual(LocalDate.parse(params)));
+            case "date" -> storage.filter(Order::getDate, date -> date.isEqual(LocalDate.parse(params)));
             case "status" -> storage.filter(Order::getStatus, status -> status.equals(params));
             default -> throw new NotFoundException("Unexpected value: " + nameFilter);
         };
     }
 
-    /**
-     * Отображает список всех заказов.
-     *
-     * @param req  запрос, содержащий данные для отображения.
-     * @param resp ответ на запрос.
-     * @throws ServletException если происходит ошибка при обработке запроса.
-     * @throws IOException если происходит ошибка ввода-вывода при обработке запроса.
-     */
-    private void showAll(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Order> orders = storage.getAll();
-        req.setAttribute("orders", orders);
-        req.getRequestDispatcher("/WEB-INF/jsp/orders.jsp").forward(req, resp);
+    private void showAll(HttpServletResponse resp, List<Order> orders) throws ServletException, IOException {
+        List<OrderDTO> ordersDTO = orders.stream()
+                .map(OrderMapper.INSTANCE::getOdderDTO)
+                .toList();
+        String jsonResponse = JsonUtil.writeValue(ordersDTO);
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
+        resp.getWriter().write(jsonResponse);
     }
 }

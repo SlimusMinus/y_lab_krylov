@@ -1,5 +1,6 @@
 package org.example.dataTest;
 
+import org.example.dto.CarDTO;
 import org.example.model.Car;
 
 import java.util.HashMap;
@@ -23,6 +24,8 @@ public class Cars {
     public static final Car car5 = new Car(CAR_ID++, "Audi", "Q3", 2020, 19500.80, "good");
     public static final Car carSave = new Car("Toyota", "Camry", 2022, 15800, "good");
     public static final Car carUpdate = new Car(car4.getId(), "BMW", "S60", 2021, 25000, "good");
+    public static final CarDTO updatedCarDTO = new CarDTO("BMW", "M4", 2024, 27000.0, "new");
+    public static final CarDTO newCarDTO = new CarDTO("Tesla", "Model S", 2022, 79999.99, "new");
     public static final List<Car> CAR_LIST = List.of(car1, car2, car3, car4, car5);
     public static final List<Car> brandFilteredCars = List.of(car2, car4);
     public static final List<Car> conditionFilteredCars = List.of(car1, car3);

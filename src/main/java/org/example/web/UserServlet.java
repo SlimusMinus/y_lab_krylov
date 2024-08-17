@@ -1,9 +1,14 @@
 package org.example.web;
 
+import lombok.extern.slf4j.Slf4j;
+import org.example.dto.UserDTO;
+import org.example.mapper.UserMapper;
 import org.example.model.User;
 import org.example.repository.UserStorage;
 import org.example.repository.jdbc.UserStorageJdbc;
 import org.example.util.NotFoundException;
+import org.example.util.ValidationDTO;
+import org.example.web.json.JsonUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,20 +17,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * Servlet для управления пользователями.
  * Обрабатывает запросы на отображение, фильтрацию, сортировку, обновление и создание пользователей.
  */
+@Slf4j
 public class UserServlet extends HttpServlet {
     private UserStorage storage;
+    private ValidationDTO validationDTO;
 
-    /**
-     * Инициализация сервлета.
-     * Загружает драйвер PostgreSQL и инициализирует объект {@link UserStorage} для работы с хранилищем пользователей.
-     *
-     * @throws ServletException если происходит ошибка при инициализации сервлета.
-     */
     @Override
     public void init() throws ServletException {
         try {
@@ -34,92 +36,53 @@ public class UserServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
         storage = new UserStorageJdbc();
+        validationDTO = new ValidationDTO();
         super.init();
     }
 
-    /**
-     * Обрабатывает GET-запросы.
-     * В зависимости от параметра "action" выполняет отображение списка пользователей, фильтрацию, сортировку или обновление пользователя.
-     *
-     * @param req  запрос, содержащий параметры для обработки.
-     * @param resp ответ на запрос.
-     * @throws ServletException если происходит ошибка при обработке запроса.
-     * @throws IOException      если происходит ошибка ввода-вывода при обработке запроса.
-     */
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
+        resp.setStatus(HttpServletResponse.SC_OK);
         String action = req.getParameter("action");
-        String id = req.getParameter("id");
-        if (action == null) {
-            showAll(req, resp);
-        }
-        switch (Objects.requireNonNull(action)) {
-            case "filter":
-                String nameFilter = req.getParameter("name-filter");
-                String params = req.getParameter("params");
-                req.setAttribute("cars", getFilteredUsers(nameFilter, params));
-                req.getRequestDispatcher("/WEB-INF/jsp/users.jsp").forward(req, resp);
-                break;
-            case "sort":
-                String paramsSort = req.getParameter("params-sort");
-                req.setAttribute("cars", getSortedUsers(paramsSort));
-                req.getRequestDispatcher("/WEB-INF/jsp/users.jsp").forward(req, resp);
-                break;
-            case "update":
-                User user = storage.getById(Integer.parseInt(id));
-                req.setAttribute("user", user);
-                req.getRequestDispatcher("/WEB-INF/jsp/edit-user.jsp").forward(req, resp);
-                break;
-            default:
-                showAll(req, resp);
+        if (action != null && action.equals("filter")){
+            String nameFilter = req.getParameter("name-filter");
+            String params = req.getParameter("params");
+            final List<User> filteredUsers = getFilteredUsers(nameFilter, params);
+            showAll(resp, filteredUsers);
+        } else if (action != null && action.equals("sort")) {
+            String paramsSort = req.getParameter("params-sort");
+            showAll(resp, getSortedUsers(paramsSort));
+        } else {
+            showAll(resp, storage.getAll());
         }
     }
 
-    /**
-     * Обрабатывает POST-запросы.
-     * Обновляет информацию о пользователе на основе переданных параметров.
-     *
-     * @param req  запрос, содержащий данные для обновления пользователя.
-     * @param resp ответ на запрос.
-     * @throws ServletException если происходит ошибка при обработке запроса.
-     * @throws IOException      если происходит ошибка ввода-вывода при обработке запроса.
-     */
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
-        int id = Integer.parseInt(req.getParameter("id"));
-        String login = req.getParameter("login");
-        String password = req.getParameter("password");
-        String name = req.getParameter("name");
-        int age = Integer.parseInt(req.getParameter("age"));
-        String city = req.getParameter("city");
-        User user = new User(id, login, password, name, age, city, null, null);
-        storage.update(user);
-        resp.sendRedirect("users");
+        UserDTO updateUserDTO = JsonUtil.readValue(req.getReader().lines().collect(Collectors.joining()), UserDTO.class);
+        String id = req.getParameter("id");
+        if(validationDTO.isValidObjectDTO(resp, updateUserDTO)){
+            User updateUser = UserMapper.INSTANCE.getUser(updateUserDTO);
+            updateUser.setUserId(Integer.parseInt(id));
+            storage.update(updateUser);
+            resp.setStatus(HttpServletResponse.SC_CREATED);
+            resp.sendRedirect("users");
+        }
     }
 
-    /**
-     * Отображает список всех пользователей.
-     *
-     * @param req  запрос, содержащий данные для отображения.
-     * @param resp ответ на запрос.
-     * @throws ServletException если происходит ошибка при обработке запроса.
-     * @throws IOException      если происходит ошибка ввода-вывода при обработке запроса.
-     */
-    private void showAll(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<User> users = storage.getAll();
-        req.setAttribute("users", users);
-        req.getRequestDispatcher("/WEB-INF/jsp/users.jsp").forward(req, resp);
+    private void showAll(HttpServletResponse resp, List<User> users) throws ServletException, IOException {
+        List<UserDTO> usersDTO = users.stream()
+                .map(UserMapper.INSTANCE::getUserDTO)
+                .toList();
+        String jsonResponse = JsonUtil.writeValue(usersDTO);
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
+        resp.getWriter().write(jsonResponse);
     }
 
-    /**
-     * Возвращает список пользователей, отсортированный по указанному параметру.
-     *
-     * @param paramsSort параметр сортировки (например, "name", "age", "city").
-     * @return список отсортированных пользователей.
-     * @throws NotFoundException если параметр сортировки не соответствует ожидаемым значениям.
-     */
     private List<User> getSortedUsers(String paramsSort) {
         return switch (paramsSort) {
             case "name" -> storage.sort(User::getName);
@@ -129,14 +92,6 @@ public class UserServlet extends HttpServlet {
         };
     }
 
-    /**
-     * Возвращает список пользователей, отфильтрованных по указанным параметрам.
-     *
-     * @param nameFilter имя фильтра (например, "age", "name", "city").
-     * @param params     значение фильтра.
-     * @return список отфильтрованных пользователей.
-     * @throws NotFoundException если фильтр не соответствует ожидаемым значениям.
-     */
     private List<User> getFilteredUsers(String nameFilter, String params) {
         return switch (nameFilter) {
             case "name" -> storage.filter(User::getName, name -> name.equals(params));
