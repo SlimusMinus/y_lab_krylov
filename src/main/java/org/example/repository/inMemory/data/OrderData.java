@@ -1,7 +1,5 @@
 package org.example.repository.inMemory.data;
 
-import lombok.Getter;
-import lombok.Setter;
 import org.example.model.Order;
 
 import java.time.LocalDate;
@@ -21,7 +19,7 @@ public class OrderData {
      *
      * <p>Этот идентификатор автоматически увеличивается при создании нового заказа.</p>
      */
-    @Getter
+
     private static int OrderId = 1;
     private static final Order order1 = new Order(OrderId++, 1, 4, LocalDate.parse("2024-12-12"),
             "successfully");
@@ -33,12 +31,27 @@ public class OrderData {
      *
      * <p>Ключом является уникальный идентификатор заказа, а значением - объект {@link Order}.</p>
      */
-    @Getter
-    @Setter
+
     private static Map<Integer, Order> orders = new HashMap<>();
 
     static {
         orders.put(order1.getOrderId(), order1);
         orders.put(order2.getOrderId(), order2);
+    }
+
+    public static int getOrderId() {
+        return OrderId;
+    }
+
+    public static void setOrderId(int orderId) {
+        OrderId = orderId;
+    }
+
+    public static Map<Integer, Order> getOrders() {
+        return orders;
+    }
+
+    public static void setOrders(Map<Integer, Order> orders) {
+        OrderData.orders = orders;
     }
 }

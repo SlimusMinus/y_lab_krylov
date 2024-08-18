@@ -25,7 +25,6 @@ import static org.mockito.Mockito.when;
  * Класс для тестирования сервлета OrderServlet.
  */
 @Testcontainers
-@Slf4j
 @DisplayName("Тестирование класса OrderServlet")
 class OrderServletTest extends AbstractStorageJdbcTest {
 

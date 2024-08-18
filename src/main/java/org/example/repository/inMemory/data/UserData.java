@@ -1,13 +1,14 @@
 package org.example.repository.inMemory.data;
 
-import lombok.Getter;
-import lombok.Setter;
 import org.example.model.Order;
 import org.example.model.Roles;
 import org.example.model.User;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Класс, содержащий статические данные о пользователях.
@@ -22,7 +23,6 @@ public class UserData {
      *
      * <p>Этот идентификатор автоматически увеличивается при создании нового пользователя.</p>
      */
-    @Getter
     private static int UserId = 1;
     private static final List<Order> oder1 = List.of(new Order(1, 1, 4, LocalDate.parse("2024-12-12"), "successfully"));
     private static final List<Order> oder2 = List.of(new Order(2, 5, 4, LocalDate.parse("2024-11-11"), "successfully"));
@@ -37,8 +37,6 @@ public class UserData {
      *
      * <p>Ключом является уникальный идентификатор пользователя, а значением - объект {@link User}.</p>
      */
-    @Getter
-    @Setter
     private static Map<Integer, User> users = new HashMap<>();
 
     static {
@@ -48,5 +46,21 @@ public class UserData {
         users.put(client1.getUserId(), client1);
         users.put(client2.getUserId(), client2);
         users.put(client3.getUserId(), client3);
+    }
+
+    public static int getUserId() {
+        return UserId;
+    }
+
+    public static void setUserId(int userId) {
+        UserId = userId;
+    }
+
+    public static Map<Integer, User> getUsers() {
+        return users;
+    }
+
+    public static void setUsers(Map<Integer, User> users) {
+        UserData.users = users;
     }
 }

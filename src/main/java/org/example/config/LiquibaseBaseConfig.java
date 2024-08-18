@@ -6,8 +6,6 @@ import liquibase.database.DatabaseFactory;
 import liquibase.database.jvm.JdbcConnection;
 import liquibase.exception.LiquibaseException;
 import liquibase.resource.ClassLoaderResourceAccessor;
-import lombok.Getter;
-import lombok.extern.slf4j.Slf4j;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -23,10 +21,13 @@ import java.util.Properties;
  * при его создании. Он использует конфигурацию базы данных из {@link DatabaseConfig}.
  * </p>
  */
-@Slf4j
+
 public class LiquibaseBaseConfig {
     private static final LiquibaseBaseConfig INSTANCE = new LiquibaseBaseConfig();
     private static Properties properties;
+
+    private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(LiquibaseBaseConfig.class);
+
 
     /**
      * Приватный конструктор класса, который выполняет миграции базы данных
@@ -65,7 +66,7 @@ public class LiquibaseBaseConfig {
     private String getChangelogPath(){
         if(properties ==null){
             properties =new Properties();
-            try (InputStream is = new FileInputStream(DatabaseConfig.getPROPERTIES_FILE_PATH())){
+            try (InputStream is = new FileInputStream(DatabaseConfig.getPropertiesFilePath())){
                 properties.load(is);
             } catch (IOException e) {
                 log.error("Error loading properties file: " + e);
