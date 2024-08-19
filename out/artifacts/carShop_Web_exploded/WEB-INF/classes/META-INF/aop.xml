@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aspectj>
+    <aspects>
+        <aspect name="org.example.aop.UserAuditAspect"/>
+    </aspects>
+    <weaver>
+        <include within="org.example.repository.CarStorage"/>
+    </weaver>
+</aspectj>
