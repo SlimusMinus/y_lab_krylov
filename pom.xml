@@ -5,7 +5,7 @@
   <groupId>org.example</groupId>
   <artifactId>y_lab_krylov</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
 
   <name>y_lab_krylov</name>
   <url>http://maven.apache.org</url>
@@ -22,6 +22,16 @@
     <postgresql.version>42.7.3</postgresql.version>
     <liquibase.version>4.29.1</liquibase.version>
     <testcontainers.version>1.20.1</testcontainers.version>
+    <javax.servlet.version>4.0.1</javax.servlet.version>
+    <jstl.version>1.2</jstl.version>
+    <jackson.version>2.17.2</jackson.version>
+    <mapstruct.version>1.5.5.Final</mapstruct.version>
+    <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
+    <hibernate-validator.version>6.2.5.Final</hibernate-validator.version>
+    <jakarta.validation.version>2.0.2</jakarta.validation.version>
+    <jackson.version>2.17.2</jackson.version>
+    <jakarta.el.version>4.0.2</jakarta.el.version>
+    <mockito.version>5.12.0</mockito.version>
   </properties>
 
   <dependencies>
@@ -38,6 +48,19 @@
       <version>${assertj-core.version}</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>${mockito.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-junit-jupiter</artifactId>
+      <version>${mockito.version}</version>
+      <scope>test</scope>
+    </dependency>
+
 
     <!-- Testcontainers dependencies -->
     <dependency>
@@ -59,6 +82,11 @@
       <artifactId>lombok</artifactId>
       <version>${lombok.version}</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok-mapstruct-binding</artifactId>
+      <version>${lombok-mapstruct-binding.version}</version>
     </dependency>
 
     <!-- Logging -->
@@ -86,7 +114,75 @@
       <version>${liquibase.version}</version>
     </dependency>
 
+    <!-- Web -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>${javax.servlet.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>${jstl.version}</version>
+    </dependency>
 
+    <!--JSON-->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-hibernate5</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-jsr310</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+
+      <!-- MapStruct-->
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct</artifactId>
+      <version>${mapstruct.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct-processor</artifactId>
+      <version>${mapstruct.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Validation -->
+    <dependency>
+      <groupId>org.hibernate.validator</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>${hibernate-validator.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.validation</groupId>
+      <artifactId>jakarta.validation-api</artifactId>
+      <version>${jakarta.validation.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish</groupId>
+      <artifactId>jakarta.el</artifactId>
+      <version>${jakarta.el.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjrt</artifactId>
+      <version>1.9.7</version>
+    </dependency>
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.9.7</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -99,7 +195,71 @@
           <target>${java.version}</target>
         </configuration>
       </plugin>
+      <!-- Компиляция с использованием Lombok и MapStruct -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>aspectj-maven-plugin</artifactId>
+        <version>1.14.0</version>
+
+        <configuration>
+          <complianceLevel>8</complianceLevel>
+          <source>8</source>
+          <target>8</target>
+          <showWeaveInfo>true</showWeaveInfo>
+          <verbose>true</verbose>
+          <Xlint>ignore</Xlint>
+          <encoding>UTF-8</encoding>
+
+
+          <!-- IMPORTANT-->
+          <excludes>
+            <exclude>**/*.java</exclude>
+          </excludes>
+          <forceAjcCompile>true</forceAjcCompile>
+          <sources/>
+          <!-- IMPORTANT-->
+
+
+          <aspectLibraries>
+            <aspectLibrary>
+              <groupId>you.own.aspect.libary</groupId>
+              <artifactId>your-library</artifactId>
+            </aspectLibrary>
+          </aspectLibraries>
+
+        </configuration>
+        <executions>
+          <execution>
+            <id>default-compile</id>
+            <phase>process-classes</phase>
+            <goals>
+              <!-- use this goal to weave all your main classes -->
+              <goal>compile</goal>
+            </goals>
+            <configuration>
+              <weaveDirectories>
+                <weaveDirectory>${project.build.directory}/classes</weaveDirectory>
+              </weaveDirectories>
+            </configuration>
+          </execution>
+          <execution>
+            <id>default-testCompile</id>
+            <phase>process-test-classes</phase>
+            <goals>
+              <!-- use this goal to weave all your test classes -->
+              <goal>test-compile</goal>
+            </goals>
+            <configuration>
+              <weaveDirectories>
+                <weaveDirectory>${project.build.directory}/test-classes</weaveDirectory>
+              </weaveDirectories>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
+
   </build>
+
 </project>
 

@@ -3,7 +3,7 @@ package org.example.repository.inMemory;
 import org.example.model.User;
 import org.example.repository.inMemory.data.UserData;
 import org.example.repository.UserStorage;
-import org.example.service.AuthServiceInMemory;
+import org.example.service.authentication.AuthServiceInMemory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,6 +34,11 @@ public class UserStorageInMemory implements UserStorage {
     public List<User> getAll() {
         log.info("Get all users");
         return UserData.getUsers().values().stream().toList();
+    }
+
+    @Override
+    public User getById(int id) {
+        return null;
     }
 
     /**

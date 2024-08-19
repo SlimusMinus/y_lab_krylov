@@ -3,8 +3,8 @@ package org.example.out;
 import org.example.config.LiquibaseBaseConfig;
 import org.example.in.InputAuthData;
 import org.example.model.User;
-import org.example.service.AuthService;
-import org.example.service.AuthServiceInMemory;
+import org.example.service.authentication.AuthService;
+import org.example.service.authentication.AuthServiceInMemory;
 
 import static org.example.in.InputCarData.carControl;
 import static org.example.in.InputUserData.clientInformation;

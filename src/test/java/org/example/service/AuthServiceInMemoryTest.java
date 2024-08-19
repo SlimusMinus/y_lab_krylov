@@ -1,9 +1,9 @@
 package org.example.service;
 
 import org.example.repository.inMemory.UserStorageInMemory;
-import org.example.service.AuthService;
+import org.example.service.authentication.AuthService;
 import org.example.repository.UserStorage;
-import org.example.service.AuthServiceInMemory;
+import org.example.service.authentication.AuthServiceInMemory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

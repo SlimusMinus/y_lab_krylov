@@ -20,7 +20,7 @@ public class Users {
     @Getter
     private static int UserId = 1;
     public static final int NOT_EXIST_ID = 800;
-
+    public static final int USER_GET_ID = 2;
     public static final User administrator = new User(UserId++, "admin", "admin", "Alexandr", 33, "Moscow", null, null);
     public static final User manager1 = new User(UserId++, "manager1", "manager1", "John", 36, "New-York", null, null);
     public static final User manager2 = new User(UserId++, "manager2", "manager2", "Alexandr", 34, "Moscow", null, null);

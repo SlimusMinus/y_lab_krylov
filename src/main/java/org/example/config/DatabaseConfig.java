@@ -1,9 +1,5 @@
 package org.example.config;
 
-import lombok.Getter;
-import lombok.extern.slf4j.Slf4j;
-
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -19,15 +15,22 @@ import java.util.Properties;
  * конфигурации подключения к базе данных.
  * </p>
  */
-@Slf4j
+
 public class DatabaseConfig {
     private static Properties properties;
     private static String url;
     private static String login;
     private static String password;
 
-    @Getter
-    private static final String PROPERTIES_FILE_PATH = "src/main/resources/db/database.properties";
+    public static String getPropertiesFilePath() {
+        return PROPERTIES_FILE_PATH;
+    }
+
+    public static void setPropertiesFilePath(String propertiesFilePath) {
+        PROPERTIES_FILE_PATH = propertiesFilePath;
+    }
+
+    private static String PROPERTIES_FILE_PATH = "/db/database.properties";
 
     /**
      * Загружает свойства базы данных из файла.
@@ -36,7 +39,10 @@ public class DatabaseConfig {
     private static void loadProperties() throws IOException {
         if (properties == null) {
             properties = new Properties();
-            try (InputStream is = new FileInputStream(PROPERTIES_FILE_PATH)) {
+            try (InputStream is = DatabaseConfig.class.getResourceAsStream(PROPERTIES_FILE_PATH)) {
+                if (is == null) {
+                    throw new IOException("Файл свойств не найден по пути: " + PROPERTIES_FILE_PATH);
+                }
                 properties.load(is);
             }
         }
@@ -102,4 +108,23 @@ public class DatabaseConfig {
         DatabaseConfig.password = password;
     }
 
+    public static Properties getProperties() {
+        return properties;
+    }
+
+    public static void setProperties(Properties properties) {
+        DatabaseConfig.properties = properties;
+    }
+
+    public static void setUrl(String url) {
+        DatabaseConfig.url = url;
+    }
+
+    public static void setLogin(String login) {
+        DatabaseConfig.login = login;
+    }
+
+    public static void setPassword(String password) {
+        DatabaseConfig.password = password;
+    }
 }

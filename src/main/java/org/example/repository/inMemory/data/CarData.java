@@ -1,7 +1,5 @@
 package org.example.repository.inMemory.data;
 
-import lombok.Getter;
-import lombok.Setter;
 import org.example.model.Car;
 
 import java.util.HashMap;
@@ -21,7 +19,7 @@ public class CarData {
      *
      * <p>Этот идентификатор автоматически увеличивается при создании нового автомобиля.</p>
      */
-    @Getter
+
     private static int CarId = 1;
     private static final Car car1 = new Car(CarId++, "BMW", "M4", 2024, 25000, "new");
     private static final Car car2 = new Car(CarId++, "Volvo", "S40", 2023, 17500, "good");
@@ -34,8 +32,7 @@ public class CarData {
      *
      * <p>Ключом является уникальный идентификатор автомобиля, а значением - объект {@link Car}.</p>
      */
-    @Getter
-    @Setter
+
     private static Map<Integer, Car> cars = new HashMap<>();
 
     static {
@@ -44,5 +41,21 @@ public class CarData {
         cars.put(car3.getId(), car3);
         cars.put(car4.getId(), car4);
         cars.put(car5.getId(), car5);
+    }
+
+    public static int getCarId() {
+        return CarId;
+    }
+
+    public static void setCarId(int carId) {
+        CarId = carId;
+    }
+
+    public static Map<Integer, Car> getCars() {
+        return cars;
+    }
+
+    public static void setCars(Map<Integer, Car> cars) {
+        CarData.cars = cars;
     }
 }

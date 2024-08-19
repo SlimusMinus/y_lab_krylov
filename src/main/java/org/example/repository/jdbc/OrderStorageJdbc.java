@@ -39,6 +39,17 @@ public class OrderStorageJdbc implements OrderStorage, AutoCloseable {
         }
     }
 
+    /**
+     * Закрывает соединение с базой данных.
+     * <p>
+     * Если соединение с базой данных было установлено (не равно {@code null}),
+     * метод пытается его закрыть. В случае успешного закрытия в журнал записывается
+     * информационное сообщение. Если возникает ошибка при закрытии соединения,
+     * она записывается в журнал как ошибка.
+     * </p>
+     *
+     * @throws SQLException Если произошла ошибка при закрытии соединения.
+     */
     @Override
     public void close() throws Exception {
         if (connection != null) {
@@ -60,7 +71,7 @@ public class OrderStorageJdbc implements OrderStorage, AutoCloseable {
     public void create(Order order) {
         String query = "INSERT INTO car_shop.orders (user_id, car_id, date, status) VALUES (?,?,?,?)";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, order.getOrderId());
+            statement.setInt(1, order.getUserId());
             statement.setInt(2, order.getCarId());
             statement.setDate(3, Date.valueOf(order.getDate()));
             statement.setString(4, order.getStatus());
@@ -81,16 +92,12 @@ public class OrderStorageJdbc implements OrderStorage, AutoCloseable {
     @Override
     public List<Order> getAll() {
         List<Order> orders = new ArrayList<>();
-        String query = "SELECT * FROM car_shop.orders";
+        String query = "SELECT * FROM car_shop.orders ORDER BY order_id";
         try (Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 Order newOrder = new Order();
-                newOrder.setOrderId(resultSet.getInt("order_id"));
-                newOrder.setUserId(resultSet.getInt("user_id"));
-                newOrder.setCarId(resultSet.getInt("car_id"));
-                newOrder.setDate(resultSet.getDate("date").toLocalDate());
-                newOrder.setStatus(resultSet.getString("status"));
+                setParamsOrder(newOrder, resultSet);
                 orders.add(newOrder);
             }
         } catch (SQLException e) {
@@ -107,7 +114,8 @@ public class OrderStorageJdbc implements OrderStorage, AutoCloseable {
      */
     @Override
     public Order getById(int id) {
-        if (id > getAll().size()) {
+        boolean orderNotExists = getAll().stream().noneMatch(order -> order.getOrderId() == id);
+        if (orderNotExists) {
             log.error("Not found order with id {}", id);
             throw new NotFoundException("Id такого пользователя не существует");
         }
@@ -117,11 +125,7 @@ public class OrderStorageJdbc implements OrderStorage, AutoCloseable {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                newOrder.setOrderId(resultSet.getInt("order_id"));
-                newOrder.setUserId(resultSet.getInt("user_id"));
-                newOrder.setCarId(resultSet.getInt("car_id"));
-                newOrder.setDate(resultSet.getDate("date").toLocalDate());
-                newOrder.setStatus(resultSet.getString("status"));
+                setParamsOrder(newOrder, resultSet);
             }
         } catch (SQLException e) {
             log.error("Error fetching orders with id {}", id, e);
@@ -137,7 +141,8 @@ public class OrderStorageJdbc implements OrderStorage, AutoCloseable {
      */
     @Override
     public void changeStatus(int id, String status) {
-        if (id > getAll().size()) {
+        boolean orderNotExists = getAll().stream().noneMatch(order -> order.getOrderId() == id);
+        if (orderNotExists) {
             log.error("Not found order with id {}", id);
             throw new NotFoundException("Id такого пользователя не существует");
         }
@@ -151,7 +156,8 @@ public class OrderStorageJdbc implements OrderStorage, AutoCloseable {
      */
     @Override
     public void canceled(int id) {
-        if (id > getAll().size()) {
+        boolean orderNotExists = getAll().stream().noneMatch(order -> order.getOrderId() == id);
+        if (orderNotExists) {
             log.error("Not found order with id {}", id);
             throw new NotFoundException("Id такого пользователя не существует");
         }
@@ -199,4 +205,23 @@ public class OrderStorageJdbc implements OrderStorage, AutoCloseable {
         }
     }
 
+    /**
+     * Устанавливает параметры объекта {@link Order} на основе данных из результирующего набора {@link ResultSet}.
+     * <p>
+     * Этот метод извлекает данные из {@link ResultSet} и заполняет ими поля объекта {@link Order}.
+     * Поля, которые заполняются, включают: идентификатор заказа, идентификатор пользователя,
+     * идентификатор автомобиля, дата заказа, статус заказа.
+     * </p>
+     *
+     * @param newOrder  Объект {@link Order}, который будет заполнен данными.
+     * @param resultSet Результирующий набор {@link ResultSet}, содержащий данные из базы данных.
+     * @throws SQLException Если происходит ошибка при доступе к данным в {@link ResultSet}.
+     */
+    private static void setParamsOrder(Order newOrder, ResultSet resultSet) throws SQLException {
+        newOrder.setOrderId(resultSet.getInt("order_id"));
+        newOrder.setUserId(resultSet.getInt("user_id"));
+        newOrder.setCarId(resultSet.getInt("car_id"));
+        newOrder.setDate(resultSet.getDate("date").toLocalDate());
+        newOrder.setStatus(resultSet.getString("status"));
+    }
 }

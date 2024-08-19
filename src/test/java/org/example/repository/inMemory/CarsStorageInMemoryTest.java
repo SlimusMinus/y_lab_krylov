@@ -31,6 +31,13 @@ class CarsStorageInMemoryTest {
         assertThat(carStorage.getAll()).containsAll(CAR_LIST);
     }
 
+    @DisplayName("получение автомобиля по ID")
+    @Test
+    void getById(){
+        Car car = carStorage.getById(GET_CAR_ID);
+        assertThat(car).isEqualTo(car2);
+    }
+
     @DisplayName("сохранение нового автомобиля")
     @Test
     void save() {

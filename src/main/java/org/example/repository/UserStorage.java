@@ -1,6 +1,7 @@
 package org.example.repository;
 
 import org.example.model.User;
+import org.example.util.NotFoundException;
 
 import java.util.List;
 import java.util.function.Function;
@@ -20,6 +21,20 @@ public interface UserStorage {
      * @return Список объектов {@link User}, представляющих всех пользователей.
      */
     List<User> getAll();
+
+    /**
+     * Возвращает объект {@link User} по его уникальному идентификатору.
+     * <p>
+     * Метод осуществляет поиск пользователя в хранилище данных по заданному идентификатору.
+     * Если пользователь с таким идентификатором не найден, может быть выброшено исключение
+     * или возвращен null, в зависимости от реализации.
+     * </p>
+     *
+     * @param id уникальный идентификатор пользователя.
+     * @return объект {@link User}, соответствующий заданному идентификатору.
+     * @throws NotFoundException если пользователь с указанным идентификатором не найден
+     */
+    User getById(int id);
 
     /**
      * Фильтрует пользователей по заданному критерию.

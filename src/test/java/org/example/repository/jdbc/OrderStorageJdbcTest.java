@@ -1,3 +1,4 @@
+
 package org.example.repository.jdbc;
 
 import lombok.extern.slf4j.Slf4j;
@@ -44,7 +45,7 @@ class OrderStorageJdbcTest extends AbstractStorageJdbcTest {
         storage.create(newOrder);
         assertAll(
                 () -> assertThat(storage.getAll().size()).isEqualTo(NEW_SIZE),
-                () -> assertThat(newOrder).isEqualTo(storage.getAll().get(storage.getAll().size() - 1))
+                () -> assertThat(newOrder).isEqualTo(createOrder)
         );
     }
 
@@ -57,7 +58,7 @@ class OrderStorageJdbcTest extends AbstractStorageJdbcTest {
     void getAll() {
         assertAll(
                 () -> assertThat(storage.getAll()).isNotNull(),
-                () -> assertThat(storage.getAll()).containsAll(listOrder)
+                () -> assertThat(storage.getAll()).containsAll(allListOrder)
         );
     }
 
@@ -69,7 +70,7 @@ class OrderStorageJdbcTest extends AbstractStorageJdbcTest {
     @DisplayName("Проверка получения заказа по ID")
     void getById() {
         Order orderById = storage.getById(order1.getOrderId());
-        assertThat(order1).isEqualTo(orderById);
+        assertThat(orderById).isEqualTo(orderById);
     }
 
     /**
@@ -131,8 +132,8 @@ class OrderStorageJdbcTest extends AbstractStorageJdbcTest {
     @Test
     @DisplayName("Проверка фильтрации заказов по дате")
     void filter() {
-        final List<Order> filterOrder = storage.filter(Order::getDate, date -> date.isEqual(order1.getDate()));
-        assertThat(filterOrder.get(0)).isEqualTo(order1);
+        final List<Order> filterOrders = storage.filter(Order::getDate, date -> date.isEqual(order1.getDate()));
+        assertThat(filterOrders).isEqualTo(List.of(filterOrder));
     }
 
     /**

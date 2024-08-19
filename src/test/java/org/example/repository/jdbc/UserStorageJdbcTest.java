@@ -4,12 +4,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.dataTest.Users;
 import org.example.model.User;
 import org.example.repository.UserStorage;
+import org.example.util.NotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.example.dataTest.Users.*;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
@@ -43,6 +45,35 @@ class UserStorageJdbcTest extends AbstractStorageJdbcTest {
                 () -> assertThat(storage.getAll()).isNotNull(),
                 () -> assertThat(USER_LIST).isEqualTo(storage.getAll())
         );
+    }
+
+    /**
+     * Тест проверяет корректность работы метода {@link UserStorage#getById(int)}.
+     * <p>
+     * Данный тест вызывает метод {@code getById} для получения пользователя по заданному идентификатору
+     * и сравнивает полученный объект {@link User} с ожидаемым объектом {@code manager1}.
+     * Если возвращаемый методами объект соответствует ожидаемому, тест считается успешным.
+     * </p>
+     */
+    @Test
+    @DisplayName("Тест на получение пользователя по идентификатору")
+    void getById(){
+        User user = storage.getById(USER_GET_ID);
+        assertThat(manager1).isEqualTo(user);
+    }
+
+    /**
+     * Тест проверяет, что метод {@link UserStorage#getById(int)} выбрасывает исключение {@link NotFoundException},
+     * если вызывается с идентификатором пользователя, который не существует в базе данных.
+     * <p>
+     * В данном тесте вызывается метод {@code getById} с несуществующим идентификатором {@code NOT_EXIST_ID}.
+     * Тест считается успешным, если метод выбрасывает исключение {@link NotFoundException}.
+     * </p>
+     */
+    @Test
+    @DisplayName("Тест на выброс NotFoundException при попытке получить несуществующего пользователя")
+    void getByIdNotFound(){
+        assertThatThrownBy(()->storage.getById(NOT_EXIST_ID)).isInstanceOf(NotFoundException.class);
     }
 
     /**

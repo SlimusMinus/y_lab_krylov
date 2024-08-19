@@ -3,7 +3,7 @@ package org.example.repository.inMemory;
 import org.example.model.Car;
 import org.example.repository.inMemory.data.CarData;
 import org.example.repository.CarStorage;
-import org.example.service.AuthServiceInMemory;
+import org.example.service.authentication.AuthServiceInMemory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,7 +20,7 @@ import java.util.function.Predicate;
  */
 public class CarStorageInMemory implements CarStorage {
 
-    private CarData carData = new CarData();
+    private final CarData carData = new CarData();
 
     private static final Logger log = LoggerFactory.getLogger(AuthServiceInMemory.class);
 
@@ -34,7 +34,25 @@ public class CarStorageInMemory implements CarStorage {
     @Override
     public List<Car> getAll() {
         log.info("Get all cars");
-        return carData.getCars().values().stream().toList();
+        return CarData.getCars().values().stream().toList();
+    }
+
+    /**
+     * Получает объект {@link Car} по его уникальному идентификатору.
+     * <p>
+     * Метод возвращает автомобиль из источника данных, соответствующий указанному идентификатору.
+     * Если автомобиль с таким идентификатором не найден, может быть возвращен {@code null}.
+     * </p>
+     *
+     * @param id Уникальный идентификатор автомобиля, который нужно получить.
+     * @return Объект {@link Car} с указанным идентификатором, или {@code null}, если автомобиль с таким идентификатором не найден.
+     * @throws IndexOutOfBoundsException Если идентификатор выходит за пределы допустимого диапазона.
+     *
+     * @see Car
+     */
+    @Override
+    public Car getById(int id) {
+        return CarData.getCars().get(id);
     }
 
     /**
@@ -50,12 +68,12 @@ public class CarStorageInMemory implements CarStorage {
     public Car saveOrUpdate(Car car) {
         if (car.getId() == 0) {
             log.info("Car {} added", car);
-            int id = CarData.getCarId()+1;
+            int id = CarData.getCarId() + 1;
             car.setId(id);
-            carData.getCars().put(id, car);
+            CarData.getCars().put(id, car);
         } else {
             log.info("Car {} updated", car);
-            carData.getCars().put(car.getId(), car);
+            CarData.getCars().put(car.getId(), car);
         }
         return car;
     }
@@ -70,7 +88,7 @@ public class CarStorageInMemory implements CarStorage {
     @Override
     public void delete(int id) {
         log.info("Car with id - {} removed", id);
-        carData.getCars().remove(id);
+        CarData.getCars().remove(id);
     }
 
     /**
@@ -79,15 +97,15 @@ public class CarStorageInMemory implements CarStorage {
      * <p>Этот метод позволяет отфильтровать автомобили на основе функции получения свойства и предиката для проверки этого свойства.
      * Логирует операцию фильтрации автомобилей.</p>
      *
-     * @param <T> Тип свойства, по которому производится фильтрация.
-     * @param getter Функция, возвращающая значение свойства {@link Car}, по которому будет происходить фильтрация.
+     * @param <T>       Тип свойства, по которому производится фильтрация.
+     * @param getter    Функция, возвращающая значение свойства {@link Car}, по которому будет происходить фильтрация.
      * @param predicate Предикат, проверяющий, соответствует ли значение свойства заданному условию.
      * @return Список объектов {@link Car}, которые удовлетворяют заданному критерию фильтрации.
      */
     @Override
     public <T> List<Car> filter(Function<Car, T> getter, Predicate<T> predicate) {
         log.info("Get all find cars");
-        List<Car> list = carData.getCars().values().stream().toList();
+        List<Car> list = CarData.getCars().values().stream().toList();
         return list.stream().filter(car -> predicate.test(getter.apply(car))).toList();
     }
 }
