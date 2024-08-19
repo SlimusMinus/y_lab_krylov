@@ -1,13 +1,10 @@
 package org.example.web;
 
-import lombok.extern.slf4j.Slf4j;
 import org.example.dto.CarDTO;
 import org.example.mapper.CarMapper;
 import org.example.model.Car;
-import org.example.repository.CarStorage;
-import org.example.repository.jdbc.CarStorageJdbc;
-import org.example.util.NotFoundException;
-import org.example.util.ValidationDTO;
+import org.example.service.CarService;
+import org.example.util.ObjectValidator;
 import org.example.web.json.JsonUtil;
 
 import javax.servlet.ServletException;
@@ -22,10 +19,9 @@ import java.util.stream.Collectors;
  * Servlet для управления объектами {@link Car}.
  * Обрабатывает запросы на отображение, фильтрацию, добавление, редактирование и удаление автомобилей.
  */
-@Slf4j
 public class CarServlet extends HttpServlet {
-    private CarStorage storage;
-    private ValidationDTO validationDTO;
+    private CarService service;
+    private ObjectValidator objectValidator;
 
     @Override
     public void init() throws ServletException {
@@ -34,8 +30,8 @@ public class CarServlet extends HttpServlet {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        storage = new CarStorageJdbc();
-        validationDTO = new ValidationDTO();
+        service = new CarService();
+        objectValidator = new ObjectValidator();
         super.init();
     }
 
@@ -47,9 +43,9 @@ public class CarServlet extends HttpServlet {
         if (action != null && action.equals("filter")) {
             String nameFilter = req.getParameter("name-filter");
             String params = req.getParameter("params");
-            showAll(resp, getFilteredCars(nameFilter, params));
+            showAll(resp, service.getFilteredCars(nameFilter, params));
         } else {
-            showAll(resp, storage.getAll());
+            showAll(resp, service.getAll());
         }
     }
 
@@ -72,18 +68,9 @@ public class CarServlet extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
-        storage.delete(Integer.parseInt(id));
+        service.delete(Integer.parseInt(id));
         resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
         resp.sendRedirect("cars");
-    }
-
-    private List<Car> getFilteredCars(String nameFilter, String params) {
-        return switch (nameFilter) {
-            case "brand" -> storage.filter(Car::getBrand, brand -> brand.equals(params));
-            case "condition" -> storage.filter(Car::getCondition, condition -> condition.equals(params));
-            case "price" -> storage.filter(Car::getPrice, price -> price == (Integer.parseInt(params)));
-            default -> throw new NotFoundException("Unexpected value: " + nameFilter);
-        };
     }
 
     private void showAll(HttpServletResponse resp, List<Car> cars) throws IOException {
@@ -97,10 +84,10 @@ public class CarServlet extends HttpServlet {
 
     private void saveOrUpdateCar(HttpServletRequest req, HttpServletResponse resp, int id) throws IOException {
         CarDTO carDTO = JsonUtil.readValue(req.getReader().lines().collect(Collectors.joining()), CarDTO.class);
-        if (validationDTO.isValidObjectDTO(resp, carDTO)) {
+        if (objectValidator.isValidObjectDTO(resp, carDTO)) {
             Car newCar = CarMapper.INSTANCE.getCarDTO(carDTO);
             newCar.setId(id);
-            storage.saveOrUpdate(newCar);
+            service.saveOrUpdate(newCar);
             resp.setContentType("application/json");
             resp.sendRedirect("cars");
         }

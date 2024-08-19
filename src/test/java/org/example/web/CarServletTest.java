@@ -2,13 +2,11 @@ package org.example.web;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.model.Car;
-import org.example.repository.jdbc.AbstractStorageJdbcTest;
 import org.example.web.json.JsonUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -28,10 +26,9 @@ import static org.mockito.Mockito.when;
  * Тестируется функциональность методов doGet, doPost, doPut и doDelete.
  * </p>
  */
-@Testcontainers
 @Slf4j
 @DisplayName("Тестирование класса CarServlet")
-class CarServletTest extends AbstractStorageJdbcTest {
+class CarServletTest {
 
     private CarServlet servlet;
     private HttpServletRequest request;
@@ -130,32 +127,5 @@ class CarServletTest extends AbstractStorageJdbcTest {
         when(request.getParameter("id")).thenReturn("2");
         servlet.doDelete(request, response);
         verify(response).setStatus(HttpServletResponse.SC_NO_CONTENT);
-    }
-
-    @Override
-    protected String createTable() {
-        return """
-                DROP TABLE IF EXISTS car_shop.car;
-                CREATE TABLE car_shop.car (
-                    car_id SERIAL PRIMARY KEY,
-                    brand TEXT,
-                    model TEXT,
-                    year INTEGER,
-                    price NUMERIC,
-                    condition TEXT
-                );
-                """;
-    }
-
-    @Override
-    protected String populateTable() {
-        return """
-                INSERT INTO car_shop.car (brand, model, year, price, condition) VALUES
-                              ('BMW', 'M4', 2024, 25000.00, 'new'),
-                              ('Volvo', 'S40', 2023, 17500.00, 'good'),
-                              ('Mercedes', 'SLS', 2024, 25000.00, 'new'),
-                              ('Volvo', 'S60', 2019, 25000.00, 'good'),
-                              ('Audi', 'Q3', 2020, 19500.80, 'good');
-                """;
     }
 }

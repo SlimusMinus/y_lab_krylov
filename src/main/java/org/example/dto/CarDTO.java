@@ -8,6 +8,35 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
 
+/**
+ * Data Transfer Object (DTO) для представления информации о автомобиле.
+ * Этот класс используется для передачи данных о транспортных средствах между различными слоями приложения.
+ * <p>
+ * Класс содержит информацию о бренде, модели, годе выпуска, цене и состоянии автомобиля.
+ * Поля класса аннотированы для валидации входных данных.
+ * </p>
+ *
+ * <p>
+ * Поля:
+ * <ul>
+ *     <li>{@link #brand} - бренд автомобиля. Поле не должно быть пустым.</li>
+ *     <li>{@link #model} - модель автомобиля. Поле не должно быть пустым.</li>
+ *     <li>{@link #year} - год выпуска автомобиля. Поле не должно превышать текущий год.</li>
+ *     <li>{@link #price} - цена автомобиля. Поле должно быть положительным числом.</li>
+ *     <li>{@link #condition} - состояние автомобиля. Поле не должно быть пустым.</li>
+ * </ul>
+ * </p>
+ *
+ * <p>
+ * Пример использования:
+ * <pre>
+ *     CarDTO carDTO = new CarDTO("Toyota", "Camry", 2020, 25000, "New");
+ * </pre>
+ * </p>
+ *
+ * @version 1.0
+ * @since 2024
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

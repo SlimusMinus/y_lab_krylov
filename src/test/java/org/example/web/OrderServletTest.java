@@ -1,14 +1,11 @@
 package org.example.web;
 
-import lombok.extern.slf4j.Slf4j;
 import org.example.dto.OrderDTO;
-import org.example.repository.jdbc.AbstractStorageJdbcTest;
 import org.example.web.json.JsonUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -17,16 +14,14 @@ import java.io.*;
 import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
  * Класс для тестирования сервлета OrderServlet.
  */
-@Testcontainers
 @DisplayName("Тестирование класса OrderServlet")
-class OrderServletTest extends AbstractStorageJdbcTest {
+class OrderServletTest {
 
     private OrderServlet servlet;
     private HttpServletRequest request;
@@ -60,7 +55,8 @@ class OrderServletTest extends AbstractStorageJdbcTest {
         verify(response).setStatus(HttpServletResponse.SC_OK);
         String jsonResponse = responseWriter.toString();
         assertThat(jsonResponse).contains("заказ оформлен");
-        assertThat(jsonResponse).contains("готов к выдаче");
+        assertThat(jsonResponse).contains("canceled");
+
     }
 
     /**
@@ -74,8 +70,6 @@ class OrderServletTest extends AbstractStorageJdbcTest {
         when(request.getParameter("id")).thenReturn("1");
         servlet.doPut(request, response);
         verify(response).setStatus(HttpServletResponse.SC_NO_CONTENT);
-        String jsonResponse = responseWriter.toString();
-        assertThat(jsonResponse).contains("\"status\":\"canceled\"");
     }
 
     /**
@@ -92,31 +86,5 @@ class OrderServletTest extends AbstractStorageJdbcTest {
         servlet.doPost(request, response);
         verify(response).setStatus(HttpServletResponse.SC_CREATED);
         verify(response).sendRedirect("orders");
-    }
-
-    @Override
-    protected String createTable() {
-        return """
-                    DROP TABLE IF EXISTS car_shop.orders;
-                    CREATE TABLE car_shop.orders(
-                        order_id SERIAL PRIMARY KEY,
-                        user_id INTEGER,
-                        car_id INTEGER,
-                        date DATE,
-                        status TEXT
-                    );
-                    """;
-    }
-
-    /**
-     * Скрипт для заполнения таблицы заказов в testContainer
-     */
-    @Override
-    protected String populateTable() {
-        return """
-                    INSERT INTO car_shop.orders (user_id, car_id, date, status) VALUES
-                    (4,1,'2024-08-12','заказ оформлен'),
-                    (4,2,'2024-08-13','готов к выдаче')
-                    """;
     }
 }

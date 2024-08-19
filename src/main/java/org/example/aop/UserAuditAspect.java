@@ -1,18 +1,25 @@
 package org.example.aop;
 
 import lombok.extern.slf4j.Slf4j;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
 
 @Aspect
 @Slf4j
 public class UserAuditAspect {
-    @Pointcut("execution(* org.example.repository.CarStorage.getAll()")
-    public void greeting() {}
-
-    @Before("greeting()")
-    public void beforeAdvice() {
-        System.out.print("Привет ");
+    @Around("execution(* org.example.repository..*(..))")
+    public Object auditMethod(ProceedingJoinPoint joinPoint) throws Throwable {
+        long startTime = System.currentTimeMillis();
+        Object result;
+        try {
+            System.out.println("**************************");
+            log.info("Method {} is starting", joinPoint.getSignature().toShortString());
+            result = joinPoint.proceed();
+        } finally {
+            long timeTaken = System.currentTimeMillis() - startTime;
+            log.info("Method {} finished in {} ms", joinPoint.getSignature().toShortString(), timeTaken);
+        }
+        return result;
     }
 }
