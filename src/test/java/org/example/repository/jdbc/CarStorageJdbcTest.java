@@ -2,11 +2,14 @@ package org.example.repository.jdbc;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.model.Car;
-import org.example.repository.CarStorage;
+import org.example.service.CarService;
 import org.example.util.NotFoundException;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.util.List;
@@ -20,19 +23,15 @@ import static org.junit.jupiter.api.Assertions.assertAll;
  * Тестовый класс для проверки функциональности {@link CarStorageJdbc}.
  * Этот класс использует контейнер PostgreSQL для выполнения интеграционных тестов.
  */
-@Testcontainers
 @Slf4j
+@Testcontainers
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(locations = {"classpath:spring/spring-test-config.xml", "classpath:spring/spring-db-test.xml"})
 @DisplayName("Тестирование класса CarStorageJdbc")
 class CarStorageJdbcTest extends AbstractStorageJdbcTest {
-    private CarStorage storage;
 
-    /**
-     * Инициализация {@link CarStorageJdbc} перед каждым тестом.
-     */
-    @BeforeEach
-    public void setUpCar() {
-        storage = new CarStorageJdbc();
-    }
+    @Autowired
+    private CarService storage;
 
     /**
      * Проверяет корректность работы метода {@link CarStorageJdbc#getAll()}.
@@ -46,7 +45,6 @@ class CarStorageJdbcTest extends AbstractStorageJdbcTest {
                 () -> assertThat(cars).hasSize(5),
                 () -> assertThat(storage.getAll())
                         .usingRecursiveComparison()
-                        .ignoringFields("car_id")
                         .isEqualTo(CAR_LIST)
         );
     }
@@ -73,7 +71,7 @@ class CarStorageJdbcTest extends AbstractStorageJdbcTest {
     @DisplayName("Проверка обновления существующего автомобиля")
     void update() {
         storage.saveOrUpdate(carUpdate);
-        Car carUpdate = storage.getAll().get(car4.getId());
+        Car carUpdate = storage.getAll().get(car4.getCar_id());
         assertThat(carUpdate).isEqualTo(carUpdate);
 
     }
@@ -85,7 +83,7 @@ class CarStorageJdbcTest extends AbstractStorageJdbcTest {
     @Test
     @DisplayName("Проверка удаления автомобиля")
     void delete() {
-        storage.delete(car4.getId());
+        storage.delete(car4.getCar_id());
         List<Car> cars = storage.getAll();
         assertThat(cars).doesNotContain(car4);
     }
@@ -107,9 +105,9 @@ class CarStorageJdbcTest extends AbstractStorageJdbcTest {
     @Test
     @DisplayName("Проверка фильтрации автомобилей")
     void filter() {
-        final List<Car> listVolvo = storage.filter(Car::getBrand, brand -> brand.equals("Volvo"));
-        final List<Car> listNewCar = storage.filter(Car::getCondition, condition -> condition.equals("new"));
-        final List<Car> filterPriceCar = storage.filter(Car::getPrice, price -> price == 25000);
+        final List<Car> listVolvo = storage.getFilteredCars("brand", "Volvo");
+        final List<Car> listNewCar = storage.getFilteredCars("condition", "new");
+        final List<Car> filterPriceCar = storage.getFilteredCars("price", "25000");
         assertAll(
                 () -> assertThat(listVolvo).containsAll(brandFilteredCars),
                 () -> assertThat(listNewCar).containsAll(conditionFilteredCars),
@@ -123,16 +121,16 @@ class CarStorageJdbcTest extends AbstractStorageJdbcTest {
     @Override
     protected String createTable() {
         return """
-                DROP TABLE IF EXISTS car_shop.car;
-                CREATE TABLE car_shop.car (
-                    car_id SERIAL PRIMARY KEY,
-                    brand TEXT,
-                    model TEXT,
-                    year INTEGER,
-                    price NUMERIC,
-                    condition TEXT
-                );
-                """;
+                   DROP TABLE IF EXISTS car_shop.car;
+            CREATE TABLE car_shop.car (
+                car_id SERIAL PRIMARY KEY,
+                brand TEXT,
+                model TEXT,
+                year INTEGER,
+                price NUMERIC,
+                condition TEXT
+            );
+            """;
     }
 
     /**

@@ -2,6 +2,7 @@ package org.example.repository.jdbc;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.config.DatabaseConfig;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.testcontainers.containers.PostgreSQLContainer;
@@ -31,6 +32,14 @@ public abstract class AbstractStorageJdbcTest {
             .withDatabaseName("test_db")
             .withUsername("test_user")
             .withPassword("test_pass");
+
+    @BeforeAll
+    static void beforeAll() {
+        String jdbcUrl = String.format("jdbc:postgresql://localhost:%d/test_db", postgresContainer.getMappedPort(5432));
+        System.setProperty("database.url", jdbcUrl);
+        System.setProperty("database.username", postgresContainer.getUsername());
+        System.setProperty("database.password", postgresContainer.getPassword());
+    }
 
     /**
      * Метод, выполняющий начальную настройку перед каждым тестом.

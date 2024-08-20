@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.config.DatabaseConfig;
 import org.example.model.Roles;
 import org.example.repository.RoleStorage;
+import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -19,6 +20,8 @@ import java.util.Set;
  * Этот класс предоставляет методы для получения ролей пользователя по его идентификатору.
  * </p>
  */
+
+@Repository
 @Slf4j
 public class RoleStorageJdbc implements RoleStorage, AutoCloseable {
 

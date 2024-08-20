@@ -36,11 +36,11 @@ public class CarData {
     private static Map<Integer, Car> cars = new HashMap<>();
 
     static {
-        cars.put(car1.getId(), car1);
-        cars.put(car2.getId(), car2);
-        cars.put(car3.getId(), car3);
-        cars.put(car4.getId(), car4);
-        cars.put(car5.getId(), car5);
+        cars.put(car1.getCar_id(), car1);
+        cars.put(car2.getCar_id(), car2);
+        cars.put(car3.getCar_id(), car3);
+        cars.put(car4.getCar_id(), car4);
+        cars.put(car5.getCar_id(), car5);
     }
 
     public static int getCarId() {

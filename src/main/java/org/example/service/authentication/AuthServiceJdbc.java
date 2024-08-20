@@ -6,6 +6,14 @@ import org.example.model.Roles;
 import org.example.model.User;
 import org.example.repository.UserStorage;
 import org.example.repository.jdbc.UserStorageJdbc;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.sql.*;
@@ -30,23 +38,25 @@ import java.sql.*;
  * @see UserStorageJdbc
  */
 @Slf4j
+@Service
 public class AuthServiceJdbc implements AuthService {
+    private final JdbcTemplate jdbcTemplate;
+    private final SimpleJdbcInsert userInsert;
+    private final SimpleJdbcInsert roleInsert;
 
-    private Connection connection;
+    @Autowired
+    private UserStorage userStorage;
 
-    private final UserStorage userStorage = new UserStorageJdbc();
-
-    /**
-     * Конструктор класса. Устанавливает подключение к базе данных.
-     * <p>
-     * Если происходит ошибка при получении подключения, она логируется.
-     */
-    public AuthServiceJdbc() {
-        try {
-            this.connection = DatabaseConfig.getConnection();
-        } catch (SQLException | IOException e) {
-            log.error("Error get connection ", e);
-        }
+    public AuthServiceJdbc(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+        this.userInsert = new SimpleJdbcInsert(jdbcTemplate)
+                .withSchemaName("car_shop")
+                .withTableName("user")
+                .usingGeneratedKeyColumns("user_id");
+        this.roleInsert = new SimpleJdbcInsert(jdbcTemplate)
+                .withSchemaName("car_shop")
+                .withTableName("user_roles")
+                .usingGeneratedKeyColumns("role_id");
     }
 
     /**
@@ -59,32 +69,19 @@ public class AuthServiceJdbc implements AuthService {
      */
     @Override
     public void registeredUser(User user) {
-        String queryUser = "INSERT INTO car_shop.user (login, password, name, age, city) VALUES (?,?,?,?,?)";
-        String queryRole = "INSERT INTO car_shop.user_roles (user_id, role) VALUES (?,?)";
-        try (PreparedStatement userStatement = connection.prepareStatement(queryUser, Statement.RETURN_GENERATED_KEYS)) {
-            userStatement.setString(1, user.getLogin());
-            userStatement.setString(2, user.getPassword());
-            userStatement.setString(3, user.getName());
-            userStatement.setInt(4, user.getAge());
-            userStatement.setString(5, user.getCity());
-            userStatement.executeUpdate();
-
-            ResultSet generatedKeys = userStatement.getGeneratedKeys();
-            if (generatedKeys.next()) {
-                int userId = generatedKeys.getInt(1);
-                try (PreparedStatement roleStatement = connection.prepareStatement(queryRole)) {
-                    for (Roles role : user.getRole()) {
-                        roleStatement.setInt(1, userId);
-                        roleStatement.setString(2, role.getTitle());
-                        roleStatement.addBatch();
-                    }
-                    roleStatement.executeBatch();
-                }
-            }
-
-        } catch (SQLException e) {
-            log.error("Error adding user {}", user, e);
-        }
+        SqlParameterSource userParams = new MapSqlParameterSource()
+                .addValue("login", user.getLogin())
+                .addValue("password", user.getPassword())
+                .addValue("name", user.getName())
+                .addValue("age", user.getAge())
+                .addValue("city", user.getCity());
+        Number userId = userInsert.executeAndReturnKey(userParams);
+        SqlParameterSource[] rolesParams = user.getRole().stream()
+                .map(role -> new MapSqlParameterSource()
+                        .addValue("user_id", userId.intValue())
+                        .addValue("role", role.getTitle()))
+                .toArray(SqlParameterSource[]::new);
+        roleInsert.executeBatch(rolesParams);
     }
 
     /**

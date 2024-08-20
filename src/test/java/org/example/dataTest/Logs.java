@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
  * </p>
  */
 public class Logs {
-    public static final LocalDateTime startDate = LocalDateTime.of(2024, 8, 3, 0, 0);
-    public static final LocalDateTime endDate = LocalDateTime.of(2024, 8, 3, 12, 16);
+    public static final LocalDateTime startDate = LocalDateTime.of(2024, 8, 19, 12, 50, 25);
+    public static final LocalDateTime endDate = LocalDateTime.of(2024, 8, 19, 12, 50, 26);
 
-    public static final int SIZE_LOG_FILTERED_DATE = 6;
+    public static final int SIZE_LOG_FILTERED_DATE = 14;
 }

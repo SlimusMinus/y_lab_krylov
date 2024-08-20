@@ -6,6 +6,8 @@ import org.example.model.Car;
 import org.example.service.CarService;
 import org.example.util.ObjectValidator;
 import org.example.web.json.JsonUtil;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,19 +22,22 @@ import java.util.stream.Collectors;
  * Обрабатывает запросы на отображение, фильтрацию, добавление, редактирование и удаление автомобилей.
  */
 public class CarServlet extends HttpServlet {
+    private ConfigurableApplicationContext springContext;
     private CarService service;
     private ObjectValidator objectValidator;
 
     @Override
     public void init() throws ServletException {
-        try {
-            Class.forName("org.postgresql.Driver");
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        service = new CarService();
+        springContext = new ClassPathXmlApplicationContext("spring/spring-app.xml", "spring/spring-db.xml");
+        service = springContext.getBean(CarService.class);
         objectValidator = new ObjectValidator();
         super.init();
+    }
+
+    @Override
+    public void destroy() {
+        springContext.close();
+        super.destroy();
     }
 
     @Override
@@ -86,7 +91,7 @@ public class CarServlet extends HttpServlet {
         CarDTO carDTO = JsonUtil.readValue(req.getReader().lines().collect(Collectors.joining()), CarDTO.class);
         if (objectValidator.isValidObjectDTO(resp, carDTO)) {
             Car newCar = CarMapper.INSTANCE.getCarDTO(carDTO);
-            newCar.setId(id);
+            newCar.setCar_id(id);
             service.saveOrUpdate(newCar);
             resp.setContentType("application/json");
             resp.sendRedirect("cars");

@@ -4,17 +4,17 @@ import org.example.model.Order;
 import org.example.repository.OrderStorage;
 import org.example.repository.jdbc.OrderStorageJdbc;
 import org.example.util.NotFoundException;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.function.Function;
-import java.util.function.Predicate;
 
+@Service
 public class OrderService {
     private final OrderStorage orderStorage;
 
-    public OrderService() {
-        orderStorage = new OrderStorageJdbc();
+    public OrderService(OrderStorage orderStorage) {
+        this.orderStorage = orderStorage;
     }
 
     public void create(Order order) {
@@ -37,14 +37,10 @@ public class OrderService {
         orderStorage.canceled(id);
     }
 
-    public <T> List<Order> filter(Function<Order, T> getter, Predicate<T> predicate) {
-        return orderStorage.filter(getter, predicate);
-    }
-
     public List<Order> getFilteredOrder(String nameFilter, String params) {
         return switch (nameFilter) {
-            case "date" -> filter(Order::getDate, date -> date.isEqual(LocalDate.parse(params)));
-            case "status" -> filter(Order::getStatus, status -> status.equals(params));
+            case "date" -> orderStorage.filter(Order::getDate, date -> date.isEqual(LocalDate.parse(params)));
+            case "status" -> orderStorage.filter(Order::getStatus, status -> status.equals(params));
             default -> throw new NotFoundException("Unexpected value: " + nameFilter);
         };
     }

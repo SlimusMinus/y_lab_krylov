@@ -6,6 +6,7 @@ import liquibase.database.DatabaseFactory;
 import liquibase.database.jvm.JdbcConnection;
 import liquibase.exception.LiquibaseException;
 import liquibase.resource.ClassLoaderResourceAccessor;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -21,13 +22,10 @@ import java.util.Properties;
  * при его создании. Он использует конфигурацию базы данных из {@link DatabaseConfig}.
  * </p>
  */
-
+@Slf4j
 public class LiquibaseBaseConfig {
     private static final LiquibaseBaseConfig INSTANCE = new LiquibaseBaseConfig();
     private static Properties properties;
-
-    private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(LiquibaseBaseConfig.class);
-
 
     /**
      * Приватный конструктор класса, который выполняет миграции базы данных

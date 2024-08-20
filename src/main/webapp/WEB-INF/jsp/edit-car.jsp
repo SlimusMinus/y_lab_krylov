@@ -7,7 +7,7 @@
 </head>
 <body>
     <form method="post" action="cars">
-        <input type="hidden" id="id" name="id" value="${car.id}">
+        <input type="hidden" id="id" name="id" value="${car.car_id}">
         <div>
             <label for="brand">Brand</label>
             <input type="text" id="brand" name="brand" value="${car.brand}">

@@ -7,6 +7,8 @@ import org.example.repository.OrderStorage;
 import org.example.service.OrderService;
 import org.example.util.ObjectValidator;
 import org.example.web.json.JsonUtil;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,7 +26,7 @@ import java.util.stream.Collectors;
 public class OrderServlet extends HttpServlet {
     private OrderService service;
     private ObjectValidator objectValidator;
-
+    private ConfigurableApplicationContext springContext;
 
     /**
      * Инициализация сервлета.
@@ -34,14 +36,16 @@ public class OrderServlet extends HttpServlet {
      */
     @Override
     public void init() throws ServletException {
-        try {
-            Class.forName("org.postgresql.Driver");
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        service = new OrderService();
+        springContext = new ClassPathXmlApplicationContext("spring/spring-app.xml", "spring/spring-db.xml");
+        service = springContext.getBean(OrderService.class);
         objectValidator = new ObjectValidator();
         super.init();
+    }
+
+    @Override
+    public void destroy() {
+        springContext.close();
+        super.destroy();
     }
 
     @Override

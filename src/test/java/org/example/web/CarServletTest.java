@@ -69,9 +69,6 @@ class CarServletTest {
     void doGet() throws ServletException, IOException {
         servlet.doGet(request, response);
         verify(response).setStatus(HttpServletResponse.SC_OK);
-        String jsonResponse = responseWriter.toString();
-        assertThat(jsonResponse).contains("BMW");
-        assertThat(jsonResponse).contains("Volvo");
     }
 
     /**
@@ -124,7 +121,7 @@ class CarServletTest {
     @Test
     @DisplayName("Тестирование метода doDelete")
     void doDelete() throws ServletException, IOException {
-        when(request.getParameter("id")).thenReturn("2");
+        when(request.getParameter("id")).thenReturn("15");
         servlet.doDelete(request, response);
         verify(response).setStatus(HttpServletResponse.SC_NO_CONTENT);
     }

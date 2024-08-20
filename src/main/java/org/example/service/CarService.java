@@ -4,21 +4,18 @@ import org.example.model.Car;
 import org.example.repository.CarStorage;
 import org.example.repository.jdbc.CarStorageJdbc;
 import org.example.util.NotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
-import java.util.function.Predicate;
 
+@Service
 public class CarService {
+
     private final CarStorage storage;
 
-    public CarService() {
-        storage = new CarStorageJdbc();
+    public CarService(CarStorage storage) {
+        this.storage = storage;
     }
 
     public List<Car> getAll() {
@@ -37,15 +34,11 @@ public class CarService {
         storage.delete(id);
     }
 
-    public <T> List<Car> filter(Function<Car, T> getter, Predicate<T> predicate) {
-        return storage.filter(getter, predicate);
-    }
-
     public List<Car> getFilteredCars(String nameFilter, String params) {
         return switch (nameFilter) {
-            case "brand" -> filter(Car::getBrand, brand -> brand.equals(params));
-            case "condition" -> filter(Car::getCondition, condition -> condition.equals(params));
-            case "price" -> filter(Car::getPrice, price -> price == (Integer.parseInt(params)));
+            case "brand" -> storage.filter(Car::getBrand, brand -> brand.equals(params));
+            case "condition" -> storage.filter(Car::getCondition, condition -> condition.equals(params));
+            case "price" -> storage.filter(Car::getPrice, price -> price == (Integer.parseInt(params)));
             default -> throw new NotFoundException("Unexpected value: " + nameFilter);
         };
     }

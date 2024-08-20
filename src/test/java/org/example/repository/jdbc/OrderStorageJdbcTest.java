@@ -3,11 +3,14 @@ package org.example.repository.jdbc;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.model.Order;
-import org.example.repository.OrderStorage;
+import org.example.service.OrderService;
 import org.example.util.NotFoundException;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.util.List;
@@ -22,18 +25,14 @@ import static org.junit.jupiter.api.Assertions.assertAll;
  * Тестовый класс для проверки функциональности {@link OrderStorageJdbc}.
  * Этот класс использует контейнер PostgreSQL для выполнения интеграционных тестов.
  */
-@Testcontainers
 @Slf4j
+@Testcontainers
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(locations = {"classpath:spring/spring-test-config.xml", "classpath:spring/spring-db-test.xml"})
+@DisplayName("Тестирование класса OrderStorageJdbc")
 class OrderStorageJdbcTest extends AbstractStorageJdbcTest {
-    private OrderStorage storage;
-
-    /**
-     * Инициализация {@link OrderStorageJdbc} перед каждым тестом.
-     */
-    @BeforeEach
-    void setUpOrder() {
-        storage = new OrderStorageJdbc();
-    }
+    @Autowired
+    private OrderService service;
 
     /**
      * Проверяет корректность работы метода {@link OrderStorageJdbc#create(Order)} для создания нового заказа.
@@ -42,10 +41,10 @@ class OrderStorageJdbcTest extends AbstractStorageJdbcTest {
     @Test
     @DisplayName("Проверка создания нового заказа")
     void create() {
-        storage.create(newOrder);
+        service.create(newOrder);
         assertAll(
-                () -> assertThat(storage.getAll().size()).isEqualTo(NEW_SIZE),
-                () -> assertThat(newOrder).isEqualTo(createOrder)
+                () -> assertThat(service.getAll().size()).isEqualTo(NEW_SIZE),
+                () -> assertThat(newOrder).isEqualTo(service.getById(service.getAll().size()))
         );
     }
 
@@ -57,8 +56,8 @@ class OrderStorageJdbcTest extends AbstractStorageJdbcTest {
     @DisplayName("Проверка получения всех заказов")
     void getAll() {
         assertAll(
-                () -> assertThat(storage.getAll()).isNotNull(),
-                () -> assertThat(storage.getAll()).containsAll(allListOrder)
+                () -> assertThat(service.getAll()).isNotNull(),
+                () -> assertThat(service.getAll()).containsAll(allListOrder)
         );
     }
 
@@ -69,7 +68,7 @@ class OrderStorageJdbcTest extends AbstractStorageJdbcTest {
     @Test
     @DisplayName("Проверка получения заказа по ID")
     void getById() {
-        Order orderById = storage.getById(order1.getOrderId());
+        Order orderById = service.getById(order1.getOrderId());
         assertThat(orderById).isEqualTo(orderById);
     }
 
@@ -80,7 +79,7 @@ class OrderStorageJdbcTest extends AbstractStorageJdbcTest {
     @Test
     @DisplayName("Проверка получения несуществующего заказа по ID")
     void getByIdNotFound(){
-        assertThatThrownBy(()->storage.getById(NOT_EXIST_ID)).isInstanceOf(NotFoundException.class);
+        assertThatThrownBy(()-> service.getById(NOT_EXIST_ID)).isInstanceOf(NotFoundException.class);
     }
 
     /**
@@ -90,8 +89,8 @@ class OrderStorageJdbcTest extends AbstractStorageJdbcTest {
     @Test
     @DisplayName("Проверка изменения статуса заказа")
     void changeStatus() {
-        storage.changeStatus(order1.getOrderId(), newStatus);
-        assertThat(storage.getById(order1.getOrderId()).getStatus()).isEqualTo(newStatus);
+        service.changeStatus(order1.getOrderId(), newStatus);
+        assertThat(service.getById(order1.getOrderId()).getStatus()).isEqualTo(newStatus);
     }
 
     /**
@@ -101,7 +100,7 @@ class OrderStorageJdbcTest extends AbstractStorageJdbcTest {
     @Test
     @DisplayName("Проверка изменения статуса несуществующего заказа")
     void changeStatusNotFound(){
-        assertThatThrownBy(()-> storage.changeStatus(NOT_EXIST_ID, newStatus)).isInstanceOf(NotFoundException.class);
+        assertThatThrownBy(()-> service.changeStatus(NOT_EXIST_ID, newStatus)).isInstanceOf(NotFoundException.class);
     }
 
     /**
@@ -111,8 +110,8 @@ class OrderStorageJdbcTest extends AbstractStorageJdbcTest {
     @Test
     @DisplayName("Проверка отмены заказа")
     void canceled() {
-        storage.canceled(order2.getOrderId());
-        assertThat(storage.getById(order2.getOrderId()).getStatus()).isEqualTo(canceledStatus);
+        service.canceled(order2.getOrderId());
+        assertThat(service.getById(order2.getOrderId()).getStatus()).isEqualTo(canceledStatus);
     }
 
     /**
@@ -122,7 +121,7 @@ class OrderStorageJdbcTest extends AbstractStorageJdbcTest {
     @Test
     @DisplayName("Проверка отмены несуществующего заказа")
     void canceledNotFound(){
-        assertThatThrownBy(()->  storage.canceled(NOT_EXIST_ID)).isInstanceOf(NotFoundException.class);
+        assertThatThrownBy(()->  service.canceled(NOT_EXIST_ID)).isInstanceOf(NotFoundException.class);
     }
 
     /**
@@ -132,7 +131,7 @@ class OrderStorageJdbcTest extends AbstractStorageJdbcTest {
     @Test
     @DisplayName("Проверка фильтрации заказов по дате")
     void filter() {
-        final List<Order> filterOrders = storage.filter(Order::getDate, date -> date.isEqual(order1.getDate()));
+        final List<Order> filterOrders = service.getFilteredOrder("date", String.valueOf(order1.getDate()));
         assertThat(filterOrders).isEqualTo(List.of(filterOrder));
     }
 

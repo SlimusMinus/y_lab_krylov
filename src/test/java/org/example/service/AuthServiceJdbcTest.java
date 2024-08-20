@@ -2,15 +2,14 @@ package org.example.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.repository.RoleStorage;
-import org.example.repository.UserStorage;
 import org.example.repository.jdbc.AbstractStorageJdbcTest;
-import org.example.repository.jdbc.RoleStorageJdbc;
-import org.example.repository.jdbc.UserStorageJdbc;
 import org.example.service.authentication.AuthService;
-import org.example.service.authentication.AuthServiceJdbc;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -25,25 +24,18 @@ import static org.junit.jupiter.api.Assertions.*;
  * тестовой базой данных.
  * </p>
  */
-@Testcontainers
 @Slf4j
+@Testcontainers
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(locations = {"classpath:spring/spring-test-config.xml", "classpath:spring/spring-db-test.xml"})
 @DisplayName("Тестирование класса AuthServiceJdbc")
 class AuthServiceJdbcTest extends AbstractStorageJdbcTest {
-
+    @Autowired
     private AuthService authService;
-    private UserStorage userStorage;
+    @Autowired
+    private UserService userService;
+    @Autowired
     private RoleStorage roleStorage;
-
-    /**
-     * Инициализация сервиса аутентификации и зависимостей перед каждым тестом.
-     */
-    @BeforeEach
-    @DisplayName("Инициализация сервиса и хранилищ перед тестом")
-    void setUpService() {
-        authService = new AuthServiceJdbc();
-        userStorage = new UserStorageJdbc();
-        roleStorage = new RoleStorageJdbc();
-    }
 
     /**
      * Тест метода регистрации пользователя.
@@ -55,7 +47,7 @@ class AuthServiceJdbcTest extends AbstractStorageJdbcTest {
     @DisplayName("Регистрация нового пользователя")
     void registeredUser() {
         authService.registeredUser(newAdministrator);
-        assertThat(userStorage.getAll().get(userStorage.getAll().size() - 1)).isEqualTo(newUser);
+        assertThat(userService.getById(userService.getAll().size())).isEqualTo(newUser);
     }
 
     /**

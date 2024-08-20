@@ -50,15 +50,15 @@ class CarsStorageInMemoryTest {
     @Test
     void update() {
         carStorage.saveOrUpdate(carUpdate);
-        Car carUpdate = carStorage.getAll().get(car4.getId());
+        Car carUpdate = carStorage.getAll().get(car4.getCar_id());
         assertThat(carUpdate).isEqualTo(carUpdate);
     }
 
     @Test
     @DisplayName("удаление автомобиля и списка")
     void delete() {
-        carStorage.delete(car1.getId());
-        assertThat(CarData.getCars()).doesNotContainKey(car1.getId());
+        carStorage.delete(car1.getCar_id());
+        assertThat(CarData.getCars()).doesNotContainKey(car1.getCar_id());
     }
 
     @DisplayName(" добавление фильтрации по брэнду, состоянию и цене")

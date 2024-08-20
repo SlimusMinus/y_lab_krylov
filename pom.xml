@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.example</groupId>
@@ -32,6 +32,7 @@
     <jackson.version>2.17.2</jackson.version>
     <jakarta.el.version>4.0.2</jakarta.el.version>
     <mockito.version>5.12.0</mockito.version>
+    <spring.version>6.1.12</spring.version>
   </properties>
 
   <dependencies>
@@ -60,6 +61,14 @@
       <version>${mockito.version}</version>
       <scope>test</scope>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>${spring.version}</version>
+      <scope>test</scope>
+    </dependency>
+
 
 
     <!-- Testcontainers dependencies -->
@@ -113,6 +122,12 @@
       <artifactId>liquibase-core</artifactId>
       <version>${liquibase.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
 
     <!-- Web -->
     <dependency>
@@ -183,6 +198,18 @@
       <artifactId>aspectjweaver</artifactId>
       <version>1.9.7</version>
     </dependency>
+
+    <!-- Spring -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -209,8 +236,6 @@
           <verbose>true</verbose>
           <Xlint>ignore</Xlint>
           <encoding>UTF-8</encoding>
-
-
           <!-- IMPORTANT-->
           <excludes>
             <exclude>**/*.java</exclude>
@@ -218,15 +243,12 @@
           <forceAjcCompile>true</forceAjcCompile>
           <sources/>
           <!-- IMPORTANT-->
-
-
           <aspectLibraries>
             <aspectLibrary>
               <groupId>you.own.aspect.libary</groupId>
               <artifactId>your-library</artifactId>
             </aspectLibrary>
           </aspectLibraries>
-
         </configuration>
         <executions>
           <execution>
@@ -262,4 +284,3 @@
   </build>
 
 </project>
-

@@ -4,16 +4,16 @@ import org.example.model.User;
 import org.example.repository.UserStorage;
 import org.example.repository.jdbc.UserStorageJdbc;
 import org.example.util.NotFoundException;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.function.Function;
-import java.util.function.Predicate;
 
+@Service
 public class UserService {
     private final UserStorage storage;
 
-    public UserService() {
-        storage = new UserStorageJdbc();
+    public UserService(UserStorage storage) {
+        this.storage = storage;
     }
 
     public List<User> getAll() {
@@ -24,33 +24,24 @@ public class UserService {
         return storage.getById(id);
     }
 
-    public <T> List<User> filter(Function<User, T> getter, Predicate<T> predicate) {
-        return storage.filter(getter, predicate);
-    }
-
-    public <T extends Comparable<T>> List<User> sort(Function<User, T> keyExtractor) {
-        return storage.sort(keyExtractor);
-    }
-
     public User update(User user) {
         return storage.update(user);
     }
 
-
     public List<User> getSortedUsers(String paramsSort) {
         return switch (paramsSort) {
-            case "name" -> sort(User::getName);
-            case "age" -> sort(User::getAge);
-            case "city" -> sort(User::getCity);
+            case "name" -> storage.sort(User::getName);
+            case "age" -> storage.sort(User::getAge);
+            case "city" -> storage.sort(User::getCity);
             default -> throw new NotFoundException("Unexpected value: " + paramsSort);
         };
     }
 
     public List<User> getFilteredUsers(String nameFilter, String params) {
         return switch (nameFilter) {
-            case "name" -> filter(User::getName, name -> name.equals(params));
-            case "age" -> filter(User::getAge, age -> age == Integer.parseInt(params));
-            case "city" -> filter(User::getCity, city -> city.equals(params));
+            case "name" -> storage.filter(User::getName, name -> name.equals(params));
+            case "age" -> storage.filter(User::getAge, age -> age == Integer.parseInt(params));
+            case "city" -> storage.filter(User::getCity, city -> city.equals(params));
             default -> throw new NotFoundException("Unexpected value: " + nameFilter);
         };
     }

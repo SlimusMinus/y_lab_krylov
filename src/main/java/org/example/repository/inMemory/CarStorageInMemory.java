@@ -1,8 +1,8 @@
 package org.example.repository.inMemory;
 
 import org.example.model.Car;
-import org.example.repository.inMemory.data.CarData;
 import org.example.repository.CarStorage;
+import org.example.repository.inMemory.data.CarData;
 import org.example.service.authentication.AuthServiceInMemory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,7 +47,6 @@ public class CarStorageInMemory implements CarStorage {
      * @param id Уникальный идентификатор автомобиля, который нужно получить.
      * @return Объект {@link Car} с указанным идентификатором, или {@code null}, если автомобиль с таким идентификатором не найден.
      * @throws IndexOutOfBoundsException Если идентификатор выходит за пределы допустимого диапазона.
-     *
      * @see Car
      */
     @Override
@@ -66,14 +65,14 @@ public class CarStorageInMemory implements CarStorage {
      */
     @Override
     public Car saveOrUpdate(Car car) {
-        if (car.getId() == 0) {
+        if (car.getCar_id() == 0) {
             log.info("Car {} added", car);
             int id = CarData.getCarId() + 1;
-            car.setId(id);
+            car.setCar_id(id);
             CarData.getCars().put(id, car);
         } else {
             log.info("Car {} updated", car);
-            CarData.getCars().put(car.getId(), car);
+            CarData.getCars().put(car.getCar_id(), car);
         }
         return car;
     }

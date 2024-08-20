@@ -4,10 +4,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.dataTest.Users;
 import org.example.model.User;
 import org.example.repository.UserStorage;
+import org.example.service.UserService;
 import org.example.util.NotFoundException;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,20 +23,15 @@ import static org.junit.jupiter.api.Assertions.assertAll;
  * Тестовый класс для проверки функциональности {@link UserStorageJdbc}.
  * Этот класс использует контейнер PostgreSQL для выполнения интеграционных тестов.
  */
-@Testcontainers
 @Slf4j
+@Testcontainers
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(locations = {"classpath:spring/spring-test-config.xml", "classpath:spring/spring-db-test.xml"})
 @DisplayName("Тестирование класса UserStorageJdbc")
 class UserStorageJdbcTest extends AbstractStorageJdbcTest {
 
-    private UserStorage storage;
-
-    /**
-     * Инициализация {@link UserStorageJdbc} перед каждым тестом.
-     */
-    @BeforeEach
-    void setUpUser() {
-        storage = new UserStorageJdbc();
-    }
+    @Autowired
+    private UserService service;
 
     /**
      * Проверяет корректность работы метода {@link UserStorageJdbc#getAll()} для получения всех пользователей.
@@ -42,8 +41,8 @@ class UserStorageJdbcTest extends AbstractStorageJdbcTest {
     @DisplayName("Проверка получения всех пользователей")
     void getAll() {
         assertAll(
-                () -> assertThat(storage.getAll()).isNotNull(),
-                () -> assertThat(USER_LIST).isEqualTo(storage.getAll())
+                () -> assertThat(service.getAll()).isNotNull(),
+                () -> assertThat(USER_LIST).isEqualTo(service.getAll())
         );
     }
 
@@ -58,7 +57,7 @@ class UserStorageJdbcTest extends AbstractStorageJdbcTest {
     @Test
     @DisplayName("Тест на получение пользователя по идентификатору")
     void getById(){
-        User user = storage.getById(USER_GET_ID);
+        User user = service.getById(USER_GET_ID);
         assertThat(manager1).isEqualTo(user);
     }
 
@@ -73,7 +72,7 @@ class UserStorageJdbcTest extends AbstractStorageJdbcTest {
     @Test
     @DisplayName("Тест на выброс NotFoundException при попытке получить несуществующего пользователя")
     void getByIdNotFound(){
-        assertThatThrownBy(()->storage.getById(NOT_EXIST_ID)).isInstanceOf(NotFoundException.class);
+        assertThatThrownBy(()-> service.getById(NOT_EXIST_ID)).isInstanceOf(NotFoundException.class);
     }
 
     /**
@@ -84,9 +83,9 @@ class UserStorageJdbcTest extends AbstractStorageJdbcTest {
     @DisplayName("Проверка фильтрации пользователей по критериям")
     void filter() {
         assertAll(
-                () -> assertThat(storage.filter(User::getName, name -> name.equals("Alexandr"))).isEqualTo(NAME_PHILTER),
-                () -> assertThat(storage.filter(User::getCity, city -> city.equals("Moscow"))).isEqualTo(CITY_PHILTER),
-                () -> assertThat(storage.filter(User::getAge, age -> age == 33)).isEqualTo(AGE_PHILTER)
+                () -> assertThat(service.getFilteredUsers("name", "Alexandr")).isEqualTo(NAME_PHILTER),
+                () -> assertThat(service.getFilteredUsers("city", "Moscow")).isEqualTo(CITY_PHILTER),
+                () -> assertThat(service.getFilteredUsers("age", "33")).isEqualTo(AGE_PHILTER)
         );
     }
 
@@ -98,8 +97,8 @@ class UserStorageJdbcTest extends AbstractStorageJdbcTest {
     @DisplayName("Проверка сортировки пользователей по критериям")
     void sort() {
         assertAll(
-                () -> assertThat(storage.sort(User::getName)).containsAll(USERS_NAME_SORT),
-                () -> assertThat(storage.sort(User::getAge)).containsAll(USERS_AGE_SORT)
+                () -> assertThat(service.getSortedUsers("name")).containsAll(USERS_NAME_SORT),
+                () -> assertThat(service.getSortedUsers("age")).containsAll(USERS_AGE_SORT)
         );
     }
 
@@ -110,8 +109,8 @@ class UserStorageJdbcTest extends AbstractStorageJdbcTest {
     @Test
     @DisplayName("Проверка обновления данных пользователя")
     void update() {
-        storage.update(editClient2);
-        assertThat(storage.getAll().get(client2.getUserId())).isEqualTo(editClient2);
+        service.update(editClient2);
+        assertThat(service.getById(client2.getUserId())).isEqualTo(editClient2);
     }
 
     /**

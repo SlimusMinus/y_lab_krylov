@@ -6,6 +6,8 @@ import org.example.model.User;
 import org.example.service.UserService;
 import org.example.util.ObjectValidator;
 import org.example.web.json.JsonUtil;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,17 +24,20 @@ import java.util.stream.Collectors;
 public class UserServlet extends HttpServlet {
     private UserService service;
     private ObjectValidator objectValidator;
+    private ConfigurableApplicationContext springContext;
 
     @Override
     public void init() throws ServletException {
-        try {
-            Class.forName("org.postgresql.Driver");
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        service = new UserService();
+        springContext = new ClassPathXmlApplicationContext("spring/spring-app.xml", "spring/spring-db.xml");
+        service = springContext.getBean(UserService.class);
         objectValidator = new ObjectValidator();
         super.init();
+    }
+
+    @Override
+    public void destroy() {
+        springContext.close();
+        super.destroy();
     }
 
     @Override
