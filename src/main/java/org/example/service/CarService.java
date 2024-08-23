@@ -1,10 +1,11 @@
 package org.example.service;
 
+import org.example.dto.CarDTO;
+import org.example.mapper.CarMapper;
 import org.example.model.Car;
 import org.example.repository.CarStorage;
-import org.example.repository.jdbc.CarStorageJdbc;
 import org.example.util.NotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.example.util.ObjectValidator;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,12 +15,21 @@ public class CarService {
 
     private final CarStorage storage;
 
-    public CarService(CarStorage storage) {
+    private final ObjectValidator objectValidator;
+
+    public CarService(CarStorage storage, ObjectValidator objectValidator) {
         this.storage = storage;
+        this.objectValidator = objectValidator;
     }
 
     public List<Car> getAll() {
         return storage.getAll();
+    }
+
+    public List<CarDTO> getAllDTO(List<Car> cars) {
+        return cars.stream()
+                .map(CarMapper.INSTANCE::getCarDTO)
+                .toList();
     }
 
     public Car getById(int id) {
@@ -41,6 +51,19 @@ public class CarService {
             case "price" -> storage.filter(Car::getPrice, price -> price == (Integer.parseInt(params)));
             default -> throw new NotFoundException("Unexpected value: " + nameFilter);
         };
+    }
+
+    public boolean isCarValidation(CarDTO carDTO, int id) {
+        if (objectValidator.isValidObjectDTO(carDTO)) {
+            Car car = CarMapper.INSTANCE.getCar(carDTO);
+            if (id != 0) {
+                car.setCar_id(id);
+            }
+            storage.saveOrUpdate(car);
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

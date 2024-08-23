@@ -32,7 +32,9 @@
     <jackson.version>2.17.2</jackson.version>
     <jakarta.el.version>4.0.2</jakarta.el.version>
     <mockito.version>5.12.0</mockito.version>
-    <spring.version>6.1.12</spring.version>
+    <spring.version>5.3.37</spring.version>
+    <hibernate.version> 6.6.0.Final</hibernate.version>
+
   </properties>
 
   <dependencies>
@@ -61,15 +63,12 @@
       <version>${mockito.version}</version>
       <scope>test</scope>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
       <version>${spring.version}</version>
       <scope>test</scope>
     </dependency>
-
-
 
     <!-- Testcontainers dependencies -->
     <dependency>
@@ -128,7 +127,6 @@
       <version>${spring.version}</version>
     </dependency>
 
-
     <!-- Web -->
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -158,9 +156,9 @@
       <artifactId>jackson-datatype-jsr310</artifactId>
       <version>${jackson.version}</version>
     </dependency>
-    <dependency>
 
       <!-- MapStruct-->
+    <dependency>
       <groupId>org.mapstruct</groupId>
       <artifactId>mapstruct</artifactId>
       <version>${mapstruct.version}</version>
@@ -172,43 +170,52 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- Validation -->
+    <!--- ORM -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>${hibernate.version}</version>
+    </dependency>
     <dependency>
       <groupId>org.hibernate.validator</groupId>
       <artifactId>hibernate-validator</artifactId>
       <version>${hibernate-validator.version}</version>
     </dependency>
     <dependency>
-      <groupId>jakarta.validation</groupId>
-      <artifactId>jakarta.validation-api</artifactId>
-      <version>${jakarta.validation.version}</version>
-    </dependency>
-    <dependency>
       <groupId>org.glassfish</groupId>
       <artifactId>jakarta.el</artifactId>
       <version>${jakarta.el.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.aspectj</groupId>
-      <artifactId>aspectjrt</artifactId>
-      <version>1.9.7</version>
-    </dependency>
-    <dependency>
-      <groupId>org.aspectj</groupId>
-      <artifactId>aspectjweaver</artifactId>
-      <version>1.9.7</version>
     </dependency>
 
     <!-- Spring -->
     <dependency>
       <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
+      <artifactId>spring-webmvc</artifactId>
       <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
-      <artifactId>spring-jdbc</artifactId>
+      <artifactId>spring-context-support</artifactId>
       <version>${spring.version}</version>
+    </dependency>
+
+    <!-- AOP -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aop</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aspects</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <!-- YAML -->
+    <dependency>
+      <groupId>org.yaml</groupId>
+      <artifactId>snakeyaml</artifactId>
+      <version>2.0</version>
     </dependency>
   </dependencies>
 
@@ -222,65 +229,8 @@
           <target>${java.version}</target>
         </configuration>
       </plugin>
-      <!-- Компиляция с использованием Lombok и MapStruct -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>aspectj-maven-plugin</artifactId>
-        <version>1.14.0</version>
 
-        <configuration>
-          <complianceLevel>8</complianceLevel>
-          <source>8</source>
-          <target>8</target>
-          <showWeaveInfo>true</showWeaveInfo>
-          <verbose>true</verbose>
-          <Xlint>ignore</Xlint>
-          <encoding>UTF-8</encoding>
-          <!-- IMPORTANT-->
-          <excludes>
-            <exclude>**/*.java</exclude>
-          </excludes>
-          <forceAjcCompile>true</forceAjcCompile>
-          <sources/>
-          <!-- IMPORTANT-->
-          <aspectLibraries>
-            <aspectLibrary>
-              <groupId>you.own.aspect.libary</groupId>
-              <artifactId>your-library</artifactId>
-            </aspectLibrary>
-          </aspectLibraries>
-        </configuration>
-        <executions>
-          <execution>
-            <id>default-compile</id>
-            <phase>process-classes</phase>
-            <goals>
-              <!-- use this goal to weave all your main classes -->
-              <goal>compile</goal>
-            </goals>
-            <configuration>
-              <weaveDirectories>
-                <weaveDirectory>${project.build.directory}/classes</weaveDirectory>
-              </weaveDirectories>
-            </configuration>
-          </execution>
-          <execution>
-            <id>default-testCompile</id>
-            <phase>process-test-classes</phase>
-            <goals>
-              <!-- use this goal to weave all your test classes -->
-              <goal>test-compile</goal>
-            </goals>
-            <configuration>
-              <weaveDirectories>
-                <weaveDirectory>${project.build.directory}/test-classes</weaveDirectory>
-              </weaveDirectories>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
     </plugins>
-
   </build>
 
 </project>

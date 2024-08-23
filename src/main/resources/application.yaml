@@ -1,0 +1,7 @@
+database:
+  driver-class-name: org.postgresql.Driver
+  url: jdbc:postgresql://localhost:5432/postgres
+  username: alexandr
+  password: krylov
+  liquibase:
+    changelogPath: db/changelog/changelog-master.xml

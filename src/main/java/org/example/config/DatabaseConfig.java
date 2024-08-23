@@ -1,5 +1,7 @@
 package org.example.config;
 
+import lombok.Getter;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -17,20 +19,28 @@ import java.util.Properties;
  */
 
 public class DatabaseConfig {
+    @Getter
     private static Properties properties;
     private static String url;
     private static String login;
     private static String password;
+    private static final String PROPERTIES_FILE_PATH = "/db/database.properties";
 
     public static String getPropertiesFilePath() {
         return PROPERTIES_FILE_PATH;
     }
-
-    public static void setPropertiesFilePath(String propertiesFilePath) {
-        PROPERTIES_FILE_PATH = propertiesFilePath;
+    public static void setProperties(Properties properties) {
+        DatabaseConfig.properties = properties;
     }
-
-    private static String PROPERTIES_FILE_PATH = "/db/database.properties";
+    public static void setUrl(String url) {
+        DatabaseConfig.url = url;
+    }
+    public static void setLogin(String login) {
+        DatabaseConfig.login = login;
+    }
+    public static void setPassword(String password) {
+        DatabaseConfig.password = password;
+    }
 
     /**
      * Загружает свойства базы данных из файла.
@@ -105,26 +115,6 @@ public class DatabaseConfig {
     public static void setConnection(String url, String login, String password) {
         DatabaseConfig.url = url;
         DatabaseConfig.login = login;
-        DatabaseConfig.password = password;
-    }
-
-    public static Properties getProperties() {
-        return properties;
-    }
-
-    public static void setProperties(Properties properties) {
-        DatabaseConfig.properties = properties;
-    }
-
-    public static void setUrl(String url) {
-        DatabaseConfig.url = url;
-    }
-
-    public static void setLogin(String login) {
-        DatabaseConfig.login = login;
-    }
-
-    public static void setPassword(String password) {
         DatabaseConfig.password = password;
     }
 }
