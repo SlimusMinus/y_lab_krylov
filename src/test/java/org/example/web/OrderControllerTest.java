@@ -2,6 +2,7 @@ package org.example.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import org.example.config.AppConfig;
 import org.example.dto.OrderDTO;
 import org.example.service.OrderService;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,8 +22,7 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@SpringJUnitConfig
-@ContextConfiguration(locations = "classpath:applicationContext.xml")
+@ContextConfiguration(classes = AppConfig.class)
 @DisplayName("Тестирование класса OrderController")
 class OrderControllerTest {
     private MockMvc mockMvc;

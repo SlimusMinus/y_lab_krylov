@@ -1,6 +1,8 @@
 package org.example.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import org.example.config.AppConfig;
 import org.example.dto.CarDTO;
 import org.example.service.CarService;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,8 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -20,8 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
-@SpringJUnitConfig
-@ContextConfiguration(locations = "classpath:applicationContext.xml")
+@ContextConfiguration(classes = AppConfig.class)
 @DisplayName("Тестирование класса CarController")
 class CarControllerTest {
 
@@ -30,6 +31,7 @@ class CarControllerTest {
     private CarService carService;
     @InjectMocks
     private CarController controller;
+
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     /**
@@ -39,6 +41,7 @@ class CarControllerTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
+        objectMapper.registerModule(new JavaTimeModule());
         mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
 

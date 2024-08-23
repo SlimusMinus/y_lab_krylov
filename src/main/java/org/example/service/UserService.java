@@ -1,9 +1,7 @@
 package org.example.service;
 
 import org.example.dto.UserDTO;
-import org.example.mapper.CarMapper;
 import org.example.mapper.UserMapper;
-import org.example.model.Car;
 import org.example.model.User;
 import org.example.repository.UserStorage;
 import org.example.util.NotFoundException;
