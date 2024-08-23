@@ -46,6 +46,12 @@
         <constructor-arg ref="dataSource"/>
     </bean>
 
+    <!-- Liquibase configuration for database migration -->
+    <bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase">
+        <property name="dataSource" ref="dataSource" />
+        <property name="changeLog" value="db/changelog/changelog-master.xml" />
+    </bean>
+
     <!-- Bean definitions for storages -->
     <bean id="carStorage" class="org.example.repository.CarStorage">
         <constructor-arg ref="jdbcTemplate"/>
