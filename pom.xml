@@ -33,7 +33,8 @@
     <jakarta.el.version>4.0.2</jakarta.el.version>
     <mockito.version>5.12.0</mockito.version>
     <spring.version>5.3.37</spring.version>
-    <hibernate.version> 6.6.0.Final</hibernate.version>
+    <hibernate.version>6.6.0.Final</hibernate.version>
+    <swaggeer.version>2.9.2</swaggeer.version>
 
   </properties>
 
@@ -222,6 +223,24 @@
       <artifactId>snakeyaml</artifactId>
       <version>2.0</version>
     </dependency>
+
+    <!-- Swagger dependencies -->
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger2</artifactId>
+      <version>${swaggeer.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger-ui</artifactId>
+      <version>${swaggeer.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-spring-webmvc</artifactId>
+      <version>2.10.0</version>
+    </dependency>
+
   </dependencies>
 
   <build>
