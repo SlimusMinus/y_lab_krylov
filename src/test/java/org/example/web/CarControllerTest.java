@@ -10,8 +10,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -27,8 +25,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class CarControllerTest {
 
     private MockMvc mockMvc;
+
     @Mock
     private CarService carService;
+
     @InjectMocks
     private CarController controller;
 
@@ -36,11 +36,10 @@ class CarControllerTest {
 
     /**
      * Настройка тестовой среды перед каждым тестом.
-     * Инициализирует моки и настраивает MockMvc.
+     * Инициализирует MockMvc.
      */
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.openMocks(this);
         objectMapper.registerModule(new JavaTimeModule());
         mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
@@ -53,7 +52,6 @@ class CarControllerTest {
     @DisplayName("Получение всех автомобилей")
     void getAll() throws Exception {
         mockMvc.perform(get("/cars"))
-
                 .andExpect(content().contentType("application/json"))
                 .andExpect(status().isOk());
     }

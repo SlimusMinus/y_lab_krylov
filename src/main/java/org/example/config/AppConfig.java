@@ -4,12 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import liquibase.integration.spring.SpringLiquibase;
 import org.example.aop.UserAuditAspect;
-import org.example.repository.CarStorage;
-import org.example.repository.OrderStorage;
-import org.example.repository.UserStorage;
-import org.example.service.CarService;
-import org.example.service.OrderService;
-import org.example.service.UserService;
 import org.example.util.ObjectValidator;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.context.annotation.*;
@@ -106,36 +100,6 @@ public class AppConfig implements WebMvcConfigurer {
                 .addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
-    }
-
-    @Bean
-    public CarStorage carStorage() {
-        return new CarStorage(jdbcTemplate(), namedParameterJdbcTemplate());
-    }
-
-    @Bean
-    public OrderStorage orderStorage() {
-        return new OrderStorage(jdbcTemplate(), namedParameterJdbcTemplate());
-    }
-
-    @Bean
-    public UserStorage userStorage() {
-        return new UserStorage(jdbcTemplate(), namedParameterJdbcTemplate());
-    }
-
-    @Bean
-    public CarService carService() {
-        return new CarService(carStorage(), objectValidator());
-    }
-
-    @Bean
-    public OrderService orderService() {
-        return new OrderService(orderStorage(), objectValidator());
-    }
-
-    @Bean
-    public UserService userService() {
-        return new UserService(userStorage(), objectValidator());
     }
 
     @Bean
