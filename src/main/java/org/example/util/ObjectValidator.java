@@ -94,19 +94,12 @@ public class ObjectValidator {
      * @param objectDTO объект DTO для проверки
      * @return true, если объект прошел валидацию; false, если валидация провалена
      */
-    public <T> boolean isValidObjectDTO(HttpServletResponse resp, T objectDTO) {
-        resp.setCharacterEncoding("UTF-8");
+    public <T> boolean isValidObjectDTO(T objectDTO) {
         try {
             validateObject(objectDTO);
             return true;
         } catch (IllegalArgumentException exception) {
             log.error("Validation failed for OrderDTO: {}", objectDTO, exception);
-            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            try {
-                resp.getWriter().write(exception.getMessage());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
             return false;
         }
     }

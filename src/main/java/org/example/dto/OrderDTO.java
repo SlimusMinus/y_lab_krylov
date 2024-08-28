@@ -10,6 +10,22 @@ import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Positive;
 import java.time.LocalDate;
 
+/**
+ * Объект передачи данных (DTO) для представления заказа.
+ * <p>
+ * Этот класс используется для передачи данных о заказе между различными слоями приложения.
+ * Он включает информацию о пользователе, автомобиле, дате заказа и статусе заказа.
+ * </p>
+ *
+ * <p>
+ * Аннотации:
+ * <ul>
+ *     <li>{@code @Data} — автоматически генерирует геттеры, сеттеры, методы {@code toString()}, {@code equals()}, {@code hashCode()} и {@code canEqual()}.</li>
+ *     <li>{@code @AllArgsConstructor} — генерирует конструктор со всеми полями класса в качестве параметров.</li>
+ *     <li>{@code @NoArgsConstructor} — генерирует конструктор без параметров.</li>
+ * </ul>
+ * </p>
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

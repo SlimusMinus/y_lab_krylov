@@ -1,7 +1,11 @@
 package org.example.model;
 
+import jakarta.persistence.*;
 import lombok.*;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Positive;
 import java.time.LocalDate;
 
 /**
@@ -37,12 +41,25 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "orders", schema = "car_shop")
 public class Order {
+    @Id
+    @SequenceGenerator(schema = "car_shop", name = "orders_order_id_seq", sequenceName = "orders_order_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orders_order_id_seq")
     private int orderId;
+    @Column(name = "userId")
+    @Positive(message = "userId должен быть положительным числом")
     private int userId;
+    @Column(name = "carId")
+    @Positive(message = "carId должен быть положительным числом")
     private int carId;
+    @Column(name = "date")
+    @PastOrPresent(message = "Год должен быть не больше текущего года")
     private LocalDate date;
+    @Column(name = "status")
+    @NotBlank(message = "поле статус не должно быть пустым")
     private String status;
+    private static final int CURRENT_YEAR = 2024;
 
     public Order(int userId, int carId, LocalDate date, String status) {
         this.userId = userId;

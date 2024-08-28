@@ -1,51 +1,67 @@
 package org.example.service;
 
+import org.example.dto.OrderDTO;
+import org.example.mapper.OrderMapper;
 import org.example.model.Order;
 import org.example.repository.OrderStorage;
-import org.example.repository.jdbc.OrderStorageJdbc;
 import org.example.util.NotFoundException;
+import org.example.util.ObjectValidator;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.function.Function;
-import java.util.function.Predicate;
 
+@Service
 public class OrderService {
-    private final OrderStorage orderStorage;
+    private final OrderStorage storage;
+    private final ObjectValidator objectValidator;
 
-    public OrderService() {
-        orderStorage = new OrderStorageJdbc();
+    public OrderService(OrderStorage storage, ObjectValidator objectValidator) {
+        this.storage = storage;
+        this.objectValidator = objectValidator;
     }
 
     public void create(Order order) {
-        orderStorage.create(order);
+        storage.create(order);
     }
 
     public List<Order> getAll() {
-        return orderStorage.getAll();
+        return storage.getAll();
+    }
+
+    public List<OrderDTO> getAllDTO(List<Order> orders) {
+        return orders.stream()
+                .map(OrderMapper.INSTANCE::getOdderDTO)
+                .toList();
     }
 
     public Order getById(int id) {
-        return orderStorage.getById(id);
+        return storage.getById(id);
     }
 
     public void changeStatus(int id, String status) {
-        orderStorage.changeStatus(id, status);
+        storage.changeStatus(id, status);
     }
 
     public void canceled(int id) {
-        orderStorage.canceled(id);
-    }
-
-    public <T> List<Order> filter(Function<Order, T> getter, Predicate<T> predicate) {
-        return orderStorage.filter(getter, predicate);
+        storage.canceled(id);
     }
 
     public List<Order> getFilteredOrder(String nameFilter, String params) {
         return switch (nameFilter) {
-            case "date" -> filter(Order::getDate, date -> date.isEqual(LocalDate.parse(params)));
-            case "status" -> filter(Order::getStatus, status -> status.equals(params));
+            case "date" -> storage.filter(Order::getDate, date -> date.isEqual(LocalDate.parse(params)));
+            case "status" -> storage.filter(Order::getStatus, status -> status.equals(params));
             default -> throw new NotFoundException("Unexpected value: " + nameFilter);
         };
+    }
+
+    public boolean isOrderValidation(OrderDTO orderDTO) {
+        if (objectValidator.isValidObjectDTO(orderDTO)) {
+            Order order = OrderMapper.INSTANCE.getOrder(orderDTO);
+            storage.create(order);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

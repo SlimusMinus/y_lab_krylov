@@ -1,28 +1,35 @@
 package org.example.service;
 
+import org.example.dto.CarDTO;
+import org.example.mapper.CarMapper;
 import org.example.model.Car;
 import org.example.repository.CarStorage;
-import org.example.repository.jdbc.CarStorageJdbc;
 import org.example.util.NotFoundException;
+import org.example.util.ObjectValidator;
+import org.springframework.stereotype.Service;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
-import java.util.function.Predicate;
 
+@Service
 public class CarService {
+
     private final CarStorage storage;
 
-    public CarService() {
-        storage = new CarStorageJdbc();
+    private final ObjectValidator objectValidator;
+
+    public CarService(CarStorage storage, ObjectValidator objectValidator) {
+        this.storage = storage;
+        this.objectValidator = objectValidator;
     }
 
     public List<Car> getAll() {
         return storage.getAll();
+    }
+
+    public List<CarDTO> getAllDTO(List<Car> cars) {
+        return cars.stream()
+                .map(CarMapper.INSTANCE::getCarDTO)
+                .toList();
     }
 
     public Car getById(int id) {
@@ -37,17 +44,26 @@ public class CarService {
         storage.delete(id);
     }
 
-    public <T> List<Car> filter(Function<Car, T> getter, Predicate<T> predicate) {
-        return storage.filter(getter, predicate);
-    }
-
     public List<Car> getFilteredCars(String nameFilter, String params) {
         return switch (nameFilter) {
-            case "brand" -> filter(Car::getBrand, brand -> brand.equals(params));
-            case "condition" -> filter(Car::getCondition, condition -> condition.equals(params));
-            case "price" -> filter(Car::getPrice, price -> price == (Integer.parseInt(params)));
+            case "brand" -> storage.filter(Car::getBrand, brand -> brand.equals(params));
+            case "condition" -> storage.filter(Car::getCondition, condition -> condition.equals(params));
+            case "price" -> storage.filter(Car::getPrice, price -> price == (Integer.parseInt(params)));
             default -> throw new NotFoundException("Unexpected value: " + nameFilter);
         };
+    }
+
+    public boolean isCarValidation(CarDTO carDTO, int id) {
+        if (objectValidator.isValidObjectDTO(carDTO)) {
+            Car car = CarMapper.INSTANCE.getCar(carDTO);
+            if (id != 0) {
+                car.setCar_id(id);
+            }
+            storage.saveOrUpdate(car);
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

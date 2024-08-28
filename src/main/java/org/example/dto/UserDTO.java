@@ -12,6 +12,22 @@ import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Объект передачи данных (DTO) для представления пользователя.
+ * <p>
+ * Этот класс используется для передачи данных о пользователе между различными слоями приложения.
+ * Включает информацию о пользователе, его ролях и заказах.
+ * </p>
+ *
+ * <p>
+ * Аннотации:
+ * <ul>
+ *     <li>{@code @Data} — автоматически генерирует геттеры, сеттеры, методы {@code toString()}, {@code equals()}, {@code hashCode()} и {@code canEqual()}.</li>
+ *     <li>{@code @AllArgsConstructor} — генерирует конструктор со всеми полями класса в качестве параметров.</li>
+ *     <li>{@code @NoArgsConstructor} — генерирует конструктор без параметров.</li>
+ * </ul>
+ * </p>
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

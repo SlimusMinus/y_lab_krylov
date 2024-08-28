@@ -23,7 +23,7 @@ public class Cars {
     public static final Car car4 = new Car(CAR_ID++, "Volvo", "S60", 2019, 25000, "good");
     public static final Car car5 = new Car(CAR_ID++, "Audi", "Q3", 2020, 19500.80, "good");
     public static final Car carSave = new Car("Toyota", "Camry", 2022, 15800, "good");
-    public static final Car carUpdate = new Car(car4.getId(), "BMW", "S60", 2021, 25000, "good");
+    public static final Car carUpdate = new Car(car4.getCar_id(), "BMW", "S60", 2021, 25000, "good");
     public static final CarDTO updatedCarDTO = new CarDTO("BMW", "M4", 2024, 27000.0, "new");
     public static final CarDTO newCarDTO = new CarDTO("Tesla", "Model S", 2022, 79999.99, "new");
     public static final List<Car> CAR_LIST = List.of(car1, car2, car3, car4, car5);
@@ -34,10 +34,10 @@ public class Cars {
     public static Map<Integer, Car> cars = new HashMap<>();
 
     static {
-        cars.put(car1.getId(), car1);
-        cars.put(car2.getId(), car2);
-        cars.put(car3.getId(), car3);
-        cars.put(car4.getId(), car4);
-        cars.put(car5.getId(), car5);
+        cars.put(car1.getCar_id(), car1);
+        cars.put(car2.getCar_id(), car2);
+        cars.put(car3.getCar_id(), car3);
+        cars.put(car4.getCar_id(), car4);
+        cars.put(car5.getCar_id(), car5);
     }
 }

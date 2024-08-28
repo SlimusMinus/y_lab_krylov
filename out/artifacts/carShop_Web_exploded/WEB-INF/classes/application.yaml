@@ -1,0 +1,17 @@
+database:
+  driver-class-name: org.postgresql.Driver
+  url: jdbc:postgresql://localhost:5432/postgres
+  username: alexandr
+  password: krylov
+  liquibase:
+    changelogPath: db/changelog/changelog-master.xml
+    enabled: true
+logging:
+  level:
+    root: INFO
+    org.example: DEBUG
+  file:
+    path: log/y_lab.log
+  pattern:
+    console: "%d{HH:mm:ss.SSS} %highlight(%-5level) %cyan(%class{50}.%M:%L) - %msg%n"
+    file: "%date %-5level %logger{50}.%M:%L - %msg%n"
